@@ -56,7 +56,7 @@ export function WeekScreen() {
   const goalKcal =
     [...goals].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0]?.targetValue ?? null;
   const targets = effectiveMacroTargets(loadMacroTargets(), goalKcal);
-  const goal = metric === 'kcal' ? goalKcal : (targets?.proteinG ?? null);
+  const goal = metric === 'kcal' ? goalKcal : targets.proteinG;
   const pick = (n: Nutrition) => n[metric];
   const unit = metric === 'kcal' ? 'kcal' : 'g';
   const isCurrent = endDay >= todayDay();

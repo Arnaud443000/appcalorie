@@ -28,7 +28,12 @@ describe('repères de macros', () => {
       fatG: 56,
       fiberG: 25,
     });
-    expect(effectiveMacroTargets(null, null)).toBeNull();
+    expect(effectiveMacroTargets(null, null)).toEqual({
+      proteinG: null,
+      carbsG: null,
+      fatG: null,
+      fiberG: 25,
+    });
   });
   it('enregistre et relit, en ignorant les valeurs invalides', () => {
     const storage = fakeStorage();

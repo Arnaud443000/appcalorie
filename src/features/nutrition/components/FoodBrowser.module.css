@@ -31,8 +31,3 @@
 .notice a {
   color: var(--color-accent-2);
 }
-
-.source {
-  font-size: var(--text-xs);
-  white-space: nowrap;
-}

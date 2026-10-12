@@ -1,13 +1,13 @@
 import { formatNumber } from '@/data';
 import { Button, Card } from '@/ui';
-import { MACRO_ROWS, remainingKcal, type MacroTargets, type Nutrition } from '../logic';
+import { MACRO_ROWS, remainingKcal, type EffectiveTargets, type Nutrition } from '../logic';
 import { ProgressBar } from './ProgressBar';
 import styles from './TotalsCard.module.css';
 
 export interface TotalsCardProps {
   totals: Nutrition;
   goalKcal: number | null;
-  macroTargets: MacroTargets | null;
+  macroTargets: EffectiveTargets;
   onEditGoals: () => void;
 }
 
@@ -46,7 +46,7 @@ export function TotalsCard({ totals, goalKcal, macroTargets, onEditGoals }: Tota
 
       <ul className={styles.macros}>
         {MACRO_ROWS.map(({ key, label }) => {
-          const target = macroTargets?.[key] ?? null;
+          const target = macroTargets[key];
           const value = totals[key];
           return (
             <li key={key} className={styles.macro}>

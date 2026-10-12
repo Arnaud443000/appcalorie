@@ -17,7 +17,7 @@ export function per100Text(
     | Pick<Food, 'kcal' | 'proteinG' | 'carbsG' | 'fatG'>
     | Pick<FoodHit, 'kcal' | 'proteinG' | 'carbsG' | 'fatG'>,
 ): string {
-  return `${kcalText(item.kcal)} · ${macrosText(item)} · pour 100 g`;
+  return `${kcalText(item.kcal)} · ${macrosText(item)} · /100 g`;
 }
 
 export const SOURCE_LABELS = {

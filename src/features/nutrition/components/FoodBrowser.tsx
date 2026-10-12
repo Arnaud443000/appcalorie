@@ -33,8 +33,7 @@ function HitRow({ hit, onPick }: { hit: FoodHit; onPick: (hit: FoodHit) => void 
   return (
     <ListRow
       title={hit.brand ? `${hit.name} · ${hit.brand}` : hit.name}
-      subtitle={per100Text(hit)}
-      trailing={<span className={styles.source}>{SOURCE_LABELS[hit.source]}</span>}
+      subtitle={`${SOURCE_LABELS[hit.source]} · ${per100Text(hit)}`}
       onClick={() => onPick(hit)}
     />
   );

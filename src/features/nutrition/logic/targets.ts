@@ -23,17 +23,22 @@ export function defaultMacroTargets(goalKcal: number | null): MacroTargets | nul
   };
 }
 
-/** Repères réglés par l'utilisateur, complétés par les repères proposés pour les champs absents. */
+/** Repères utilisés à l'écran : `null` = pas de repère pour ce nutriment (la barre reste vide). */
+export type EffectiveTargets = Record<keyof MacroTargets, number | null>;
+
+/**
+ * Repères réglés par l'utilisateur, complétés par les repères proposés (d'après l'objectif calories)
+ * pour les champs absents. Sans objectif ni réglage : seules les fibres ont un repère (25 g).
+ */
 export function effectiveMacroTargets(
   saved: Partial<MacroTargets> | null,
   goalKcal: number | null,
-): MacroTargets | null {
+): EffectiveTargets {
   const base = defaultMacroTargets(goalKcal);
-  if (!base && !saved) return null;
   return {
-    proteinG: saved?.proteinG ?? base?.proteinG ?? 0,
-    carbsG: saved?.carbsG ?? base?.carbsG ?? 0,
-    fatG: saved?.fatG ?? base?.fatG ?? 0,
+    proteinG: saved?.proteinG ?? base?.proteinG ?? null,
+    carbsG: saved?.carbsG ?? base?.carbsG ?? null,
+    fatG: saved?.fatG ?? base?.fatG ?? null,
     fiberG: saved?.fiberG ?? base?.fiberG ?? DEFAULT_FIBER_G,
   };
 }
