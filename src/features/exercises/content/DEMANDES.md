@@ -1,5 +1,20 @@
 # Demandes au lot 0 (fondations)
 
+> **État après l'intégration de la vague B (lot L0-bis)**
+>
+> 1. Fait : `loadExerciseCatalog()` est appelé au démarrage après `seedDemoData()` (`src/app/startup.ts`).
+> 2. Fait : type de saisie `weight_distance` (charge + distance) ; Farmer carry, Marche du fermier
+>    et Sled push l'utilisent (distance saisie en mètres).
+> 3. Information, rien à faire.
+> 4. Fait : `cardio`, `leg_flexion`, `leg_extension` ajoutés ; course, vélo, rameur, corde à sauter,
+>    marche inclinée, elliptique, battle ropes → `cardio` ; leg curl couché / assis et nordic curl →
+>    `leg_flexion` ; leg extension → `leg_extension`. Identifiants des fiches inchangés.
+>    Pas de nouveau matériel (traîneau, cordes) : non demandé, Sled push reste `machine`.
+> 5. Information, rien à faire.
+>
+> En plus : champ `imageSlug` rempli pour les 120 fiches ; alias « Développé militaire haltères
+> assis » ajouté à « Développé haltères assis » (programme personnel).
+
 Changements nécessaires hors de `src/features/exercises/content/` (voir `docs/CONTRACTS.md` §1).
 
 ## 1. Brancher le chargement du catalogue au démarrage (à faire)

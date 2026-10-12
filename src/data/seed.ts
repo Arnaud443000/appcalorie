@@ -1,7 +1,8 @@
 /**
  * Données de démonstration : 5 exercices complets.
  * Leurs id sont fixes, pour que les autres lots puissent s'y référer dans leurs tests.
- * Les 120 vrais exercices seront fournis par le lot « fiches ».
+ * Au démarrage, les 120 fiches du catalogue (src/features/exercises/content) reprennent ces
+ * mêmes id avec un contenu plus complet : la démo ne sert plus qu'aux tests.
  */
 import { db } from './db';
 import { exerciseSchema, type Exercise, type NewRecord } from './schemas';

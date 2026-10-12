@@ -4,9 +4,9 @@ Application personnelle de musculation et de nutrition, en français, pour iPhon
 C'est une web app installable (PWA) : elle s'ajoute à l'écran d'accueil comme une vraie app
 et fonctionne sans réseau. Les données restent sur le téléphone (aucun compte, aucun serveur).
 
-> Lot 0 « Fondations » : coque de navigation, design, base de données locale, sauvegarde.
-> Les écrans sont provisoires. Les développeurs des lots suivants lisent d'abord
-> [`docs/CONTRACTS.md`](docs/CONTRACTS.md).
+> Vague B intégrée (branche `integration-vague-b`) : fondations, 120 fiches d'exercices,
+> séances et programmes, logique des aliments. Les développeurs des lots suivants lisent
+> d'abord [`docs/CONTRACTS.md`](docs/CONTRACTS.md).
 
 ## Prérequis
 
@@ -27,15 +27,16 @@ Pour voir le rendu iPhone dans Chrome : clic droit → Inspecter → icône tél
 
 ## Commandes
 
-| Commande            | Effet                                                   |
-| ------------------- | ------------------------------------------------------- |
-| `npm run dev`       | Lance l'app en mode développement                       |
-| `npm run build`     | Fabrique la version finale dans `dist/`                 |
-| `npm run preview`   | Sert la version finale (pour tester le mode hors ligne) |
-| `npm test`          | Lance les tests automatiques                            |
-| `npm run typecheck` | Vérifie les types TypeScript                            |
-| `npm run lint`      | Vérifie la qualité et la mise en forme du code          |
-| `npm run format`    | Remet le code en forme automatiquement                  |
+| Commande                  | Effet                                                            |
+| ------------------------- | ---------------------------------------------------------------- |
+| `npm run dev`             | Lance l'app en mode développement                                |
+| `npm run build`           | Fabrique la version finale dans `dist/`                          |
+| `npm run preview`         | Sert la version finale (pour tester le mode hors ligne)          |
+| `npm test`                | Lance les tests automatiques                                     |
+| `npm run typecheck`       | Vérifie les types TypeScript                                     |
+| `npm run lint`            | Vérifie la qualité et la mise en forme du code                   |
+| `npm run format`          | Remet le code en forme automatiquement                           |
+| `npm run images:manifest` | Met à jour la liste des images d'exercices (`public/exercises/`) |
 
 ## Tester
 
@@ -49,7 +50,7 @@ les composants, et l'absence de couleur écrite en dur hors du fichier de tokens
 
 ## Mise en ligne (GitHub Pages)
 
-Chaque push sur `main` ou `lot-0-fondations` déclenche le workflow
+Chaque push sur `main`, `lot-0-fondations` ou `integration-vague-b` déclenche le workflow
 `.github/workflows/deploy.yml` : il vérifie le code puis publie l'app sur
 `https://<compte>.github.io/appcalorie/`.
 Réglage à faire une seule fois : dépôt GitHub → **Settings** → **Pages** →
@@ -64,6 +65,12 @@ Réglage à faire une seule fois : dépôt GitHub → **Settings** → **Pages**
 
 Après une première ouverture avec réseau, l'app fonctionne en mode avion.
 Les mises à jour s'installent toutes seules à l'ouverture suivante, quand le réseau est là.
+
+## Ajouter les images des exercices
+
+Déposer les fichiers WebP dans `public/exercises/` en suivant la convention décrite dans
+[`public/exercises/README.md`](public/exercises/README.md) (`<nom>_depart.webp`, `<nom>_fin.webp`,
+`<nom>_unique.webp`), puis lancer `npm run images:manifest` (fait aussi à chaque build).
 
 ## Sauvegarder ses données
 

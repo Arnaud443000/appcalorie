@@ -1,5 +1,14 @@
 # Demandes au lot 0 — lot 4 (aliments)
 
+> **État après l'intégration de la vague B (lot L0-bis)**
+>
+> 1. Fait : `Food.source` et `Food.average` (base version 2, null pour les anciens aliments) ;
+>    `saveAggregatedFood` les enregistre (`average.sourceCount` = produits retenus).
+> 2. Fait : table `ciqualFoods` (`id` = code CIQUAL, `name`), hors sauvegarde, dépôt
+>    `ciqualFoodRepo`. Dans le lot : `saveCiqualCatalog(foods)` et `restoreCiqualCatalog()`,
+>    appelé au démarrage.
+> 3. Fait : `hitToNewFood` renseigne `source` (`ciqual`, `openfoodfacts`, `manual`).
+
 Ce que ce lot ne peut pas faire seul (règle d'or : on ne touche qu'à `src/features/nutrition/foods/`).
 
 ## 1. Étendre `Food` : fourchette et nombre de sources (utile pour les moyennes)

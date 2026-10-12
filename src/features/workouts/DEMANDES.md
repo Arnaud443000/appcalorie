@@ -1,5 +1,20 @@
 # Demandes du lot Entraînement au lot 0
 
+> **État après l'intégration de la vague B (lot L0-bis)**
+>
+> 1. Fait : la logique est dans `src/data/training/` (avec `recordFormat`), exportée par `@/data` ;
+>    le lot l'importe de là.
+> 2. Fait : `WorkoutSession.plan` (base version 2, `planItemSchema` dans `@/data`) ; l'ancien plan
+>    du localStorage est repris par la migration ; `planStorage` est supprimé.
+> 3. Fait : `findUnfinishedSession()` dans `@/data` (index `endedAt`) et bandeau « Reprendre ta
+>    séance » sur Aujourd'hui.
+> 4. Fait : index `endedAt`. Pas d'index composé (inutile à cette échelle).
+> 5. Fait : icônes `plus` `minus` `check` `trash` `timer` et `NumberStepper` dans `@/ui` ; réglage
+>    `Settings.defaultRestSeconds` (90 s) utilisé par le chrono et les programmes. Les préférences
+>    d'alerte restent dans le localStorage du lot (non demandé). Distances : km (m pour
+>    `weight_distance`), pas de miles.
+> 6. Rien à faire (pas de serveur).
+
 Ce fichier liste ce dont le lot « séances » a besoin **en dehors de son dossier**
 (`src/features/workouts/`). Rien n'a été modifié ailleurs.
 
