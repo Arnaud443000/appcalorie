@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import type { ExerciseImages } from '@/data';
 import { Button, Icon } from '@/ui';
 import { useReducedMotion } from './useReducedMotion';
@@ -73,7 +73,8 @@ export function ImagePlayer({ images, name }: ImagePlayerProps) {
 }
 
 function frameStyle(size: Size | null) {
-  return { aspectRatio: size ? `${size.width} / ${size.height}` : '3 / 2' };
+  const ratio = size ? size.width / size.height : 1.5;
+  return { aspectRatio: String(ratio), '--ratio': ratio } as CSSProperties;
 }
 
 function SingleImage({ src, name }: { src: string; name: string }) {

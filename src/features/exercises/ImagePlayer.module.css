@@ -7,8 +7,8 @@
 .frame {
   position: relative;
   display: block;
-  width: 100%;
-  max-height: 60vh;
+  width: min(100%, calc(60vh * var(--ratio, 1.5)));
+  margin-inline: auto;
   padding: 0;
   overflow: hidden;
   background: var(--color-text);
