@@ -59,24 +59,30 @@ export function createRepository<T extends BaseRecord>(
       return table.where(index).equals(value).filter(isActive).toArray();
     },
 
+    // Lecture et écriture dans la même transaction : deux modifications simultanées
+    // (ex. plan de séance et fin de séance) ne s'écrasent pas.
     async update(id, patch) {
-      const existing = await getExisting(id);
-      const record = schema.parse({
-        ...existing,
-        ...patch,
-        id: existing.id,
-        createdAt: existing.createdAt,
-        updatedAt: now(),
-        deletedAt: null,
+      return table.db.transaction('rw', table, async () => {
+        const existing = await getExisting(id);
+        const record = schema.parse({
+          ...existing,
+          ...patch,
+          id: existing.id,
+          createdAt: existing.createdAt,
+          updatedAt: now(),
+          deletedAt: null,
+        });
+        await table.put(record);
+        return record;
       });
-      await table.put(record);
-      return record;
     },
 
     async remove(id) {
-      const existing = await getExisting(id);
-      const timestamp = now();
-      await table.put({ ...existing, deletedAt: timestamp, updatedAt: timestamp });
+      await table.db.transaction('rw', table, async () => {
+        const existing = await getExisting(id);
+        const timestamp = now();
+        await table.put({ ...existing, deletedAt: timestamp, updatedAt: timestamp });
+      });
     },
   };
 }

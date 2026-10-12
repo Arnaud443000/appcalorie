@@ -107,3 +107,17 @@ describe('Profil et Réglages', () => {
     await expect(saveProfile({ age: -3 })).rejects.toThrow();
   });
 });
+
+describe('Modifications simultanées', () => {
+  it('deux modifications lancées en même temps ne s’écrasent pas', async () => {
+    const session = await workoutSessionRepo.create(samples.workoutSession);
+    const endedAt = '2026-10-12T09:00:00.000Z';
+    await Promise.all([
+      workoutSessionRepo.update(session.id, { plan: [] }),
+      workoutSessionRepo.update(session.id, { endedAt }),
+    ]);
+    const saved = await workoutSessionRepo.get(session.id);
+    expect(saved?.endedAt).toBe(endedAt);
+    expect(saved?.plan).toEqual([]);
+  });
+});
