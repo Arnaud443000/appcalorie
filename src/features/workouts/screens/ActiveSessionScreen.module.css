@@ -1,0 +1,22 @@
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+}
+
+.restSpacer {
+  height: 72px;
+}
+
+.finish {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+.recordList {
+  margin: 0;
+  padding-left: var(--space-5);
+  color: var(--color-accent-2);
+}

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { RoutineItem } from '@/data';
+import type { InputType } from './types';
 
 /**
  * Plan d'une séance : la liste des exercices prévus, dans l'ordre.
@@ -20,6 +21,21 @@ export type PlanItem = z.infer<typeof planItemSchema>;
 export type Plan = PlanItem[];
 
 export const DEFAULT_TARGET_SETS = 3;
+
+/** Objectif proposé quand on ajoute un exercice à un programme, selon son type de saisie. */
+export function defaultTarget(inputType: InputType): string {
+  switch (inputType) {
+    case 'weight_reps':
+    case 'bodyweight_load':
+      return '8-12';
+    case 'reps':
+      return '10-15';
+    case 'duration':
+      return '45 s';
+    case 'distance':
+      return '';
+  }
+}
 
 export function planFromRoutine(items: readonly RoutineItem[]): Plan {
   return items.map((item) => ({ ...item, skipped: false }));

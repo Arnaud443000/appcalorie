@@ -4,6 +4,7 @@ import {
   adjustRest,
   isFinished,
   remainingSeconds,
+  restProgress,
   secondsLate,
   startRest,
   type RestTimerState,
@@ -41,6 +42,8 @@ export interface RestTimer {
   /** Repos en cours ou terminé et pas encore fermé ; `null` sinon. */
   state: RestTimerState | null;
   remaining: number;
+  /** Part du repos écoulée, de 0 à 1. */
+  progress: number;
   finished: boolean;
   /** Secondes écoulées depuis la fin du repos. */
   late: number;
@@ -121,6 +124,7 @@ export function useRestTimer(sessionId: string): RestTimer {
   return {
     state,
     remaining: state ? remainingSeconds(state, now) : 0,
+    progress: state ? restProgress(state, now) : 0,
     finished: state ? isFinished(state, now) : false,
     late: state ? secondsLate(state, now) : 0,
     start,

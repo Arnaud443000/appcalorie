@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   addToPlan,
   buildBlocks,
+  defaultTarget,
   newPlanItem,
   parsePlan,
   planFromRoutine,
@@ -119,5 +120,15 @@ describe('planFromSets (copie de séance)', () => {
 
   it('accepte une séance vide', () => {
     expect(planFromSets([])).toEqual([]);
+  });
+});
+
+describe('defaultTarget', () => {
+  it('propose un objectif selon le type de saisie', () => {
+    expect(defaultTarget('weight_reps')).toBe('8-12');
+    expect(defaultTarget('bodyweight_load')).toBe('8-12');
+    expect(defaultTarget('reps')).toBe('10-15');
+    expect(defaultTarget('duration')).toBe('45 s');
+    expect(defaultTarget('distance')).toBe('');
   });
 });
