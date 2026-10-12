@@ -11,8 +11,9 @@ import type { CatalogProduct, FoodHit } from './types';
 /* ------------------------------------------------------------------ */
 
 // L'import réel (téléchargement + lecture du fichier) sera branché par l'écran, qui appelle
-// `setCiqualCatalog(parseCiqualCsv(texte).foods)`. Tant qu'il n'est pas chargé, la recherche
-// se fait sans CIQUAL. (Pour le conserver entre deux lancements : voir DEMANDES.md.)
+// `saveCiqualCatalog(parseCiqualCsv(texte).foods)` (ciqualStore.ts) : le catalogue est gardé en
+// base et rechargé au démarrage par `restoreCiqualCatalog()`. Tant qu'il n'est pas chargé,
+// la recherche se fait sans CIQUAL.
 let ciqualCatalog: CatalogProduct[] = [];
 
 export function setCiqualCatalog(foods: CatalogProduct[]): void {

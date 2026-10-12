@@ -33,6 +33,15 @@ describe('aggregateToNewFood', () => {
       fatG: 2,
       fiberG: null,
       servingG: null,
+      source: 'average',
+      average: {
+        sourceCount: 2,
+        rejectedCount: 0,
+        confidence: 'low',
+        state: 'raw',
+        ranges: info.ranges,
+        computedAt: info.computedAt,
+      },
     });
     expect(info).toMatchObject({
       state: 'raw',
@@ -83,6 +92,11 @@ describe('saveAggregatedFood', () => {
     expect(await foodRepo.get(food.id)).toEqual(food);
     expect((await foodRepo.list()).map((f) => f.name)).toEqual(['Filet de poulet cru']);
     expect(info.keptCount).toBe(2);
+    // La fourchette et le nombre de sources sont conservés en base.
+    expect((await foodRepo.get(food.id))?.average).toMatchObject({
+      sourceCount: 2,
+      ranges: { proteinG: { min: 20, max: 22 } },
+    });
   });
 
   it('n’enregistre rien en cas d’erreur', async () => {
@@ -107,6 +121,12 @@ describe('hitToNewFood', () => {
       servingG: null,
     };
     const created = await foodRepo.create(hitToNewFood(hit));
-    expect(created).toMatchObject({ name: 'Skyr', barcode: '3250390000001', kcal: 63 });
+    expect(created).toMatchObject({
+      name: 'Skyr',
+      barcode: '3250390000001',
+      kcal: 63,
+      source: 'openfoodfacts',
+      average: null,
+    });
   });
 });

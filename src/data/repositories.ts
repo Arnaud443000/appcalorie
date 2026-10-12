@@ -44,6 +44,7 @@ export const DEFAULT_PROFILE: NewRecord<Profile> = {
 export const DEFAULT_SETTINGS: NewRecord<Settings> = {
   weightUnit: 'kg',
   lengthUnit: 'cm',
+  defaultRestSeconds: 90,
 };
 
 /** Profil et Réglages sont uniques : on les crée avec des valeurs par défaut au premier accès. */

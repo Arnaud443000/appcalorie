@@ -84,12 +84,23 @@ export const routineSchema = baseRecordSchema.extend({
   items: z.array(routineItemSchema),
 });
 
+/**
+ * Ligne du plan d'une séance : un exercice prévu, avec ses objectifs.
+ * Copiée du programme au démarrage, puis modifiée librement (exercice ajouté, remplacé, sauté).
+ */
+export const planItemSchema = routineItemSchema.extend({
+  /** Exercice sauté pendant cette séance. */
+  skipped: z.boolean(),
+});
+
 export const workoutSessionSchema = baseRecordSchema.extend({
   routineId: z.uuid().nullable(),
   name: z.string(),
   startedAt: isoDateTime,
   endedAt: isoDateTime.nullable(),
   note: z.string(),
+  /** Exercices prévus, dans l'ordre (vide pour une séance libre). Depuis la version 2. */
+  plan: z.array(planItemSchema).default([]),
 });
 
 export const setEntrySchema = baseRecordSchema.extend({
@@ -115,6 +126,23 @@ export const bodyMetricSchema = baseRecordSchema.extend({
   measurements: z.partialRecord(measurementIdSchema, positive),
 });
 
+/** D'où vient un aliment enregistré. */
+export const FOOD_SOURCES = ['manual', 'ciqual', 'openfoodfacts', 'average'] as const;
+
+/** Détail d'un aliment calculé comme moyenne de plusieurs produits (lot aliments). */
+export const foodAverageSchema = z.object({
+  /** Nombre de produits retenus pour la moyenne. */
+  sourceCount: z.number().int().positive(),
+  /** Nombre de produits écartés. */
+  rejectedCount: z.number().int().nonnegative(),
+  confidence: z.enum(['low', 'medium', 'high']),
+  /** Cru, cuit, ou inconnu. */
+  state: z.enum(['raw', 'cooked', 'unknown']),
+  /** Fourchette min-max de chaque nutriment (`kcal`, `proteinG`…), pour 100 g. */
+  ranges: z.record(z.string(), z.object({ min: z.number(), max: z.number() })),
+  computedAt: isoDateTime,
+});
+
 export const foodSchema = baseRecordSchema.extend({
   name: z.string().min(1),
   brand: z.string(),
@@ -127,6 +155,10 @@ export const foodSchema = baseRecordSchema.extend({
   fiberG: positive.nullable(),
   /** Poids d'une portion habituelle, en grammes. */
   servingG: positive.nullable(),
+  /** Origine de l'aliment (null : inconnue, aliments créés avant la version 2). */
+  source: z.enum(FOOD_SOURCES).nullable().default(null),
+  /** Pour une moyenne (`source: 'average'`) : nombre de produits, fourchettes, confiance. */
+  average: foodAverageSchema.nullable().default(null),
 });
 
 export const mealItemSchema = z.object({
@@ -168,6 +200,24 @@ export const profileSchema = baseRecordSchema.extend({
 export const settingsSchema = baseRecordSchema.extend({
   weightUnit: z.enum(['kg', 'lb']),
   lengthUnit: z.enum(['cm', 'in']),
+  /** Repos entre deux séries quand le programme n'en précise pas, en secondes. Depuis la version 2. */
+  defaultRestSeconds: z.number().int().nonnegative().default(90),
+});
+
+/**
+ * Aliment de la table de référence CIQUAL (ANSES), valeurs pour 100 g, `null` = inconnue.
+ * Donnée de référence re-téléchargeable : pas de champs communs, pas dans les sauvegardes.
+ */
+export const ciqualFoodSchema = z.object({
+  /** Code CIQUAL de l'aliment. */
+  id: z.string().min(1),
+  name: z.string().min(1),
+  category: z.string(),
+  kcal: positive.nullable(),
+  proteinG: positive.nullable(),
+  carbsG: positive.nullable(),
+  fatG: positive.nullable(),
+  fiberG: positive.nullable(),
 });
 
 export type BaseRecord = z.infer<typeof baseRecordSchema>;
@@ -175,9 +225,12 @@ export type Muscle = z.infer<typeof muscleSchema>;
 export type Exercise = z.infer<typeof exerciseSchema>;
 export type RoutineItem = z.infer<typeof routineItemSchema>;
 export type Routine = z.infer<typeof routineSchema>;
+export type PlanItem = z.infer<typeof planItemSchema>;
 export type WorkoutSession = z.infer<typeof workoutSessionSchema>;
 export type SetEntry = z.infer<typeof setEntrySchema>;
 export type BodyMetric = z.infer<typeof bodyMetricSchema>;
+export type FoodSource = (typeof FOOD_SOURCES)[number];
+export type FoodAverage = z.infer<typeof foodAverageSchema>;
 export type Food = z.infer<typeof foodSchema>;
 export type MealItem = z.infer<typeof mealItemSchema>;
 export type Meal = z.infer<typeof mealSchema>;
@@ -185,6 +238,14 @@ export type FoodLogEntry = z.infer<typeof foodLogEntrySchema>;
 export type Goal = z.infer<typeof goalSchema>;
 export type Profile = z.infer<typeof profileSchema>;
 export type Settings = z.infer<typeof settingsSchema>;
+export type CiqualFood = z.infer<typeof ciqualFoodSchema>;
+
+/**
+ * Champs ajoutés après la version 1 et qui ont une valeur par défaut :
+ * facultatifs à la création (`plan: []`, `source: null`, `average: null`, `defaultRestSeconds: 90`).
+ */
+type DefaultedField = 'plan' | 'source' | 'average' | 'defaultRestSeconds';
 
 /** Données à fournir pour créer un enregistrement (id et dates sont gérés par la couche de données). */
-export type NewRecord<T extends BaseRecord> = Omit<T, keyof BaseRecord> & { id?: string };
+export type NewRecord<T extends BaseRecord> = Omit<T, keyof BaseRecord | DefaultedField> &
+  Partial<Pick<T, Extract<keyof T, DefaultedField>>> & { id?: string };

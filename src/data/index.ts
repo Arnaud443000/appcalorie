@@ -3,6 +3,7 @@ export * from './constants';
 export * from './schemas';
 export { db, TABLE_NAMES, TABLE_SCHEMAS, type TableName } from './db';
 export { SCHEMA_VERSION } from './migrations';
+export { ciqualFoodRepo } from './ciqual';
 export { type Repository } from './repository';
 export * from './repositories';
 export {

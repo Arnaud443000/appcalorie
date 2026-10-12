@@ -2,6 +2,7 @@ import Dexie, { type Table } from 'dexie';
 import { DB_VERSIONS } from './migrations';
 import {
   bodyMetricSchema,
+  type CiqualFood,
   exerciseSchema,
   foodLogEntrySchema,
   foodSchema,
@@ -27,7 +28,11 @@ import {
   type WorkoutSession,
 } from './schemas';
 
-/** Chaque table de la base et le schéma Zod qui valide ses enregistrements. */
+/**
+ * Chaque table de la base et le schéma Zod qui valide ses enregistrements.
+ * Ce sont les tables de l'utilisateur, celles de la sauvegarde JSON.
+ * `ciqualFoods` (donnée de référence re-téléchargeable) n'en fait volontairement pas partie.
+ */
 export const TABLE_SCHEMAS = {
   muscles: muscleSchema,
   exercises: exerciseSchema,
@@ -59,6 +64,8 @@ export class AtlasDatabase extends Dexie {
   declare goals: Table<Goal, string>;
   declare profiles: Table<Profile, string>;
   declare settings: Table<Settings, string>;
+  /** Référence CIQUAL : hors sauvegarde (voir TABLE_SCHEMAS). */
+  declare ciqualFoods: Table<CiqualFood, string>;
 
   constructor(name = 'atlas-muscu') {
     super(name);

@@ -14,6 +14,7 @@ export {
   type ReferenceComparison,
 } from './aggregate';
 export { parseCiqualCsv, type ParsedCiqual } from './ciqual';
+export { restoreCiqualCatalog, saveCiqualCatalog } from './ciqualStore';
 export { detectFoodState } from './foodState';
 export {
   createOpenFoodFactsClient,

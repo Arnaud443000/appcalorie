@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { resetDb, samples } from '../test/fixtures';
 import { exportData, exportToJson, importData, importFromJson } from './backup';
+import { ciqualFoodRepo } from './ciqual';
 import { AtlasDatabase, db, TABLE_NAMES } from './db';
 import {
   bodyMetricRepo,
@@ -28,6 +29,7 @@ async function fillEveryTable() {
   await setEntryRepo.create(samples.setEntry);
   await bodyMetricRepo.create(samples.bodyMetric);
   await foodRepo.create(samples.food);
+  await foodRepo.create(samples.averageFood);
   await mealRepo.create(samples.meal);
   await foodLogEntryRepo.create(samples.foodLogEntry);
   await goalRepo.create(samples.goal);
@@ -73,6 +75,42 @@ describe('Sauvegarde JSON', () => {
     await expect(importFromJson('pas du json')).rejects.toThrow(/sauvegarde valide/);
     await expect(importData({ ...before, schemaVersion: 999 })).rejects.toThrow();
     expect((await exportData()).tables).toEqual(before.tables);
+  });
+});
+
+describe('Sauvegarde et table CIQUAL', () => {
+  it("n'exporte pas la table CIQUAL et ne la touche pas à l'import", async () => {
+    await fillEveryTable();
+    await ciqualFoodRepo.replaceAll([samples.ciqualFood]);
+    const backup = await exportData();
+    expect(Object.keys(backup.tables)).not.toContain('ciqualFoods');
+    expect(JSON.stringify(backup)).not.toContain(samples.ciqualFood.name);
+
+    await importData(backup);
+    expect(await ciqualFoodRepo.list()).toEqual([samples.ciqualFood]);
+    expect((await exportData()).tables).toEqual(backup.tables);
+  });
+
+  it('importe une sauvegarde de la version 1 en complétant les nouveaux champs', async () => {
+    await fillEveryTable();
+    const v2 = await exportData();
+    const v1 = structuredClone(v2) as unknown as {
+      schemaVersion: number;
+      tables: Record<string, Record<string, unknown>[]>;
+    };
+    v1.schemaVersion = 1;
+    for (const session of v1.tables.workoutSessions ?? []) delete session.plan;
+    for (const food of v1.tables.foods ?? []) {
+      delete food.source;
+      delete food.average;
+    }
+    for (const settings of v1.tables.settings ?? []) delete settings.defaultRestSeconds;
+
+    await importData(v1);
+    const [session] = await workoutSessionRepo.list();
+    expect(session?.plan).toEqual([]);
+    expect((await foodRepo.list()).map((f) => f.source)).toEqual([null, null]);
+    expect((await getSettings()).defaultRestSeconds).toBe(90);
   });
 });
 

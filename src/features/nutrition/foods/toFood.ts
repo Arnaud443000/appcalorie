@@ -4,10 +4,10 @@ import type { AggregateResult, Confidence, ReferenceComparison } from './aggrega
 import type { FoodHit, FoodState, NutrientKey } from './types';
 
 /**
- * Informations sur la moyenne qui ne tiennent pas dans le type `Food` actuel
- * (pas de champ pour la fourchette ni le nombre de sources : voir DEMANDES.md).
- * En attendant, elles sont renvoyées à côté du `Food` et ne sont PAS conservées en base :
- * l'écran qui enregistre doit les afficher tout de suite ou les garder lui-même.
+ * Informations complètes sur la moyenne, renvoyées à côté du `Food`.
+ * L'essentiel (nombre de produits, fourchettes, confiance, état) est aussi conservé en base
+ * dans `food.average` ; les raisons de la confiance et la comparaison à la référence
+ * ne sont pas conservées : l'écran les affiche tout de suite.
  */
 export interface AggregatedFoodInfo {
   state: FoodState;
@@ -47,6 +47,16 @@ export function aggregateToNewFood(
   ][]) {
     if (stat) ranges[key] = { min: stat.min, max: stat.max };
   }
+  const info: AggregatedFoodInfo = {
+    state: result.state,
+    keptCount: result.keptCount,
+    rejectedCount: result.rejected.length,
+    confidence: result.confidence,
+    confidenceReasons: result.confidenceReasons,
+    ranges,
+    comparison: result.comparison,
+    computedAt: new Date().toISOString(),
+  };
 
   return {
     food: {
@@ -59,17 +69,17 @@ export function aggregateToNewFood(
       fatG: fatG.value,
       fiberG: fiberG?.value ?? null,
       servingG: null,
+      source: 'average',
+      average: {
+        sourceCount: info.keptCount,
+        rejectedCount: info.rejectedCount,
+        confidence: info.confidence,
+        state: info.state,
+        ranges,
+        computedAt: info.computedAt,
+      },
     },
-    info: {
-      state: result.state,
-      keptCount: result.keptCount,
-      rejectedCount: result.rejected.length,
-      confidence: result.confidence,
-      confidenceReasons: result.confidenceReasons,
-      ranges,
-      comparison: result.comparison,
-      computedAt: new Date().toISOString(),
-    },
+    info,
   };
 }
 
@@ -94,5 +104,8 @@ export function hitToNewFood(hit: FoodHit): NewRecord<Food> {
     fatG: hit.fatG,
     fiberG: hit.fiberG,
     servingG: hit.servingG,
+    // « local » = déjà dans Mes aliments : on le considère comme saisi à la main.
+    source: hit.source === 'local' ? 'manual' : hit.source,
+    average: null,
   };
 }
