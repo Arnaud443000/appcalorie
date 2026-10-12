@@ -1,27 +1,23 @@
-import { useLiveQuery } from 'dexie-react-hooks';
-import { exerciseRepo, labelOf, MUSCLE_GROUPS } from '@/data';
-import { Card, EmptyState, ListRow, Screen } from '@/ui';
+import { useState } from 'react';
+import { Screen, Tabs } from '@/ui';
+import { AtlasPlaceholder } from './AtlasPlaceholder';
+import { ExerciseLibrary } from './ExerciseLibrary';
 
-/** Écran provisoire (lot 0) : liste les exercices de démonstration. À remplacer par le lot Fiches. */
+type ExercisesTab = 'library' | 'atlas';
+
+const TABS = [
+  { id: 'library', label: 'Bibliothèque' },
+  { id: 'atlas', label: 'Atlas 3D' },
+] as const;
+
+/** Onglet Exercices : la bibliothèque et (bientôt) l'atlas 3D. */
 export function ExercisesScreen() {
-  const exercises = useLiveQuery(() => exerciseRepo.list(), []);
-
+  const [tab, setTab] = useState<ExercisesTab>('library');
   return (
     <Screen title="Exercices">
-      {exercises && exercises.length === 0 && (
-        <EmptyState icon="exercises" title="Aucun exercice" />
-      )}
-      {exercises && exercises.length > 0 && (
-        <Card flush>
-          {exercises.map((exercise) => (
-            <ListRow
-              key={exercise.id}
-              title={exercise.name}
-              subtitle={exercise.primaryMuscles.map((id) => labelOf(MUSCLE_GROUPS, id)).join(', ')}
-            />
-          ))}
-        </Card>
-      )}
+      <Tabs items={TABS} value={tab} onChange={setTab} label="Vue des exercices" />
+      <div style={{ height: 'var(--space-3)' }} />
+      {tab === 'library' ? <ExerciseLibrary /> : <AtlasPlaceholder />}
     </Screen>
   );
 }

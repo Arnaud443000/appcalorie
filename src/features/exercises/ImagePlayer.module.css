@@ -1,0 +1,82 @@
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.frame {
+  position: relative;
+  display: block;
+  width: min(100%, calc(60vh * var(--ratio, 1.5)));
+  margin-inline: auto;
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-text);
+  border: 0;
+  border-radius: var(--radius-md);
+}
+
+button.frame {
+  cursor: pointer;
+}
+
+.frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.end {
+  opacity: 0;
+  transition: opacity var(--duration-medium) var(--ease-out);
+}
+
+.endVisible {
+  opacity: 1;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bg);
+  font-size: var(--text-sm);
+}
+
+.caption {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.controls > * {
+  flex: 1 1 0;
+}
+
+.none {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+.none p {
+  margin: 0;
+}
