@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.kcal {
+  margin: 0;
+}
+
+.big {
+  font-family: var(--font-title);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+}
+
+.unit {
+  color: var(--color-text-muted);
+}
+
+.remaining {
+  margin: 0;
+  font-weight: var(--weight-semibold);
+}
+
+.remaining[data-over='true'] {
+  color: var(--color-accent-2);
+}
+
+.hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.macros {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.macro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.macroHead {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.macroValue {
+  color: var(--color-text-muted);
+}
+
+.edit {
+  font-size: var(--text-md);
+}
