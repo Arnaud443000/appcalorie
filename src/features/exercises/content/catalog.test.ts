@@ -12,7 +12,7 @@ import { PLANNED_EXERCISES } from './planned';
 import { exerciseId } from './types';
 
 /** Nombre de fiches attendu à ce stade de la livraison (120 à la fin des 6 lots). */
-const EXPECTED_COUNT = 40;
+const EXPECTED_COUNT = 60;
 
 const words = (text: string) => text.trim().split(/\s+/).filter(Boolean);
 const asRecord = (sheet: (typeof EXERCISE_CATALOG)[number]): Exercise =>
@@ -115,7 +115,7 @@ describe('catalogue des exercices', () => {
 
     it('a un conseil de charge et une consigne de sécurité d’une phrase', () => {
       expect(e.loadAdvice.length).toBeGreaterThan(0);
-      if (!e.equipment.includes('cardio') && e.inputType !== 'duration') {
+      if (['weight_reps', 'reps', 'bodyweight_load'].includes(e.inputType)) {
         expect(e.loadAdvice).toMatch(/séries/);
         expect(e.loadAdvice).toMatch(/repos/);
       }

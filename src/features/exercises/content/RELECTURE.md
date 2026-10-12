@@ -58,28 +58,28 @@ Ce sont des conseils généraux d'entraînement, jamais des avis médicaux.
 - [ ] **Curl barre EZ** (Biceps) — RAS ; prise intérieure/extérieure selon ta barre.
 - [ ] **Curl haltères alternés** (Biceps) — Fiche de démo reprise ; RAS.
 
-## Lot 3 (fiches 41 à 60) — à écrire
+## Lot 3 (fiches 41 à 60)
 
-- [ ] Curl marteau _(à venir)_
-- [ ] Curl incliné _(à venir)_
-- [ ] Curl pupitre _(à venir)_
-- [ ] Curl poulie basse _(à venir)_
-- [ ] Curl concentré _(à venir)_
-- [ ] Extension poulie haute corde _(à venir)_
-- [ ] Extension poulie haute barre _(à venir)_
-- [ ] Barre au front _(à venir)_
-- [ ] Extension nuque haltère _(à venir)_
-- [ ] Kickback _(à venir)_
-- [ ] Dips triceps _(à venir)_
-- [ ] Pompes diamant _(à venir)_
-- [ ] Développé couché prise serrée _(à venir)_
-- [ ] Curl des poignets _(à venir)_
-- [ ] Curl inversé _(à venir)_
-- [ ] Marche du fermier _(à venir)_
-- [ ] Crunch _(à venir)_
-- [ ] Crunch à la poulie _(à venir)_
-- [ ] Relevé de jambes suspendu _(à venir)_
-- [ ] Relevé de genoux _(à venir)_
+- [ ] **Curl marteau** (Biceps) — RAS ; sécurité poignets/coude.
+- [ ] **Curl incliné** (Biceps) — Angle du banc 45-60° à valider ; sécurité : étirement important en bas.
+- [ ] **Curl pupitre** (Biceps) — Sécurité : « ne pas tendre complètement les bras en bas » (coude) à valider ; barre EZ supposée.
+- [ ] **Curl poulie basse** (Biceps) — RAS.
+- [ ] **Curl concentré** (Biceps) — RAS.
+- [ ] **Extension poulie haute corde** (Triceps) — RAS ; sécurité coudes.
+- [ ] **Extension poulie haute barre** (Triceps) — RAS.
+- [ ] **Barre au front** (Triceps) — Sécurité (barre près du front) et niveau intermédiaire à valider ; barre EZ supposée.
+- [ ] **Extension nuque haltère** (Triceps) — Sécurité épaule/coude à valider.
+- [ ] **Kickback** (Triceps) — Charge très légère ; rangé en « extension de coude ».
+- [ ] **Dips triceps** (Triceps) — Version barres parallèles, buste droit ; amplitude (épaules au niveau des coudes) à valider.
+- [ ] **Pompes diamant** (Triceps) — Fourchette 6-15 reps ; sécurité poignets/coudes.
+- [ ] **Développé couché prise serrée** (Triceps) — Triceps en muscle principal ; largeur de prise (largeur d’épaules) à valider.
+- [ ] **Curl des poignets** (Avant-bras) — Rangé en « flexion de coude » faute de schéma dédié ; charge légère à valider.
+- [ ] **Curl inversé** (Avant-bras) — Muscle principal : avant-bras ; barre droite ou EZ au choix.
+- [ ] **Marche du fermier** (Avant-bras) — Rangée en « gainage » ; saisie « distance » sans charge (voir DEMANDES.md) ; conseil 20-40 m à valider.
+- [ ] **Crunch** (Abdos) — Variation « plus difficile » (poulie) ; sécurité cervicales.
+- [ ] **Crunch à la poulie** (Abdos) — Technique d’enroulement à valider ; charge 10-15 reps.
+- [ ] **Relevé de jambes suspendu** (Abdos) — Niveau « avancé » ; sécurité lombaires/épaules à valider.
+- [ ] **Relevé de genoux** (Abdos) — Interprété comme relevé de genoux SUSPENDU (barre/chaise romaine) ; à confirmer.
 
 ## Lot 4 (fiches 61 à 80) — à écrire
 
