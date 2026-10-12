@@ -1,0 +1,31 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  background: var(--color-surface-2);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+
+button.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Zone tactile élargie à 44 px sans grossir la puce. */
+button.chip::after {
+  content: '';
+  position: absolute;
+  inset: -6px 0;
+}
+
+.selected {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-on-accent);
+}

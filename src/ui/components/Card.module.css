@@ -1,0 +1,15 @@
+.card {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-md);
+}
+
+.raised {
+  background: var(--color-surface-2);
+}
+
+.flush {
+  padding: 0;
+  overflow: hidden;
+}

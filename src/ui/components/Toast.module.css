@@ -1,0 +1,28 @@
+.region {
+  position: fixed;
+  left: calc(var(--space-4) + var(--safe-left));
+  right: calc(var(--space-4) + var(--safe-right));
+  bottom: calc(var(--tabbar-height) + var(--safe-bottom) + var(--space-3));
+  z-index: var(--z-toast);
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.toast {
+  max-width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-2);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-raised);
+  font-weight: var(--weight-medium);
+  animation: pop var(--duration-medium) var(--ease-out);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

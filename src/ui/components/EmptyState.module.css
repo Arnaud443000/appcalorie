@@ -1,0 +1,21 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.icon {
+  color: var(--color-accent);
+}
+
+.title {
+  font-size: var(--text-lg);
+}
+
+.message {
+  max-width: 32ch;
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,77 @@
+/*
+ * Atlas Muscu — TOUS les tokens de design.
+ * C'est le seul fichier du projet où une couleur peut être écrite en dur.
+ * Partout ailleurs : var(--color-…), var(--space-…), etc.
+ */
+:root {
+  /* Couleurs */
+  --color-bg: #0f1217;
+  --color-surface: #171b22;
+  --color-surface-2: #1f242d;
+  --color-line: #2a303b;
+  --color-text: #f1f3f6;
+  --color-text-muted: #8b94a3;
+  --color-accent: #ff4337;
+  --color-accent-2: #f2a093;
+  /* Texte posé sur l'accent rouge (contraste 5,5:1) */
+  --color-on-accent: #0f1217;
+  --color-focus: #f2a093;
+  --color-backdrop: rgb(0 0 0 / 60%);
+  --shadow-raised: 0 8px 24px rgb(0 0 0 / 40%);
+
+  /* Typographie */
+  --font-body: 'Barlow', system-ui, -apple-system, sans-serif;
+  --font-title: 'Barlow Condensed', 'Barlow', system-ui, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --tracking-title: 0.02em;
+
+  /* Espacements */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Formes */
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --border: 1px solid var(--color-line);
+
+  /* Ergonomie tactile */
+  --tap-min: 44px;
+  --tabbar-height: 60px;
+  --header-height: 56px;
+
+  /* Zones sûres iPhone (encoche, barre d'accueil) */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* Mouvement */
+  --duration-fast: 150ms;
+  --duration-medium: 250ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Plans d'empilement */
+  --z-tabbar: 10;
+  --z-sheet: 20;
+  --z-toast: 30;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-medium: 0ms;
+  }
+}
