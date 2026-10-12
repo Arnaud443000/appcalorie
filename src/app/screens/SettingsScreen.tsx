@@ -1,6 +1,6 @@
-import { useRef, useState, type ChangeEvent } from 'react';
-import { exportToJson, importFromJson } from '@/data';
-import { Button, Card, Screen, Sheet, useToast } from '@/ui';
+import { useEffect, useRef, useState, type ChangeEvent } from 'react';
+import { exportToJson, getSettings, importFromJson, saveSettings } from '@/data';
+import { Button, Card, NumberStepper, Screen, Sheet, useToast } from '@/ui';
 import styles from './SettingsScreen.module.css';
 
 async function shareOrDownload(json: string) {
@@ -17,6 +17,59 @@ async function shareOrDownload(json: string) {
   link.download = fileName;
   link.click();
   URL.revokeObjectURL(url);
+}
+
+const MAX_REST_SECONDS = 20 * 60;
+
+/** Repos par défaut entre deux séries (quand le programme n'en précise pas). */
+function DefaultRestSetting() {
+  const toast = useToast();
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    let active = true;
+    getSettings()
+      .then((settings) => {
+        if (active) setText(String(settings.defaultRestSeconds));
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  async function commit(value: string) {
+    const seconds = Math.round(Number(value.replace(',', '.')));
+    if (value.trim() === '' || !Number.isFinite(seconds) || seconds < 0) return;
+    const clamped = Math.min(MAX_REST_SECONDS, seconds);
+    setText(String(clamped));
+    try {
+      await saveSettings({ defaultRestSeconds: clamped });
+    } catch {
+      toast.show('Réglage non enregistré.');
+    }
+  }
+
+  return (
+    <Card>
+      <h2 className={styles.cardTitle}>Entraînement</h2>
+      <p className={styles.text}>
+        Temps de repos lancé après chaque série quand ton programme n’en précise pas.
+      </p>
+      <div className={styles.actions}>
+        <NumberStepper
+          label="Repos par défaut (s)"
+          value={text}
+          step={15}
+          min={0}
+          max={MAX_REST_SECONDS}
+          inputMode="numeric"
+          onChange={setText}
+          onCommit={commit}
+        />
+      </div>
+    </Card>
+  );
 }
 
 export function SettingsScreen() {
@@ -52,6 +105,7 @@ export function SettingsScreen() {
 
   return (
     <Screen title="Réglages" backTo="/">
+      <DefaultRestSetting />
       <Card>
         <h2 className={styles.cardTitle}>Sauvegarde</h2>
         <p className={styles.text}>

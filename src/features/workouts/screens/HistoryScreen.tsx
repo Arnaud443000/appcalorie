@@ -14,7 +14,7 @@ import {
 import { Button, Card, Chip, EmptyState, ListRow, Screen, Tabs } from '@/ui';
 import { loadEverything } from '../data';
 import { sessionPath } from '../paths';
-import { useWeightUnit } from '../hooks/useWeightUnit';
+import { useWeightUnit } from '../hooks/useSettings';
 import { buildMonthGrid, groupSessionsByDay } from '../logic';
 import styles from './HistoryScreen.module.css';
 

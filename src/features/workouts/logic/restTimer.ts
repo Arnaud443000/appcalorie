@@ -12,6 +12,7 @@ export interface RestTimerState {
   alerted: boolean;
 }
 
+/** Repos par défaut tant que les Réglages ne sont pas lus (voir `Settings.defaultRestSeconds`). */
 export const DEFAULT_REST_SECONDS = 90;
 export const MAX_REST_SECONDS = 20 * 60;
 

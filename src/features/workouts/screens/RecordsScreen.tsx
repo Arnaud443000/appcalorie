@@ -3,7 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { Card, EmptyState, Screen, Stat } from '@/ui';
 import { loadEverything } from '../data';
 import { useExercises } from '../hooks/useExercises';
-import { useWeightUnit } from '../hooks/useWeightUnit';
+import { useWeightUnit } from '../hooks/useSettings';
 import { PATHS } from '../paths';
 import { exerciseRecords, formatRecordValue, RECORD_KINDS_BY_INPUT, RECORD_LABELS } from '@/data';
 import styles from './RecordsScreen.module.css';

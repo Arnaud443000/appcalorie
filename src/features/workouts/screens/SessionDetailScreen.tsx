@@ -19,7 +19,7 @@ import {
 import { Button, Card, Chip, EmptyState, Screen, Sheet, Stat, useToast } from '@/ui';
 import { copySession, discardSession, loadExerciseHistory } from '../data';
 import { useExercises } from '../hooks/useExercises';
-import { useWeightUnit } from '../hooks/useWeightUnit';
+import { useWeightUnit } from '../hooks/useSettings';
 import { PATHS } from '../paths';
 import { buildBlocks } from '../logic';
 import styles from './SessionDetailScreen.module.css';

@@ -34,11 +34,10 @@ import { useNow } from '../hooks/useNow';
 import { useRestTimer } from '../hooks/useRestTimer';
 import { useSessionPlan } from '../hooks/useSessionPlan';
 import { useWakeLock } from '../hooks/useWakeLock';
-import { useWeightUnit } from '../hooks/useWeightUnit';
+import { useDefaultRest, useWeightUnit } from '../hooks/useSettings';
 import {
   addToPlan,
   buildBlocks,
-  DEFAULT_REST_SECONDS,
   replaceInPlan,
   setSkipped,
   type ExerciseBlock,
@@ -93,6 +92,7 @@ function LiveSession({ sessionId, name, routineId, startedAt, storedPlan }: Live
   const navigate = useNavigate();
   const toast = useToast();
   const unit = useWeightUnit();
+  const defaultRest = useDefaultRest();
   const exercises = useExercises();
   const { plan, update: updatePlan } = useSessionPlan(sessionId, routineId, storedPlan);
   const rest = useRestTimer(sessionId);
@@ -173,7 +173,7 @@ function LiveSession({ sessionId, name, routineId, startedAt, storedPlan }: Live
       toast.show(`Nouveau record : ${fresh.map((r) => RECORD_LABELS[r.kind]).join(', ')} !`);
     }
 
-    const seconds = block.item?.restSeconds ?? DEFAULT_REST_SECONDS;
+    const seconds = block.item?.restSeconds ?? defaultRest;
     if (seconds > 0) rest.start(seconds);
   }
 

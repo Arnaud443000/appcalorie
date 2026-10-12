@@ -6,7 +6,8 @@ import { Button, Card, EmptyState, Input, NumberStepper, Screen, Sheet, useToast
 import { ExercisePicker } from '../components/ExercisePicker';
 import { TargetEditor } from '../components/TargetEditor';
 import { useExercises } from '../hooks/useExercises';
-import { DEFAULT_REST_SECONDS, defaultTarget } from '../logic';
+import { useDefaultRest } from '../hooks/useSettings';
+import { defaultTarget } from '../logic';
 import styles from './RoutineEditScreen.module.css';
 
 interface ItemDraft {
@@ -71,6 +72,7 @@ function RoutineForm({ routine }: { routine: Routine | undefined }) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [nameError, setNameError] = useState<string | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const defaultRest = useDefaultRest();
   const [saving, setSaving] = useState(false);
 
   function patchItem(key: string, change: Partial<ItemDraft>) {
@@ -96,7 +98,7 @@ function RoutineForm({ routine }: { routine: Routine | undefined }) {
         exerciseId: exercise.id,
         sets: '3',
         targetReps: defaultTarget(exercise.inputType),
-        rest: String(DEFAULT_REST_SECONDS),
+        rest: String(defaultRest),
         note: '',
       },
     ]);

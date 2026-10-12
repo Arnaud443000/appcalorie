@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { seedDemoData, workoutSessionRepo } from '@/data';
+import { getSettings, seedDemoData, workoutSessionRepo } from '@/data';
 import { resetDb } from '../test/fixtures';
 import { routes } from './router';
 
@@ -73,5 +73,14 @@ describe("Coque de l'application", () => {
     renderApp();
     await screen.findByRole('heading', { level: 1, name: 'Aujourd’hui' });
     expect(screen.queryByText('Reprendre ta séance')).not.toBeInTheDocument();
+  });
+
+  it('règle le repos par défaut (90 s au départ)', async () => {
+    const user = userEvent.setup();
+    renderApp('/reglages');
+    const field = screen.getByLabelText('Repos par défaut (s)');
+    await waitFor(() => expect(field).toHaveValue('90'));
+    await user.click(screen.getByRole('button', { name: 'Plus : Repos par défaut (s)' }));
+    await waitFor(async () => expect((await getSettings()).defaultRestSeconds).toBe(105));
   });
 });

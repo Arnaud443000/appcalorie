@@ -1,7 +1,7 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { routineRepo, setEntryRepo, workoutSessionRepo } from '@/data';
+import { routineRepo, saveSettings, setEntryRepo, workoutSessionRepo } from '@/data';
 import { resetDb } from '../../../test/fixtures';
 import { BENCH, CURL, PLANK, renderWorkouts, seedExercises, SQUAT } from '../testHelpers';
 
@@ -61,6 +61,20 @@ describe('Séance en cours : saisie d’une série', () => {
     // 3. Le chrono de repos a démarré sur 1:30
     const group = screen.getByRole('group', { name: 'Chrono de repos' });
     expect(within(group).getByRole('timer')).toHaveTextContent(/1:(30|29)/);
+  });
+
+  it('utilise le repos par défaut des Réglages quand le programme n’en précise pas', async () => {
+    const user = userEvent.setup();
+    await saveSettings({ defaultRestSeconds: 45 });
+    const session = await createSession();
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH, { restSeconds: null }) });
+    renderWorkouts(`/entrainement/seance/${session.id}`);
+    await screen.findByRole('heading', { name: 'Développé couché' });
+    await user.type(screen.getByLabelText('Charge (kg)'), '60');
+    await user.type(screen.getByLabelText('Répétitions'), '8');
+    await user.click(screen.getByRole('button', { name: 'Valider' }));
+    const group = await screen.findByRole('group', { name: 'Chrono de repos' });
+    expect(within(group).getByRole('timer')).toHaveTextContent(/0:(45|44)/);
   });
 
   it('les boutons + et − modifient la valeur d’un geste', async () => {
