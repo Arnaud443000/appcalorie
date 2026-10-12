@@ -214,7 +214,7 @@ export function ExerciseBlockView({
         ))}
         <SetRow
           // Nouvelle ligne (et nouveau pré-remplissage) après chaque série validée.
-          key={`draft-${sets.length}-${appliedWeight ?? ''}`}
+          key={`draft-${sets.length}-${last?.sessionId ?? ''}-${appliedWeight ?? ''}`}
           mode="draft"
           label={draftLabel}
           inputType={inputType}

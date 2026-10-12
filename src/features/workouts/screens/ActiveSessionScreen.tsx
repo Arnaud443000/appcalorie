@@ -14,6 +14,7 @@ import {
   finishSession,
   loadExerciseHistory,
   updateSet,
+  type ExerciseHistory,
 } from '../data';
 import { primeAlerts, readAlertPrefs, saveAlertPrefs, type AlertPrefs } from '../hooks/alerts';
 import { useExercises } from '../hooks/useExercises';
@@ -92,10 +93,20 @@ function LiveSession({ sessionId, name, routineId, startedAt }: LiveSessionProps
   const sets = useLiveQuery(() => setEntryRepo.findBy('sessionId', sessionId), [sessionId]);
   const blocks = useMemo(() => (plan && sets ? buildBlocks(plan, sets) : null), [plan, sets]);
   const exerciseKey = (blocks ?? []).map((block) => block.exerciseId).join(',');
-  const history = useLiveQuery(
-    () => loadExerciseHistory(exerciseKey ? exerciseKey.split(',') : []),
-    [exerciseKey],
+  const ready = blocks !== null;
+  const loaded = useLiveQuery(
+    async () => ({
+      key: exerciseKey,
+      history: ready ? await loadExerciseHistory(exerciseKey ? exerciseKey.split(',') : []) : null,
+    }),
+    [exerciseKey, ready],
   );
+  // On garde le dernier historique chargé pour les exercices actuels : pas de clignotement quand
+  // on ajoute un exercice, et jamais de pré-remplissage calculé sur un historique périmé.
+  const [history, setHistory] = useState<ExerciseHistory | null>(null);
+  if (loaded && loaded.history && loaded.key === exerciseKey && loaded.history !== history) {
+    setHistory(loaded.history);
+  }
 
   const [prefs, setPrefs] = useState<AlertPrefs>(readAlertPrefs);
   const [alertsOpen, setAlertsOpen] = useState(false);
