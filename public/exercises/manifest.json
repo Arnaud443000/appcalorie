@@ -1,4 +1,108 @@
 {
   "version": 1,
-  "images": {}
+  "images": {
+    "barre-au-front": [
+      "depart",
+      "fin"
+    ],
+    "crunch-poulie": [
+      "depart",
+      "fin"
+    ],
+    "curl-barre-ez": [
+      "depart",
+      "fin"
+    ],
+    "curl-marteau": [
+      "depart",
+      "fin"
+    ],
+    "developpe-couche-barre": [
+      "depart",
+      "fin"
+    ],
+    "developpe-incline-halteres": [
+      "depart",
+      "fin"
+    ],
+    "developpe-militaire-halteres-assis": [
+      "depart",
+      "fin"
+    ],
+    "ecarte-poulie-vis-a-vis": [
+      "depart",
+      "fin"
+    ],
+    "elevations-laterales-halteres": [
+      "depart",
+      "fin"
+    ],
+    "extension-poulie-haute-corde": [
+      "depart",
+      "fin"
+    ],
+    "face-pull": [
+      "depart",
+      "fin"
+    ],
+    "fente-bulgare": [
+      "depart",
+      "fin"
+    ],
+    "gainage-planche": [
+      "unique"
+    ],
+    "hip-thrust-barre": [
+      "depart",
+      "fin"
+    ],
+    "leg-curl-couche": [
+      "depart",
+      "fin"
+    ],
+    "leg-extension": [
+      "depart",
+      "fin"
+    ],
+    "mollets-debout-machine": [
+      "depart",
+      "fin"
+    ],
+    "oiseau-halteres": [
+      "depart",
+      "fin"
+    ],
+    "presse-a-cuisses": [
+      "depart",
+      "fin"
+    ],
+    "rowing-barre": [
+      "depart",
+      "fin"
+    ],
+    "rowing-haltere-un-bras": [
+      "depart",
+      "fin"
+    ],
+    "rowing-poulie-basse": [
+      "depart",
+      "fin"
+    ],
+    "souleve-de-terre-roumain": [
+      "depart",
+      "fin"
+    ],
+    "squat-barre": [
+      "depart",
+      "fin"
+    ],
+    "tirage-vertical-prise-serree": [
+      "depart",
+      "fin"
+    ],
+    "tractions-pronation": [
+      "depart",
+      "fin"
+    ]
+  }
 }
