@@ -65,7 +65,8 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,woff2,webmanifest}'],
+        // Les images d'exercices (public/exercises) et leur manifeste sont gardés hors ligne.
+        globPatterns: ['**/*.{js,css,html,png,woff2,webmanifest,webp,json}'],
         navigateFallback: 'index.html',
       },
     }),

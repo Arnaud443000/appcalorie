@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
   sheet(99, {
     name: 'Swing',
+    imageSlug: 'swing',
     aliases: ['Kettlebell swing', 'Balancier kettlebell'],
     equipment: ['kettlebell'],
     primaryMuscles: ['glutes', 'hamstrings'],
@@ -34,6 +35,7 @@ export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
   }),
   sheet(100, {
     name: 'Turkish get-up',
+    imageSlug: 'turkish-get-up',
     aliases: ['TGU', 'Relevé turc'],
     equipment: ['kettlebell'],
     primaryMuscles: ['shoulders', 'abs'],
@@ -64,6 +66,7 @@ export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
   }),
   sheet(101, {
     name: 'Clean and press',
+    imageSlug: 'clean-and-press',
     aliases: ['Kettlebell clean & press', 'Épaulé-développé kettlebell'],
     equipment: ['kettlebell'],
     primaryMuscles: ['shoulders', 'glutes'],
@@ -95,6 +98,7 @@ export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
 
   sheet(102, {
     name: 'Snatch',
+    imageSlug: 'snatch',
     aliases: ['Arraché kettlebell', 'Kettlebell snatch'],
     equipment: ['kettlebell'],
     primaryMuscles: ['glutes', 'hamstrings'],
@@ -125,6 +129,7 @@ export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
   }),
   sheet(103, {
     name: 'Développé kettlebell',
+    imageSlug: 'developpe-kettlebell',
     aliases: ['Kettlebell press', 'Développé épaules kettlebell'],
     equipment: ['kettlebell'],
     primaryMuscles: ['shoulders'],
@@ -155,6 +160,7 @@ export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
   }),
   sheet(104, {
     name: 'Windmill',
+    imageSlug: 'windmill',
     aliases: ['Moulin à vent kettlebell', 'Kettlebell windmill'],
     equipment: ['kettlebell'],
     primaryMuscles: ['abs', 'shoulders'],

@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const LOWER_BACK_SHEETS: ExerciseSheet[] = [
   sheet(68, {
     name: 'Extension lombaires au banc 45°',
+    imageSlug: 'extension-lombaires-au-banc-45',
     aliases: ['Hyperextension', 'Back extension', 'Chaise à lombaires'],
     equipment: ['bodyweight'],
     primaryMuscles: ['lower_back'],
@@ -32,6 +33,7 @@ export const LOWER_BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(69, {
     name: 'Good morning',
+    imageSlug: 'good-morning',
     aliases: ['Bonjour', 'Good morning barre'],
     equipment: ['barbell'],
     primaryMuscles: ['lower_back', 'hamstrings'],
@@ -62,6 +64,7 @@ export const LOWER_BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(70, {
     name: 'Superman',
+    imageSlug: 'superman',
     aliases: ['Extension dorsale au sol', 'Superman au sol'],
     equipment: ['bodyweight'],
     primaryMuscles: ['lower_back'],

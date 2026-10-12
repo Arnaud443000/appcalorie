@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
   sheet(80, {
     name: 'Soulevé de terre roumain',
+    imageSlug: 'souleve-de-terre-roumain',
     aliases: ['Romanian deadlift', 'RDL'],
     equipment: ['barbell'],
     primaryMuscles: ['hamstrings', 'glutes'],
@@ -35,6 +36,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
 
   sheet(81, {
     name: 'Leg curl couché',
+    imageSlug: 'leg-curl-couche',
     aliases: ['Lying leg curl', 'Curl jambes couché'],
     equipment: ['machine'],
     primaryMuscles: ['hamstrings'],
@@ -63,6 +65,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(82, {
     name: 'Leg curl assis',
+    imageSlug: 'leg-curl-assis',
     aliases: ['Seated leg curl', 'Curl jambes assis'],
     equipment: ['machine'],
     primaryMuscles: ['hamstrings'],
@@ -91,6 +94,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(83, {
     name: 'Soulevé de terre jambes tendues',
+    imageSlug: 'souleve-de-terre-jambes-tendues',
     aliases: ['Stiff-leg deadlift', 'SDT jambes tendues'],
     equipment: ['barbell'],
     primaryMuscles: ['hamstrings'],
@@ -121,6 +125,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(84, {
     name: 'Nordic curl',
+    imageSlug: 'nordic-curl',
     aliases: ['Nordic hamstring curl', 'Curl nordique'],
     equipment: ['bodyweight'],
     primaryMuscles: ['hamstrings'],
@@ -150,6 +155,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(85, {
     name: 'Pull-through à la poulie',
+    imageSlug: 'pull-through-a-la-poulie',
     aliases: ['Cable pull-through', 'Tirage entre les jambes'],
     equipment: ['cable'],
     primaryMuscles: ['glutes', 'hamstrings'],

@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const TRICEPS_SHEETS: ExerciseSheet[] = [
   sheet(48, {
     name: 'Extension poulie haute corde',
+    imageSlug: 'extension-poulie-haute-corde',
     aliases: ['Rope pushdown', 'Triceps pushdown corde'],
     equipment: ['cable'],
     primaryMuscles: ['triceps'],
@@ -32,6 +33,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(49, {
     name: 'Extension poulie haute barre',
+    imageSlug: 'extension-poulie-haute-barre',
     aliases: ['Triceps pushdown', 'Pushdown barre'],
     equipment: ['cable'],
     primaryMuscles: ['triceps'],
@@ -60,6 +62,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(50, {
     name: 'Barre au front',
+    imageSlug: 'barre-au-front',
     aliases: ['Skull crusher', 'Barre front', 'Extension couchée'],
     equipment: ['barbell'],
     primaryMuscles: ['triceps'],
@@ -89,6 +92,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(51, {
     name: 'Extension nuque haltère',
+    imageSlug: 'extension-nuque-haltere',
     aliases: ['Overhead dumbbell extension', 'Extension triceps derrière la tête'],
     equipment: ['dumbbell'],
     primaryMuscles: ['triceps'],
@@ -118,6 +122,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(52, {
     name: 'Kickback',
+    imageSlug: 'kickback',
     aliases: ['Triceps kickback', 'Extension triceps buste penché'],
     equipment: ['dumbbell'],
     primaryMuscles: ['triceps'],
@@ -146,6 +151,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(53, {
     name: 'Dips triceps',
+    imageSlug: 'dips-triceps',
     aliases: ['Triceps dips', 'Dips aux barres parallèles'],
     equipment: ['bodyweight'],
     primaryMuscles: ['triceps'],
@@ -176,6 +182,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(54, {
     name: 'Pompes diamant',
+    imageSlug: 'pompes-diamant',
     aliases: ['Diamond push-ups', 'Pompes serrées'],
     equipment: ['bodyweight'],
     primaryMuscles: ['triceps'],
@@ -204,6 +211,7 @@ export const TRICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(55, {
     name: 'Développé couché prise serrée',
+    imageSlug: 'developpe-couche-prise-serree',
     aliases: ['Close-grip bench press', 'DC prise serrée'],
     equipment: ['barbell'],
     primaryMuscles: ['triceps'],

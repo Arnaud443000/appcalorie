@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const FULLBODY_SHEETS: ExerciseSheet[] = [
   sheet(116, {
     name: 'Burpees',
+    imageSlug: 'burpees',
     aliases: ['Burpee'],
     equipment: ['bodyweight'],
     primaryMuscles: ['quads', 'chest'],
@@ -33,6 +34,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
   }),
   sheet(117, {
     name: 'Thruster',
+    imageSlug: 'thruster',
     aliases: ['Squat + développé', 'Barbell thruster'],
     equipment: ['barbell'],
     primaryMuscles: ['quads', 'shoulders'],
@@ -62,6 +64,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
   }),
   sheet(118, {
     name: 'Farmer carry',
+    imageSlug: 'farmer-carry',
     aliases: ['Farmer’s walk', 'Marche chargée'],
     equipment: ['kettlebell'],
     primaryMuscles: ['forearms', 'traps'],
@@ -91,6 +94,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
   }),
   sheet(119, {
     name: 'Sled push',
+    imageSlug: 'sled-push',
     aliases: ['Poussée de traîneau', 'Prowler push'],
     equipment: ['machine'],
     primaryMuscles: ['quads', 'glutes'],
@@ -120,6 +124,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
   }),
   sheet(120, {
     name: 'Battle ropes',
+    imageSlug: 'battle-ropes',
     aliases: ['Cordes ondulatoires', 'Cordes de combat'],
     equipment: ['cardio'],
     primaryMuscles: ['shoulders'],

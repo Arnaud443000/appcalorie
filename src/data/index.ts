@@ -5,6 +5,7 @@ export { db, TABLE_NAMES, TABLE_SCHEMAS, type TableName } from './db';
 export { SCHEMA_VERSION } from './migrations';
 export { ciqualFoodRepo } from './ciqual';
 export { findUnfinishedSession } from './sessions';
+export { getExerciseImages, resetExerciseImagesCache, type ExerciseImages } from './images';
 export { type Repository } from './repository';
 export * from './repositories';
 export {

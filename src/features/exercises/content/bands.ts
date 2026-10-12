@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const BANDS_SHEETS: ExerciseSheet[] = [
   sheet(105, {
     name: 'Face pull élastique',
+    imageSlug: 'face-pull-elastique',
     aliases: ['Band face pull', 'Tirage visage élastique'],
     equipment: ['band'],
     primaryMuscles: ['shoulders', 'traps'],
@@ -32,6 +33,7 @@ export const BANDS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(106, {
     name: 'Tirage élastique',
+    imageSlug: 'tirage-elastique',
     aliases: ['Band row', 'Rowing élastique'],
     equipment: ['band'],
     primaryMuscles: ['lats'],
@@ -60,6 +62,7 @@ export const BANDS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(107, {
     name: 'Développé pecs élastique',
+    imageSlug: 'developpe-pecs-elastique',
     aliases: ['Band chest press', 'Développé couché élastique'],
     equipment: ['band'],
     primaryMuscles: ['chest'],
@@ -88,6 +91,7 @@ export const BANDS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(108, {
     name: 'Curl élastique',
+    imageSlug: 'curl-elastique',
     aliases: ['Band curl', 'Curl biceps élastique'],
     equipment: ['band'],
     primaryMuscles: ['biceps'],
@@ -116,6 +120,7 @@ export const BANDS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(109, {
     name: 'Abduction élastique',
+    imageSlug: 'abduction-elastique',
     aliases: ['Band hip abduction', 'Pas chassés avec élastique', 'Ouverture de jambe élastique'],
     equipment: ['band'],
     primaryMuscles: ['glutes'],

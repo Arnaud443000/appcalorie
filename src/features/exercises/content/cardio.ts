@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const CARDIO_SHEETS: ExerciseSheet[] = [
   sheet(110, {
     name: 'Course à pied',
+    imageSlug: 'course-a-pied',
     aliases: ['Running', 'Jogging', 'Footing'],
     equipment: ['cardio'],
     primaryMuscles: ['quads', 'calves'],
@@ -34,6 +35,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
   }),
   sheet(111, {
     name: 'Vélo',
+    imageSlug: 'velo',
     aliases: ['Vélo stationnaire', 'Cyclisme', 'Bike'],
     equipment: ['cardio'],
     primaryMuscles: ['quads'],
@@ -63,6 +65,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
   }),
   sheet(112, {
     name: 'Rameur',
+    imageSlug: 'rameur',
     aliases: ['Rowing machine cardio', 'Ergomètre', 'Concept2'],
     equipment: ['cardio'],
     primaryMuscles: ['lats', 'quads'],
@@ -92,6 +95,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
   }),
   sheet(113, {
     name: 'Corde à sauter',
+    imageSlug: 'corde-a-sauter',
     aliases: ['Jump rope', 'Saut à la corde'],
     equipment: ['cardio'],
     primaryMuscles: ['calves'],
@@ -121,6 +125,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
   }),
   sheet(114, {
     name: 'Marche inclinée',
+    imageSlug: 'marche-inclinee',
     aliases: ['Incline walking', 'Tapis incliné', '12-3-30'],
     equipment: ['cardio'],
     primaryMuscles: ['glutes', 'calves'],
@@ -150,6 +155,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
   }),
   sheet(115, {
     name: 'Elliptique',
+    imageSlug: 'elliptique',
     aliases: ['Vélo elliptique', 'Cross-trainer', 'Crosstrainer'],
     equipment: ['cardio'],
     primaryMuscles: ['quads'],

@@ -67,6 +67,14 @@ export const exerciseSchema = baseRecordSchema.extend({
   loadAdvice: z.string(),
   safety: z.string(),
   inputType: inputTypeIdSchema,
+  /**
+   * Nom des images de l'exercice dans `public/exercises/` (sans suffixe ni extension),
+   * ex. `developpe-couche-barre` → `developpe-couche-barre_depart.webp`. Facultatif.
+   */
+  imageSlug: z
+    .string()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'Minuscules, chiffres et tirets seulement.')
+    .optional(),
 });
 
 export const routineItemSchema = z.object({

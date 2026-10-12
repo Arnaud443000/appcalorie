@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const BICEPS_SHEETS: ExerciseSheet[] = [
   sheet(41, {
     name: 'Curl barre droite',
+    imageSlug: 'curl-barre-droite',
     aliases: ['Barbell curl', 'Curl à la barre'],
     equipment: ['barbell'],
     primaryMuscles: ['biceps'],
@@ -32,6 +33,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(42, {
     name: 'Curl barre EZ',
+    imageSlug: 'curl-barre-ez',
     aliases: ['EZ bar curl', 'Curl barre à cambrure'],
     equipment: ['barbell'],
     primaryMuscles: ['biceps'],
@@ -61,6 +63,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(4, {
     name: 'Curl haltères alternés',
+    imageSlug: 'curl-halteres-alternes',
     aliases: ['Dumbbell curl', 'Curl biceps', 'Alternating curl'],
     equipment: ['dumbbell'],
     primaryMuscles: ['biceps'],
@@ -90,6 +93,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
 
   sheet(43, {
     name: 'Curl marteau',
+    imageSlug: 'curl-marteau',
     aliases: ['Hammer curl'],
     equipment: ['dumbbell'],
     primaryMuscles: ['biceps'],
@@ -118,6 +122,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(44, {
     name: 'Curl incliné',
+    imageSlug: 'curl-incline',
     aliases: ['Incline dumbbell curl', 'Curl banc incliné'],
     equipment: ['dumbbell'],
     primaryMuscles: ['biceps'],
@@ -147,6 +152,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(45, {
     name: 'Curl pupitre',
+    imageSlug: 'curl-pupitre',
     aliases: ['Preacher curl', 'Curl au pupitre', 'Curl Larry Scott'],
     equipment: ['barbell'],
     primaryMuscles: ['biceps'],
@@ -176,6 +182,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(46, {
     name: 'Curl poulie basse',
+    imageSlug: 'curl-poulie-basse',
     aliases: ['Cable curl', 'Curl à la poulie'],
     equipment: ['cable'],
     primaryMuscles: ['biceps'],
@@ -204,6 +211,7 @@ export const BICEPS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(47, {
     name: 'Curl concentré',
+    imageSlug: 'curl-concentre',
     aliases: ['Concentration curl'],
     equipment: ['dumbbell'],
     primaryMuscles: ['biceps'],

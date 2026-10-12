@@ -67,6 +67,24 @@ describe('catalogue des exercices', () => {
     for (const p of PLANNED_EXERCISES) expect(names.has(p.name), p.name).toBe(true);
   });
 
+  it('donne à chaque fiche un nom d’images unique', () => {
+    const slugs = EXERCISE_CATALOG.map((e) => e.imageSlug);
+    for (const [i, slug] of slugs.entries()) {
+      expect(slug, EXERCISE_CATALOG[i]?.name).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+    }
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it('utilise les noms d’images fournis pour les exercices du programme', () => {
+    const slugOf = (name: string) => EXERCISE_CATALOG.find((e) => e.name === name)?.imageSlug;
+    expect(slugOf('Développé haltères assis')).toBe('developpe-militaire-halteres-assis');
+    expect(slugOf('Écarté à la poulie vis-à-vis')).toBe('ecarte-poulie-vis-a-vis');
+    expect(slugOf('Crunch à la poulie')).toBe('crunch-poulie');
+    // Les autres : nom sans accents, en minuscules, avec des tirets.
+    expect(slugOf('Soulevé de terre roumain')).toBe('souleve-de-terre-roumain');
+    expect(slugOf('Pec deck (machine)')).toBe('pec-deck-machine');
+  });
+
   describe.each(EXERCISE_CATALOG.map((e) => [e.name, e] as const))('%s', (_name, e) => {
     it('est valide pour le schéma Zod', () => {
       expect(() => asRecord(e)).not.toThrow();

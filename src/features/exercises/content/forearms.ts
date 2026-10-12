@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const FOREARMS_SHEETS: ExerciseSheet[] = [
   sheet(56, {
     name: 'Curl des poignets',
+    imageSlug: 'curl-des-poignets',
     aliases: ['Wrist curl', 'Flexion des poignets'],
     equipment: ['dumbbell'],
     primaryMuscles: ['forearms'],
@@ -33,6 +34,7 @@ export const FOREARMS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(57, {
     name: 'Curl inversé',
+    imageSlug: 'curl-inverse',
     aliases: ['Reverse curl', 'Curl prise pronation'],
     equipment: ['barbell'],
     primaryMuscles: ['forearms'],
@@ -62,6 +64,7 @@ export const FOREARMS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(58, {
     name: 'Marche du fermier',
+    imageSlug: 'marche-du-fermier',
     aliases: ['Farmer walk', 'Marche avec charges'],
     equipment: ['dumbbell'],
     primaryMuscles: ['forearms'],

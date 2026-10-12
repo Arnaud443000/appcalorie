@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const BACK_SHEETS: ExerciseSheet[] = [
   sheet(2, {
     name: 'Tractions pronation',
+    imageSlug: 'tractions-pronation',
     aliases: ['Pull-ups', 'Tractions', 'Traction prise pronation'],
     equipment: ['bodyweight'],
     primaryMuscles: ['lats'],
@@ -34,6 +35,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(17, {
     name: 'Tractions supination',
+    imageSlug: 'tractions-supination',
     aliases: ['Chin-ups', 'Traction prise supination'],
     equipment: ['bodyweight'],
     primaryMuscles: ['lats'],
@@ -63,6 +65,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(18, {
     name: 'Tirage vertical',
+    imageSlug: 'tirage-vertical',
     aliases: ['Lat pulldown', 'Tirage poitrine', 'Tirage devant'],
     equipment: ['cable'],
     primaryMuscles: ['lats'],
@@ -92,6 +95,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(19, {
     name: 'Tirage vertical prise serrée',
+    imageSlug: 'tirage-vertical-prise-serree',
     aliases: ['Close-grip pulldown', 'Tirage poitrine prise neutre'],
     equipment: ['cable'],
     primaryMuscles: ['lats'],
@@ -122,6 +126,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(20, {
     name: 'Rowing barre',
+    imageSlug: 'rowing-barre',
     aliases: ['Barbell row', 'Rowing buste penché'],
     equipment: ['barbell'],
     primaryMuscles: ['lats', 'traps'],
@@ -152,6 +157,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(21, {
     name: 'Rowing haltère un bras',
+    imageSlug: 'rowing-haltere-un-bras',
     aliases: ['One-arm dumbbell row', 'Rowing unilatéral'],
     equipment: ['dumbbell'],
     primaryMuscles: ['lats'],
@@ -181,6 +187,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(22, {
     name: 'Rowing poulie basse',
+    imageSlug: 'rowing-poulie-basse',
     aliases: ['Seated cable row', 'Tirage horizontal assis'],
     equipment: ['cable'],
     primaryMuscles: ['lats', 'traps'],
@@ -210,6 +217,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(23, {
     name: 'Rowing machine',
+    imageSlug: 'rowing-machine',
     aliases: ['Seated row machine', 'Tirage horizontal machine'],
     equipment: ['machine'],
     primaryMuscles: ['lats', 'traps'],
@@ -239,6 +247,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(24, {
     name: 'Rowing T-bar',
+    imageSlug: 'rowing-t-bar',
     aliases: ['T-bar row', 'Rowing barre en T'],
     equipment: ['barbell'],
     primaryMuscles: ['lats', 'traps'],
@@ -268,6 +277,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(25, {
     name: 'Pull-over à la poulie',
+    imageSlug: 'pull-over-a-la-poulie',
     aliases: ['Cable pullover', 'Pull-over poulie haute'],
     equipment: ['cable'],
     primaryMuscles: ['lats'],
@@ -297,6 +307,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(26, {
     name: 'Soulevé de terre',
+    imageSlug: 'souleve-de-terre',
     aliases: ['Deadlift', 'SDT', 'Soulevé de terre classique'],
     equipment: ['barbell'],
     primaryMuscles: ['hamstrings', 'glutes', 'lower_back'],
@@ -328,6 +339,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(27, {
     name: 'Rowing inversé',
+    imageSlug: 'rowing-inverse',
     aliases: ['Inverted row', 'Australian pull-up', 'Tirage horizontal au poids du corps'],
     equipment: ['bodyweight'],
     primaryMuscles: ['lats', 'traps'],
@@ -357,6 +369,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(28, {
     name: 'Shrugs haltères',
+    imageSlug: 'shrugs-halteres',
     aliases: ['Dumbbell shrugs', 'Haussements d’épaules'],
     equipment: ['dumbbell'],
     primaryMuscles: ['traps'],
@@ -386,6 +399,7 @@ export const BACK_SHEETS: ExerciseSheet[] = [
   }),
   sheet(29, {
     name: 'Face pull',
+    imageSlug: 'face-pull',
     aliases: ['Tirage visage', 'Face pull à la poulie'],
     equipment: ['cable'],
     primaryMuscles: ['shoulders', 'traps'],

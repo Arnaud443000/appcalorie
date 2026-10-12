@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const CALVES_SHEETS: ExerciseSheet[] = [
   sheet(95, {
     name: 'Mollets debout machine',
+    imageSlug: 'mollets-debout-machine',
     aliases: ['Standing calf raise', 'Extension mollets debout'],
     equipment: ['machine'],
     primaryMuscles: ['calves'],
@@ -33,6 +34,7 @@ export const CALVES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(96, {
     name: 'Mollets assis',
+    imageSlug: 'mollets-assis',
     aliases: ['Seated calf raise', 'Soléaire assis'],
     equipment: ['machine'],
     primaryMuscles: ['calves'],
@@ -61,6 +63,7 @@ export const CALVES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(97, {
     name: 'Mollets à la presse',
+    imageSlug: 'mollets-a-la-presse',
     aliases: ['Calf press', 'Extension mollets à la presse'],
     equipment: ['machine'],
     primaryMuscles: ['calves'],
@@ -89,6 +92,7 @@ export const CALVES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(98, {
     name: 'Mollets debout poids du corps',
+    imageSlug: 'mollets-debout-poids-du-corps',
     aliases: ['Calf raise', 'Montées sur pointes', 'Relevés de mollets'],
     equipment: ['bodyweight'],
     primaryMuscles: ['calves'],

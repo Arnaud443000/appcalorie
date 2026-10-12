@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   sheet(30, {
     name: 'Développé militaire barre',
+    imageSlug: 'developpe-militaire-barre',
     aliases: ['Overhead press', 'Military press', 'OHP'],
     equipment: ['barbell'],
     primaryMuscles: ['shoulders'],
@@ -34,7 +35,12 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(31, {
     name: 'Développé haltères assis',
-    aliases: ['Seated dumbbell shoulder press', 'Développé épaules haltères'],
+    imageSlug: 'developpe-militaire-halteres-assis',
+    aliases: [
+      'Seated dumbbell shoulder press',
+      'Développé épaules haltères',
+      'Développé militaire haltères assis',
+    ],
     equipment: ['dumbbell'],
     primaryMuscles: ['shoulders'],
     secondaryMuscles: ['triceps', 'traps'],
@@ -63,6 +69,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(32, {
     name: 'Développé Arnold',
+    imageSlug: 'developpe-arnold',
     aliases: ['Arnold press'],
     equipment: ['dumbbell'],
     primaryMuscles: ['shoulders'],
@@ -92,6 +99,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(33, {
     name: 'Élévations latérales haltères',
+    imageSlug: 'elevations-laterales-halteres',
     aliases: ['Lateral raises', 'Side raises'],
     equipment: ['dumbbell'],
     primaryMuscles: ['shoulders'],
@@ -120,6 +128,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(34, {
     name: 'Élévations latérales poulie',
+    imageSlug: 'elevations-laterales-poulie',
     aliases: ['Cable lateral raise', 'Élévation latérale à la poulie basse'],
     equipment: ['cable'],
     primaryMuscles: ['shoulders'],
@@ -148,6 +157,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(35, {
     name: 'Élévations frontales',
+    imageSlug: 'elevations-frontales',
     aliases: ['Front raises', 'Élévation avant'],
     equipment: ['dumbbell'],
     primaryMuscles: ['shoulders'],
@@ -177,6 +187,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(36, {
     name: 'Oiseau haltères',
+    imageSlug: 'oiseau-halteres',
     aliases: ['Rear delt fly', 'Reverse fly', 'Élévations latérales buste penché'],
     equipment: ['dumbbell'],
     primaryMuscles: ['shoulders'],
@@ -205,6 +216,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(37, {
     name: 'Oiseau machine',
+    imageSlug: 'oiseau-machine',
     aliases: ['Reverse pec deck', 'Rear delt machine', 'Pec deck inversé'],
     equipment: ['machine'],
     primaryMuscles: ['shoulders'],
@@ -234,6 +246,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(38, {
     name: 'Tirage menton',
+    imageSlug: 'tirage-menton',
     aliases: ['Upright row', 'Rowing menton'],
     equipment: ['barbell'],
     primaryMuscles: ['shoulders', 'traps'],
@@ -264,6 +277,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(39, {
     name: 'Développé machine épaules',
+    imageSlug: 'developpe-machine-epaules',
     aliases: ['Shoulder press machine', 'Presse épaules'],
     equipment: ['machine'],
     primaryMuscles: ['shoulders'],
@@ -293,6 +307,7 @@ export const SHOULDERS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(40, {
     name: 'Pike push-ups',
+    imageSlug: 'pike-push-ups',
     aliases: ['Pompes en V', 'Pompes pike', 'Pompes épaules'],
     equipment: ['bodyweight'],
     primaryMuscles: ['shoulders'],

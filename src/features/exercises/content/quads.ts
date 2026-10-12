@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const QUADS_SHEETS: ExerciseSheet[] = [
   sheet(3, {
     name: 'Squat barre',
+    imageSlug: 'squat-barre',
     aliases: ['Back squat', 'Squat', 'Squat arrière'],
     equipment: ['barbell'],
     primaryMuscles: ['quads', 'glutes'],
@@ -35,6 +36,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(71, {
     name: 'Front squat',
+    imageSlug: 'front-squat',
     aliases: ['Squat avant', 'Squat devant'],
     equipment: ['barbell'],
     primaryMuscles: ['quads'],
@@ -65,6 +67,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(72, {
     name: 'Goblet squat',
+    imageSlug: 'goblet-squat',
     aliases: ['Squat gobelet', 'Squat avec haltère'],
     equipment: ['dumbbell'],
     primaryMuscles: ['quads', 'glutes'],
@@ -94,6 +97,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(73, {
     name: 'Presse à cuisses',
+    imageSlug: 'presse-a-cuisses',
     aliases: ['Leg press', 'Presse'],
     equipment: ['machine'],
     primaryMuscles: ['quads', 'glutes'],
@@ -124,6 +128,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(74, {
     name: 'Hack squat',
+    imageSlug: 'hack-squat',
     aliases: ['Squat hack', 'Hack squat machine'],
     equipment: ['machine'],
     primaryMuscles: ['quads'],
@@ -153,6 +158,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(75, {
     name: 'Leg extension',
+    imageSlug: 'leg-extension',
     aliases: ['Extension de jambes', 'Extension quadriceps'],
     equipment: ['machine'],
     primaryMuscles: ['quads'],
@@ -182,6 +188,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(76, {
     name: 'Fentes marchées',
+    imageSlug: 'fentes-marchees',
     aliases: ['Walking lunges', 'Fentes avant en marchant'],
     equipment: ['dumbbell'],
     primaryMuscles: ['quads', 'glutes'],
@@ -212,6 +219,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(77, {
     name: 'Fente bulgare',
+    imageSlug: 'fente-bulgare',
     aliases: ['Bulgarian split squat', 'Squat bulgare'],
     equipment: ['dumbbell'],
     primaryMuscles: ['quads', 'glutes'],
@@ -242,6 +250,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(78, {
     name: 'Squat au poids du corps',
+    imageSlug: 'squat-au-poids-du-corps',
     aliases: ['Air squat', 'Squat sans charge', 'Squat libre'],
     equipment: ['bodyweight'],
     primaryMuscles: ['quads', 'glutes'],
@@ -272,6 +281,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(79, {
     name: 'Step-up',
+    imageSlug: 'step-up',
     aliases: ['Montée sur banc', 'Montée de marche'],
     equipment: ['dumbbell'],
     primaryMuscles: ['quads', 'glutes'],

@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const CHEST_SHEETS: ExerciseSheet[] = [
   sheet(1, {
     name: 'Développé couché barre',
+    imageSlug: 'developpe-couche-barre',
     aliases: ['Bench press', 'Développé couché', 'DC'],
     equipment: ['barbell'],
     primaryMuscles: ['chest'],
@@ -34,6 +35,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(6, {
     name: 'Développé incliné barre',
+    imageSlug: 'developpe-incline-barre',
     aliases: ['Incline bench press', 'Développé incliné'],
     equipment: ['barbell'],
     primaryMuscles: ['chest'],
@@ -64,6 +66,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(7, {
     name: 'Développé couché haltères',
+    imageSlug: 'developpe-couche-halteres',
     aliases: ['Dumbbell bench press', 'Développé haltères à plat'],
     equipment: ['dumbbell'],
     primaryMuscles: ['chest'],
@@ -94,6 +97,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(8, {
     name: 'Développé incliné haltères',
+    imageSlug: 'developpe-incline-halteres',
     aliases: ['Incline dumbbell press'],
     equipment: ['dumbbell'],
     primaryMuscles: ['chest'],
@@ -124,6 +128,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(9, {
     name: 'Développé décliné barre',
+    imageSlug: 'developpe-decline-barre',
     aliases: ['Decline bench press', 'Développé décliné'],
     equipment: ['barbell'],
     primaryMuscles: ['chest'],
@@ -154,6 +159,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(10, {
     name: 'Écarté haltères',
+    imageSlug: 'ecarte-halteres',
     aliases: ['Dumbbell fly', 'Écarté couché'],
     equipment: ['dumbbell'],
     primaryMuscles: ['chest'],
@@ -183,6 +189,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(11, {
     name: 'Écarté à la poulie vis-à-vis',
+    imageSlug: 'ecarte-poulie-vis-a-vis',
     aliases: ['Cable fly', 'Crossover', 'Poulie vis-à-vis'],
     equipment: ['cable'],
     primaryMuscles: ['chest'],
@@ -212,6 +219,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(12, {
     name: 'Pec deck (machine)',
+    imageSlug: 'pec-deck-machine',
     aliases: ['Butterfly', 'Pec fly machine', 'Machine papillon'],
     equipment: ['machine'],
     primaryMuscles: ['chest'],
@@ -240,6 +248,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(13, {
     name: 'Développé machine convergente',
+    imageSlug: 'developpe-machine-convergente',
     aliases: ['Chest press machine', 'Presse pectoraux', 'Développé assis machine'],
     equipment: ['machine'],
     primaryMuscles: ['chest'],
@@ -269,6 +278,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(14, {
     name: 'Pompes',
+    imageSlug: 'pompes',
     aliases: ['Push-ups', 'Pompe classique'],
     equipment: ['bodyweight'],
     primaryMuscles: ['chest'],
@@ -299,6 +309,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(15, {
     name: 'Pompes déclinées',
+    imageSlug: 'pompes-declinees',
     aliases: ['Decline push-ups', 'Pompes pieds surélevés'],
     equipment: ['bodyweight'],
     primaryMuscles: ['chest'],
@@ -329,6 +340,7 @@ export const CHEST_SHEETS: ExerciseSheet[] = [
   }),
   sheet(16, {
     name: 'Dips penché',
+    imageSlug: 'dips-penche',
     aliases: ['Chest dips', 'Dips pectoraux'],
     equipment: ['bodyweight'],
     primaryMuscles: ['chest'],

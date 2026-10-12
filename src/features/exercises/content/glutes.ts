@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const GLUTES_SHEETS: ExerciseSheet[] = [
   sheet(86, {
     name: 'Hip thrust barre',
+    imageSlug: 'hip-thrust-barre',
     aliases: ['Hip thrust', 'Poussée de hanches', 'Pont fessier lesté'],
     equipment: ['barbell'],
     primaryMuscles: ['glutes'],
@@ -33,6 +34,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(87, {
     name: 'Pont fessier',
+    imageSlug: 'pont-fessier',
     aliases: ['Glute bridge', 'Relevé de bassin'],
     equipment: ['bodyweight'],
     primaryMuscles: ['glutes'],
@@ -61,6 +63,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(88, {
     name: 'Kickback à la poulie',
+    imageSlug: 'kickback-a-la-poulie',
     aliases: ['Cable glute kickback', 'Kickback fessier'],
     equipment: ['cable'],
     primaryMuscles: ['glutes'],
@@ -89,6 +92,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(89, {
     name: 'Abduction machine',
+    imageSlug: 'abduction-machine',
     aliases: ['Hip abduction machine', 'Machine abducteurs'],
     equipment: ['machine'],
     primaryMuscles: ['glutes'],
@@ -118,6 +122,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(90, {
     name: 'Fente arrière',
+    imageSlug: 'fente-arriere',
     aliases: ['Reverse lunge', 'Fente en recul'],
     equipment: ['dumbbell'],
     primaryMuscles: ['glutes', 'quads'],
@@ -147,6 +152,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(91, {
     name: 'Soulevé de terre sumo',
+    imageSlug: 'souleve-de-terre-sumo',
     aliases: ['Sumo deadlift', 'SDT sumo'],
     equipment: ['barbell'],
     primaryMuscles: ['glutes', 'quads'],
@@ -177,6 +183,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
   }),
   sheet(92, {
     name: 'Step-up haut',
+    imageSlug: 'step-up-haut',
     aliases: ['High step-up', 'Montée sur banc haut'],
     equipment: ['dumbbell'],
     primaryMuscles: ['glutes', 'quads'],

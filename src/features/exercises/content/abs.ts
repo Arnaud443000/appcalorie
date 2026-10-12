@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const ABS_SHEETS: ExerciseSheet[] = [
   sheet(59, {
     name: 'Crunch',
+    imageSlug: 'crunch',
     aliases: ['Crunch au sol', 'Abdominaux'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -33,6 +34,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(60, {
     name: 'Crunch à la poulie',
+    imageSlug: 'crunch-poulie',
     aliases: ['Cable crunch', 'Crunch poulie haute'],
     equipment: ['cable'],
     primaryMuscles: ['abs'],
@@ -61,6 +63,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(61, {
     name: 'Relevé de jambes suspendu',
+    imageSlug: 'releve-de-jambes-suspendu',
     aliases: ['Hanging leg raise', 'Relevé de jambes à la barre'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -90,6 +93,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(62, {
     name: 'Relevé de genoux',
+    imageSlug: 'releve-de-genoux',
     aliases: ['Hanging knee raise', 'Relevé de genoux suspendu'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -120,6 +124,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
 
   sheet(5, {
     name: 'Gainage planche',
+    imageSlug: 'gainage-planche',
     aliases: ['Planche', 'Plank', 'Gainage'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -150,6 +155,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(63, {
     name: 'Gainage latéral',
+    imageSlug: 'gainage-lateral',
     aliases: ['Side plank', 'Planche latérale'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -179,6 +185,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(64, {
     name: 'Russian twist',
+    imageSlug: 'russian-twist',
     aliases: ['Rotation russe', 'Twist russe'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -207,6 +214,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(65, {
     name: 'Roue abdominale',
+    imageSlug: 'roue-abdominale',
     aliases: ['Ab wheel', 'Ab roller'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -237,6 +245,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(66, {
     name: 'Mountain climbers',
+    imageSlug: 'mountain-climbers',
     aliases: ['Grimpeurs', 'Escalade au sol'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],
@@ -265,6 +274,7 @@ export const ABS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(67, {
     name: 'Bicycle crunch',
+    imageSlug: 'bicycle-crunch',
     aliases: ['Crunch vélo', 'Crunch bicyclette'],
     equipment: ['bodyweight'],
     primaryMuscles: ['abs'],

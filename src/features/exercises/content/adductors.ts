@@ -4,6 +4,7 @@ import { sheet, type ExerciseSheet } from './types';
 export const ADDUCTORS_SHEETS: ExerciseSheet[] = [
   sheet(93, {
     name: 'Adduction machine',
+    imageSlug: 'adduction-machine',
     aliases: ['Hip adduction machine', 'Machine adducteurs'],
     equipment: ['machine'],
     primaryMuscles: ['adductors'],
@@ -32,6 +33,7 @@ export const ADDUCTORS_SHEETS: ExerciseSheet[] = [
   }),
   sheet(94, {
     name: 'Squat sumo',
+    imageSlug: 'squat-sumo',
     aliases: ['Sumo squat', 'Squat large'],
     equipment: ['dumbbell'],
     primaryMuscles: ['adductors', 'glutes'],
