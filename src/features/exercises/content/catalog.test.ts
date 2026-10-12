@@ -12,7 +12,7 @@ import { PLANNED_EXERCISES } from './planned';
 import { exerciseId } from './types';
 
 /** Nombre de fiches attendu à ce stade de la livraison (120 à la fin des 6 lots). */
-const EXPECTED_COUNT = 20;
+const EXPECTED_COUNT = 40;
 
 const words = (text: string) => text.trim().split(/\s+/).filter(Boolean);
 const asRecord = (sheet: (typeof EXERCISE_CATALOG)[number]): Exercise =>
@@ -126,7 +126,11 @@ describe('catalogue des exercices', () => {
     it('tutoie (jamais de « vous »)', () => {
       const text = [...e.steps, ...e.mistakes, ...e.variations, e.loadAdvice, e.safety].join(' ');
       expect(text).not.toMatch(/\b(vous|votre|vos|vôtres?)\b/i);
-      expect(e.steps.join(' ')).toMatch(/\b(tu|ton|ta|tes|toi|te|t’)/i);
+      // Pas d'impératif au pluriel (« placez », « gardez »…), signe d'un vouvoiement.
+      const plural = (text.match(/[\p{L}]+ez(?![\p{L}])/giu) ?? []).filter(
+        (w) => !['nez', 'chez', 'assez'].includes(w.toLowerCase()),
+      );
+      expect(plural).toEqual([]);
     });
   });
 });

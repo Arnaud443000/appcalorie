@@ -35,28 +35,28 @@ Ce sont des conseils généraux d'entraînement, jamais des avis médicaux.
 - [ ] **Rowing poulie basse** (Dos) — RAS ; légère flexion des genoux conseillée.
 - [ ] **Rowing machine** (Dos) — RAS ; dépend du type de machine (poitrine appuyée ou non).
 
-## Lot 2 (fiches 21 à 40) — à écrire
+## Lot 2 (fiches 21 à 40)
 
-- [ ] Rowing T-bar _(à venir)_
-- [ ] Pull-over à la poulie _(à venir)_
-- [ ] Soulevé de terre _(à venir)_
-- [ ] Rowing inversé _(à venir)_
-- [ ] Shrugs haltères _(à venir)_
-- [ ] Face pull _(à venir)_
-- [ ] Développé militaire barre _(à venir)_
-- [ ] Développé haltères assis _(à venir)_
-- [ ] Développé Arnold _(à venir)_
-- [ ] Élévations latérales haltères _(à venir)_
-- [ ] Élévations latérales poulie _(à venir)_
-- [ ] Élévations frontales _(à venir)_
-- [ ] Oiseau haltères _(à venir)_
-- [ ] Oiseau machine _(à venir)_
-- [ ] Tirage menton _(à venir)_
-- [ ] Développé machine épaules _(à venir)_
-- [ ] Pike push-ups _(à venir)_
-- [ ] Curl barre droite _(à venir)_
-- [ ] Curl barre EZ _(à venir)_
-- [ ] Curl haltères alternés _(à venir)_
+- [ ] **Rowing T-bar** (Dos) — Position à cheval au-dessus de la barre : dépend de l’appareil de ta salle ; sécurité dos.
+- [ ] **Pull-over à la poulie** (Dos) — Mouvement rangé en « tirage vertical » faute de mieux ; consigne de posture à valider.
+- [ ] **Soulevé de terre** (Dos) — Technique complexe, niveau « avancé » ; charges 3-6 reps et repos 2-4 min à valider ; sécurité dos.
+- [ ] **Rowing inversé** (Dos) — Hauteur de barre à hauteur de hanches (repère) ; saisie « poids du corps + lest ».
+- [ ] **Shrugs haltères** (Dos) — Rangé en « élévation de bras » faute de schéma plus adapté ; RAS sécurité.
+- [ ] **Face pull** (Dos) — Muscles principaux : épaules + trapèzes (arrière d’épaule) ; schéma « tirage horizontal » ; charge légère 12-20 reps.
+- [ ] **Développé militaire barre** (Épaules) — Sécurité : gainage du bas du dos à valider ; niveau intermédiaire.
+- [ ] **Développé haltères assis** (Épaules) — Angle du dossier « presque vertical » à valider.
+- [ ] **Développé Arnold** (Épaules) — Description de la rotation des poignets à valider ; charge plus légère que le développé classique.
+- [ ] **Élévations latérales haltères** (Épaules) — Consigne « penche légèrement le buste » (variante courante) à valider ; charges très légères.
+- [ ] **Élévations latérales poulie** (Épaules) — RAS ; poignée tenue de la main éloignée de la poulie.
+- [ ] **Élévations frontales** (Épaules) — Utilité discutable (épaules déjà très sollicitées) : volontairement charge légère.
+- [ ] **Oiseau haltères** (Épaules) — Schéma « tirage horizontal » (pas de schéma dédié) ; sécurité lombaires à valider.
+- [ ] **Oiseau machine** (Épaules) — RAS ; dépend de la machine.
+- [ ] **Tirage menton** (Épaules) — Exercice parfois déconseillé pour l’épaule : consigne de hauteur et prise large à valider soigneusement.
+- [ ] **Développé machine épaules** (Épaules) — RAS.
+- [ ] **Pike push-ups** (Épaules) — Niveau intermédiaire ; consigne sécurité (sol stable, tête) à valider.
+- [ ] **Curl barre droite** (Biceps) — RAS ; sécurité coude.
+- [ ] **Curl barre EZ** (Biceps) — RAS ; prise intérieure/extérieure selon ta barre.
+- [ ] **Curl haltères alternés** (Biceps) — Fiche de démo reprise ; RAS.
 
 ## Lot 3 (fiches 41 à 60) — à écrire
 
