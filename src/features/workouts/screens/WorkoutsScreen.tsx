@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { formatDay, formatTime, type Routine, routineRepo, setEntryRepo } from '@/data';
-import { Button, Card, EmptyState, ListRow, Screen, Sheet, useToast } from '@/ui';
 import {
-  discardSession,
-  finishSession,
   findUnfinishedSession,
-  startFreeSession,
-  startFromRoutine,
-} from '../data';
+  formatDay,
+  formatTime,
+  type Routine,
+  routineRepo,
+  setEntryRepo,
+} from '@/data';
+import { Button, Card, EmptyState, ListRow, Screen, Sheet, useToast } from '@/ui';
+import { discardSession, finishSession, startFreeSession, startFromRoutine } from '../data';
 import styles from './WorkoutsScreen.module.css';
 
 /** Accueil de l'onglet : séance en cours à reprendre, programmes, accès à l'historique et aux records. */

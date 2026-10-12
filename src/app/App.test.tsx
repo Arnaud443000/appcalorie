@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryRouter, RouterProvider } from 'react-router';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { seedDemoData } from '@/data';
+import { seedDemoData, workoutSessionRepo } from '@/data';
 import { resetDb } from '../test/fixtures';
 import { routes } from './router';
 
@@ -53,5 +53,25 @@ describe("Coque de l'application", () => {
     renderApp('/exercices');
     expect(await screen.findByText('Développé couché')).toBeInTheDocument();
     expect(screen.getByText('Gainage')).toBeInTheDocument();
+  });
+
+  it('propose de reprendre une séance non terminée depuis Aujourd’hui', async () => {
+    const user = userEvent.setup();
+    const session = await workoutSessionRepo.create({
+      routineId: null,
+      name: 'Lundi Push',
+      startedAt: new Date().toISOString(),
+      endedAt: null,
+      note: '',
+    });
+    const router = renderApp();
+    await user.click(await screen.findByRole('link', { name: /Reprendre ta séance/ }));
+    expect(router.state.location.pathname).toBe(`/entrainement/seance/${session.id}`);
+  });
+
+  it('ne montre pas le bandeau quand aucune séance n’est en cours', async () => {
+    renderApp();
+    await screen.findByRole('heading', { level: 1, name: 'Aujourd’hui' });
+    expect(screen.queryByText('Reprendre ta séance')).not.toBeInTheDocument();
   });
 });

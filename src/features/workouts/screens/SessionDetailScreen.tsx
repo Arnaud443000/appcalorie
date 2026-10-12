@@ -3,6 +3,7 @@ import { Navigate, useNavigate, useParams } from 'react-router';
 import { useLiveQuery } from 'dexie-react-hooks';
 import {
   detectRecords,
+  findUnfinishedSession,
   formatDay,
   formatDuration,
   formatNumber,
@@ -16,7 +17,7 @@ import {
   workoutSessionRepo,
 } from '@/data';
 import { Button, Card, Chip, EmptyState, Screen, Sheet, Stat, useToast } from '@/ui';
-import { copySession, discardSession, findUnfinishedSession, loadExerciseHistory } from '../data';
+import { copySession, discardSession, loadExerciseHistory } from '../data';
 import { useExercises } from '../hooks/useExercises';
 import { useWeightUnit } from '../hooks/useWeightUnit';
 import { PATHS } from '../paths';

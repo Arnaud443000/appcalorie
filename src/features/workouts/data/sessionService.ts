@@ -38,14 +38,6 @@ export function startFromRoutine(routine: Routine): Promise<WorkoutSession> {
   });
 }
 
-/** Séance non terminée la plus récente (à proposer à la réouverture), ou `undefined`. */
-export async function findUnfinishedSession(): Promise<WorkoutSession | undefined> {
-  const sessions = await workoutSessionRepo.list();
-  return sessions
-    .filter((session) => session.endedAt === null)
-    .sort((a, b) => b.startedAt.localeCompare(a.startedAt))[0];
-}
-
 export async function finishSession(sessionId: string): Promise<WorkoutSession> {
   return workoutSessionRepo.update(sessionId, { endedAt: new Date().toISOString() });
 }
