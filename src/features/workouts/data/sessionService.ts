@@ -1,10 +1,10 @@
 import {
-  routineRepo,
-  setEntryRepo,
-  workoutSessionRepo,
   type Routine,
+  routineRepo,
   type SetEntry,
+  setEntryRepo,
   type WorkoutSession,
+  workoutSessionRepo,
 } from '@/data';
 import { planFromRoutine, planFromSets, type Plan, type SetValues } from '../logic';
 import { forgetPlan, savePlan } from './planStorage';

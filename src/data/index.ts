@@ -14,3 +14,4 @@ export {
   type Backup,
 } from './backup';
 export { DEMO_EXERCISES, seedDemoData } from './seed';
+export * from './training';

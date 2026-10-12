@@ -1,14 +1,7 @@
 import { useRef, useState } from 'react';
 import { Button, Input } from '@/ui';
-import {
-  FIELDS_BY_INPUT,
-  toSetValues,
-  weightStep,
-  type InputType,
-  type SetForm,
-  type SetValues,
-  type WeightUnit,
-} from '../logic';
+import type { InputType, WeightUnit } from '@/data';
+import { FIELDS_BY_INPUT, toSetValues, weightStep, type SetForm, type SetValues } from '../logic';
 import { NumberStepper } from './NumberStepper';
 import styles from './SetRow.module.css';
 

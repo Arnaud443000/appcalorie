@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getSettings } from '@/data';
-import type { WeightUnit } from '../logic';
+import { getSettings, type WeightUnit } from '@/data';
 
 /** Unité d'affichage des charges, d'après les Réglages (kg par défaut). Le stockage reste en kg. */
 export function useWeightUnit(): WeightUnit {

@@ -1,14 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { setEntryRepo, workoutSessionRepo } from '@/data';
-import { Button, Card, Chip, EmptyState, Screen, Sheet, Stat, useToast } from '@/ui';
-import { copySession, discardSession, findUnfinishedSession, loadExerciseHistory } from '../data';
-import { useExercises } from '../hooks/useExercises';
-import { useWeightUnit } from '../hooks/useWeightUnit';
-import { PATHS } from '../paths';
 import {
-  buildBlocks,
   detectRecords,
   formatDay,
   formatDuration,
@@ -18,8 +11,16 @@ import {
   formatTime,
   RECORD_LABELS,
   sessionVolume,
+  setEntryRepo,
   workingSets,
-} from '../logic';
+  workoutSessionRepo,
+} from '@/data';
+import { Button, Card, Chip, EmptyState, Screen, Sheet, Stat, useToast } from '@/ui';
+import { copySession, discardSession, findUnfinishedSession, loadExerciseHistory } from '../data';
+import { useExercises } from '../hooks/useExercises';
+import { useWeightUnit } from '../hooks/useWeightUnit';
+import { PATHS } from '../paths';
+import { buildBlocks } from '../logic';
 import styles from './SessionDetailScreen.module.css';
 
 /** Détail d'une séance terminée, avec copie vers une nouvelle séance. */

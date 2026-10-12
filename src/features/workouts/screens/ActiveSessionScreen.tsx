@@ -1,7 +1,19 @@
 import { useMemo, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { setEntryRepo, workoutSessionRepo, type Exercise, type SetEntry } from '@/data';
+import {
+  detectRecords,
+  type Exercise,
+  formatDuration,
+  formatNumber,
+  type InputType,
+  lastPerformance,
+  RECORD_LABELS,
+  sessionVolume,
+  type SetEntry,
+  setEntryRepo,
+  workoutSessionRepo,
+} from '@/data';
 import { Button, Card, EmptyState, Screen, Sheet, Stat, useToast } from '@/ui';
 import { AlertSettingsSheet } from '../components/AlertSettingsSheet';
 import { ExerciseBlockView } from '../components/ExerciseBlockView';
@@ -27,16 +39,9 @@ import {
   addToPlan,
   buildBlocks,
   DEFAULT_REST_SECONDS,
-  detectRecords,
-  formatDuration,
-  formatNumber,
-  lastPerformance,
-  RECORD_LABELS,
   replaceInPlan,
-  sessionVolume,
   setSkipped,
   type ExerciseBlock,
-  type InputType,
   type SetValues,
 } from '../logic';
 import styles from './ActiveSessionScreen.module.css';

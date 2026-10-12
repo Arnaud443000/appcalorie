@@ -1,4 +1,4 @@
-import { dayFromDate, localDay } from './format';
+import { dayFromDate, localDay } from '@/data';
 
 export interface CalendarDay {
   /** Jour calendaire `AAAA-MM-JJ`. */

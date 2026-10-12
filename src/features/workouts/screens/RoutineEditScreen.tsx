@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { routineRepo, type Exercise, type Routine } from '@/data';
+import { type Exercise, type InputType, parseWholeNumber, type Routine, routineRepo } from '@/data';
 import { Button, Card, EmptyState, Input, Screen, Sheet, useToast } from '@/ui';
 import { ExercisePicker } from '../components/ExercisePicker';
 import { NumberStepper } from '../components/NumberStepper';
 import { TargetEditor } from '../components/TargetEditor';
 import { useExercises } from '../hooks/useExercises';
-import { DEFAULT_REST_SECONDS, defaultTarget, parseWholeNumber, type InputType } from '../logic';
+import { DEFAULT_REST_SECONDS, defaultTarget } from '../logic';
 import styles from './RoutineEditScreen.module.css';
 
 interface ItemDraft {

@@ -1,24 +1,27 @@
 import { useMemo, useState } from 'react';
-import type { Exercise, SetEntry } from '@/data';
+import {
+  type Exercise,
+  formatDuration,
+  formatRecordValue,
+  formatSetSummary,
+  formatWeight,
+  type InputType,
+  type LastPerformance,
+  matchingLastSet,
+  parseRepRange,
+  RECORD_LABELS,
+  type RecordBreak,
+  type SetEntry,
+  suggestNextLoad,
+  type WeightUnit,
+} from '@/data';
 import { Button, Card, Chip } from '@/ui';
 import {
   emptyForm,
-  formatDuration,
-  formatSetSummary,
-  formatWeight,
   formFromSet,
-  matchingLastSet,
-  parseRepRange,
   prefillNextSet,
-  RECORD_LABELS,
-  formatRecordValue,
-  suggestNextLoad,
   type ExerciseBlock,
-  type InputType,
-  type LastPerformance,
-  type RecordBreak,
   type SetValues,
-  type WeightUnit,
 } from '../logic';
 import { SetRow } from './SetRow';
 import styles from './ExerciseBlockView.module.css';

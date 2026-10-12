@@ -1,21 +1,21 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import type { SetEntry, WorkoutSession } from '@/data';
-import { Button, Card, Chip, EmptyState, ListRow, Screen, Tabs } from '@/ui';
-import { loadEverything } from '../data';
-import { sessionPath } from '../paths';
-import { useWeightUnit } from '../hooks/useWeightUnit';
 import {
-  buildMonthGrid,
   dayFromDate,
   formatDay,
   formatDuration,
   formatMonth,
   formatWeight,
-  groupSessionsByDay,
   sessionVolume,
+  type SetEntry,
   workingSets,
-} from '../logic';
+  type WorkoutSession,
+} from '@/data';
+import { Button, Card, Chip, EmptyState, ListRow, Screen, Tabs } from '@/ui';
+import { loadEverything } from '../data';
+import { sessionPath } from '../paths';
+import { useWeightUnit } from '../hooks/useWeightUnit';
+import { buildMonthGrid, groupSessionsByDay } from '../logic';
 import styles from './HistoryScreen.module.css';
 
 type View = 'list' | 'calendar';

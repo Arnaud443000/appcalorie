@@ -1,5 +1,5 @@
 import { Button } from '@/ui';
-import { formatClock } from '../logic';
+import { formatClock } from '@/data';
 import type { RestTimer } from '../hooks/useRestTimer';
 import styles from './RestBar.module.css';
 

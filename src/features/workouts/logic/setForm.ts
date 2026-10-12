@@ -1,12 +1,13 @@
 import {
   formatNumber,
+  type InputType,
   kgToUnit,
   parseDecimal,
   parseWholeNumber,
+  type SetLike,
   unitToKg,
   type WeightUnit,
-} from './format';
-import type { InputType, SetLike } from './types';
+} from '@/data';
 
 /** Valeurs d'une série prêtes à être enregistrées (unités de stockage : kg, secondes, mètres). */
 export interface SetValues {

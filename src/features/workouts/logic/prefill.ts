@@ -1,5 +1,4 @@
-import { matchingLastSet, type LastPerformance } from './lastPerformance';
-import type { SetLike } from './types';
+import { type LastPerformance, matchingLastSet, type SetLike } from '@/data';
 
 type Values = Pick<SetLike, 'weight' | 'reps' | 'durationSeconds' | 'distanceMeters'>;
 

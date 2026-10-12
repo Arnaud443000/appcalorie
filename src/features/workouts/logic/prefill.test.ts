@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { lastPerformance } from './lastPerformance';
+import { lastPerformance, type SetLike } from '@/data';
 import { prefillNextSet } from './prefill';
-import type { SetLike } from './types';
 
 type S = SetLike & { order: number };
 const base = { exerciseId: 'e', sessionId: 'last', durationSeconds: null, distanceMeters: null };

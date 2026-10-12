@@ -1,6 +1,5 @@
 import { z } from 'zod';
-import type { RoutineItem } from '@/data';
-import type { InputType } from './types';
+import type { InputType, RoutineItem } from '@/data';
 
 /**
  * Plan d'une séance : la liste des exercices prévus, dans l'ordre.

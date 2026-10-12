@@ -5,7 +5,7 @@ import { loadEverything } from '../data';
 import { useExercises } from '../hooks/useExercises';
 import { useWeightUnit } from '../hooks/useWeightUnit';
 import { PATHS } from '../paths';
-import { exerciseRecords, formatRecordValue, RECORD_KINDS_BY_INPUT, RECORD_LABELS } from '../logic';
+import { exerciseRecords, formatRecordValue, RECORD_KINDS_BY_INPUT, RECORD_LABELS } from '@/data';
 import styles from './RecordsScreen.module.css';
 
 /** Records personnels par exercice (échauffements exclus). */
