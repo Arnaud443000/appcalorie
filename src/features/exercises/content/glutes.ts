@@ -108,7 +108,7 @@ export const GLUTES_SHEETS: ExerciseSheet[] = [
       'Fermer les jambes d’un coup → contrôle le retour en 2 secondes.',
     ],
     variations: [
-      'Plus facile : Abduction élastique',
+      'Plus facile : Abduction machine avec charge réduite',
       'Plus difficile : Abduction avec pause de 2 secondes en fin de course',
       'Autre matériel : Abduction élastique',
     ],

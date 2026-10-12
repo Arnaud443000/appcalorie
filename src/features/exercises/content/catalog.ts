@@ -1,10 +1,13 @@
 import { ABS_SHEETS } from './abs';
 import { ADDUCTORS_SHEETS } from './adductors';
 import { BACK_SHEETS } from './back';
+import { BANDS_SHEETS } from './bands';
 import { BICEPS_SHEETS } from './biceps';
 import { CALVES_SHEETS } from './calves';
+import { CARDIO_SHEETS } from './cardio';
 import { CHEST_SHEETS } from './chest';
 import { FOREARMS_SHEETS } from './forearms';
+import { FULLBODY_SHEETS } from './fullbody';
 import { GLUTES_SHEETS } from './glutes';
 import { HAMSTRINGS_SHEETS } from './hamstrings';
 import { KETTLEBELL_SHEETS } from './kettlebell';
@@ -30,4 +33,7 @@ export const EXERCISE_CATALOG: ExerciseSheet[] = [
   ...ADDUCTORS_SHEETS,
   ...CALVES_SHEETS,
   ...KETTLEBELL_SHEETS,
+  ...BANDS_SHEETS,
+  ...CARDIO_SHEETS,
+  ...FULLBODY_SHEETS,
 ];

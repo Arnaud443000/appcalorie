@@ -37,3 +37,20 @@ Un type `weight_distance` dans `INPUT_TYPES` permettrait de saisir les deux.
 
 Chaque variation commence par « Plus facile : », « Plus difficile : » ou « Autre matériel : ».
 Si l'écran des fiches veut faire des liens vers d'autres fiches, il faudra retirer ce préfixe à l'affichage.
+
+## 4. Schéma de mouvement « cardio » et matériel « traîneau / cordes » (suggestion)
+
+Les 12 schémas de mouvement ne couvrent pas le cardio ni quelques exercices (haussements d'épaules,
+flexion de jambes aux machines). Choix actuels, à titre d'approximation :
+course, marche inclinée, elliptique → `lunge` ; vélo → `squat` ; rameur → `horizontal_pull` ;
+corde à sauter → `calves` ; battle ropes → `arm_raise` ; leg curl → `elbow_flexion` ;
+leg extension → `squat` ; shrugs → `arm_raise`.
+Ajouter par exemple `cardio` (et éventuellement `leg_flexion`, `leg_extension`) à `MOVEMENT_PATTERNS`
+rendrait les filtres plus justes. De même, le traîneau (Sled push) est classé `machine` et les Battle
+ropes `cardio`, faute de matériel dédié dans `EQUIPMENT`.
+Si ces ajouts sont faits, il suffira de changer les valeurs dans les fiches concernées (identifiants inchangés).
+
+## 5. Résistance des élastiques (information)
+
+Les 5 fiches d'élastiques sont en saisie `reps` : la « charge » est la couleur/dureté de l'élastique.
+Un champ libre « note » existe déjà sur `SetEntry` pour la préciser.

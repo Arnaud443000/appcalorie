@@ -127,25 +127,25 @@ Ce sont des conseils généraux d'entraînement, jamais des avis médicaux.
 - [ ] **Swing** (Kettlebell) — Technique à valider (charnière de hanche, pas un squat) ; charge et séries (4-6 x 10-20) à valider.
 - [ ] **Turkish get-up** (Kettlebell) — Niveau « avancé » ; 5 étapes très résumées : consigne à valider soigneusement (sécurité : apprendre sans charge).
 
-## Lot 6 (fiches 101 à 120) — à écrire
+## Lot 6 (fiches 101 à 120)
 
-- [ ] Clean and press _(à venir)_
-- [ ] Snatch _(à venir)_
-- [ ] Développé kettlebell _(à venir)_
-- [ ] Windmill _(à venir)_
-- [ ] Face pull élastique _(à venir)_
-- [ ] Tirage élastique _(à venir)_
-- [ ] Développé pecs élastique _(à venir)_
-- [ ] Curl élastique _(à venir)_
-- [ ] Abduction élastique _(à venir)_
-- [ ] Course à pied _(à venir)_
-- [ ] Vélo _(à venir)_
-- [ ] Rameur _(à venir)_
-- [ ] Corde à sauter _(à venir)_
-- [ ] Marche inclinée _(à venir)_
-- [ ] Elliptique _(à venir)_
-- [ ] Burpees _(à venir)_
-- [ ] Thruster _(à venir)_
-- [ ] Farmer carry _(à venir)_
-- [ ] Sled push _(à venir)_
-- [ ] Battle ropes _(à venir)_
+- [ ] **Clean and press** (Kettlebell) — Niveau « avancé » ; technique complexe (clean puis développé) : consigne et sécurité à valider soigneusement.
+- [ ] **Snatch** (Kettlebell) — Niveau « avancé » ; technique très technique résumée en 5 étapes : à valider soigneusement ; sécurité (espace dégagé).
+- [ ] **Développé kettlebell** (Kettlebell) — Position « rack » décrite brièvement ; sécurité poignet/épaule à valider.
+- [ ] **Windmill** (Kettlebell) — Niveau « avancé » ; description du mouvement et sécurité du dos à valider soigneusement.
+- [ ] **Face pull élastique** (Élastiques) — Charge = résistance de l’élastique (pas de kg) : saisie « répétitions » ; vérification de l’état de l’élastique.
+- [ ] **Tirage élastique** (Élastiques) — Idem (saisie en répétitions, résistance de l’élastique).
+- [ ] **Développé pecs élastique** (Élastiques) — Passage de l’élastique dans le dos : mise en place à valider ; sécurité (élastique abîmé).
+- [ ] **Curl élastique** (Élastiques) — Saisie en répétitions ; RAS.
+- [ ] **Abduction élastique** (Élastiques) — Rangée en « fente » faute de schéma dédié ; position de l’élastique à valider.
+- [ ] **Course à pied** (Cardio) — Schéma « fente » approximatif ; durées/fréquences (20-40 min, 2-4 fois) à valider ; saisie « distance ».
+- [ ] **Vélo** (Cardio) — Schéma « squat / presse » approximatif ; réglage de selle à valider ; saisie « distance ».
+- [ ] **Rameur** (Cardio) — Schéma « tirage horizontal » approximatif ; ordre jambes-buste-bras à valider ; saisie « distance ».
+- [ ] **Corde à sauter** (Cardio) — Rangée en « mollets » ; taille de la corde à valider ; sécurité tendon d’Achille.
+- [ ] **Marche inclinée** (Cardio) — Inclinaison 5-12 % et durée à valider ; schéma « fente » approximatif.
+- [ ] **Elliptique** (Cardio) — Schéma « fente » approximatif ; RAS.
+- [ ] **Burpees** (Full body) — Schéma « squat » approximatif ; version simplifiée à valider ; sécurité poignets/dos.
+- [ ] **Thruster** (Full body) — Niveau « avancé » ; enchaînement squat + développé à valider ; sécurité.
+- [ ] **Farmer carry** (Full body) — Charge non saisissable (type « distance » seulement) : voir DEMANDES.md ; kettlebells supposées.
+- [ ] **Sled push** (Full body) — Matériel classé « machine » faute de mieux (traîneau) ; angle 45° et distances à valider ; saisie « distance » sans charge.
+- [ ] **Battle ropes** (Full body) — Matériel classé « cardio » faute de mieux ; durée des séries à valider ; sécurité épaules.
