@@ -1,0 +1,118 @@
+import { sheet, type ExerciseSheet } from './types';
+
+/** Mollets (4 fiches). */
+export const CALVES_SHEETS: ExerciseSheet[] = [
+  sheet(95, {
+    name: 'Mollets debout machine',
+    aliases: ['Standing calf raise', 'Extension mollets debout'],
+    equipment: ['machine'],
+    primaryMuscles: ['calves'],
+    secondaryMuscles: [],
+    movementPattern: 'calves',
+    level: 'beginner',
+    inputType: 'weight_reps',
+    steps: [
+      'Place les épaules sous les coussins, la pointe des pieds sur la cale, jambes tendues.',
+      'Descends les talons le plus bas possible pour étirer les mollets.',
+      'Expire en montant sur la pointe des pieds le plus haut possible.',
+      'Marque une pause d’une seconde en haut, puis redescends lentement.',
+    ],
+    mistakes: [
+      'Faire des rebonds → marque un temps d’arrêt en bas et en haut.',
+      'Raccourcir l’amplitude → descends bas et monte haut.',
+      'Plier les genoux → garde les jambes tendues.',
+    ],
+    variations: [
+      'Plus facile : Mollets debout poids du corps',
+      'Plus difficile : Mollets debout à une jambe',
+      'Autre matériel : Mollets à la presse',
+    ],
+    loadAdvice: '3-4 séries de 10-20 répétitions, repos 45-60 s.',
+    safety:
+      'Évite les rebonds pour ménager le tendon d’Achille et monte la charge progressivement.',
+  }),
+  sheet(96, {
+    name: 'Mollets assis',
+    aliases: ['Seated calf raise', 'Soléaire assis'],
+    equipment: ['machine'],
+    primaryMuscles: ['calves'],
+    secondaryMuscles: [],
+    movementPattern: 'calves',
+    level: 'beginner',
+    inputType: 'weight_reps',
+    steps: [
+      'Assieds-toi, la pointe des pieds sur la cale, les genoux sous le coussin.',
+      'Libère le verrou et descends les talons le plus bas possible.',
+      'Expire en montant sur la pointe des pieds le plus haut possible.',
+      'Marque une pause d’une seconde en haut, puis redescends lentement.',
+    ],
+    mistakes: [
+      'Faire des rebonds → marque un temps d’arrêt en bas et en haut.',
+      'Raccourcir l’amplitude → descends bas et monte haut.',
+      'Utiliser les genoux pour pousser → garde les genoux immobiles.',
+    ],
+    variations: [
+      'Plus facile : Mollets assis avec charge réduite',
+      'Plus difficile : Mollets assis avec pause de 2 secondes en haut',
+      'Autre matériel : Mollets debout machine',
+    ],
+    loadAdvice: '3-4 séries de 12-20 répétitions, repos 45-60 s.',
+    safety: 'Évite les rebonds pour ménager le tendon d’Achille.',
+  }),
+  sheet(97, {
+    name: 'Mollets à la presse',
+    aliases: ['Calf press', 'Extension mollets à la presse'],
+    equipment: ['machine'],
+    primaryMuscles: ['calves'],
+    secondaryMuscles: [],
+    movementPattern: 'calves',
+    level: 'beginner',
+    inputType: 'weight_reps',
+    steps: [
+      'Assieds-toi à la presse, dos plaqué, pointes des pieds sur le bas de la plateforme.',
+      'Déverrouille la machine, jambes presque tendues, sans verrouiller les genoux.',
+      'Pousse la plateforme avec la pointe des pieds, aussi haut que possible.',
+      'Marque une pause en haut, puis reviens lentement en étirant les mollets.',
+    ],
+    mistakes: [
+      'Verrouiller les genoux → garde-les à peine fléchis.',
+      'Faire des rebonds → marque un temps d’arrêt en bas et en haut.',
+      'Raccourcir l’amplitude → descends bas et monte haut.',
+    ],
+    variations: [
+      'Plus facile : Mollets à la presse avec charge réduite',
+      'Plus difficile : Mollets à la presse à une jambe',
+      'Autre matériel : Mollets debout machine',
+    ],
+    loadAdvice: '3-4 séries de 12-20 répétitions, repos 45-60 s.',
+    safety: 'Ne verrouille pas les genoux et reverrouille la machine à la fin de la série.',
+  }),
+  sheet(98, {
+    name: 'Mollets debout poids du corps',
+    aliases: ['Calf raise', 'Montées sur pointes', 'Relevés de mollets'],
+    equipment: ['bodyweight'],
+    primaryMuscles: ['calves'],
+    secondaryMuscles: [],
+    movementPattern: 'calves',
+    level: 'beginner',
+    inputType: 'reps',
+    steps: [
+      'Debout, pieds largeur de hanches, l’avant des pieds sur une marche, talons dans le vide.',
+      'Tiens-toi à un appui pour l’équilibre, jambes tendues.',
+      'Descends les talons sous la marche pour étirer les mollets.',
+      'Expire en montant sur la pointe des pieds, puis redescends lentement.',
+    ],
+    mistakes: [
+      'Faire des rebonds → marque une pause en bas et en haut.',
+      'Raccourcir l’amplitude → descends bas et monte haut.',
+      'Plier les genoux → garde les jambes tendues.',
+    ],
+    variations: [
+      'Plus facile : Mollets debout au sol, sans marche',
+      'Plus difficile : Mollets debout à une jambe',
+      'Autre matériel : Mollets debout machine',
+    ],
+    loadAdvice: '3-4 séries de 15-25 répétitions, repos 45-60 s.',
+    safety: 'Tiens-toi à un appui pour garder l’équilibre et évite les rebonds.',
+  }),
+];

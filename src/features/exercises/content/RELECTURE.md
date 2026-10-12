@@ -104,28 +104,28 @@ Ce sont des conseils généraux d'entraînement, jamais des avis médicaux.
 - [ ] **Step-up** (Quadriceps) — Hauteur de banc « genou à 90° » à valider.
 - [ ] **Soulevé de terre roumain** (Ischio-jambiers) — Sécurité dos (dos plat) à valider ; charges 6-10 reps.
 
-## Lot 5 (fiches 81 à 100) — à écrire
+## Lot 5 (fiches 81 à 100)
 
-- [ ] Leg curl couché _(à venir)_
-- [ ] Leg curl assis _(à venir)_
-- [ ] Soulevé de terre jambes tendues _(à venir)_
-- [ ] Nordic curl _(à venir)_
-- [ ] Pull-through à la poulie _(à venir)_
-- [ ] Hip thrust barre _(à venir)_
-- [ ] Pont fessier _(à venir)_
-- [ ] Kickback à la poulie _(à venir)_
-- [ ] Abduction machine _(à venir)_
-- [ ] Fente arrière _(à venir)_
-- [ ] Soulevé de terre sumo _(à venir)_
-- [ ] Step-up haut _(à venir)_
-- [ ] Adduction machine _(à venir)_
-- [ ] Squat sumo _(à venir)_
-- [ ] Mollets debout machine _(à venir)_
-- [ ] Mollets assis _(à venir)_
-- [ ] Mollets à la presse _(à venir)_
-- [ ] Mollets debout poids du corps _(à venir)_
-- [ ] Swing _(à venir)_
-- [ ] Turkish get-up _(à venir)_
+- [ ] **Leg curl couché** (Ischio-jambiers) — Rangé en « flexion de coude » faute de schéma dédié ; RAS sécurité.
+- [ ] **Leg curl assis** (Ischio-jambiers) — Idem (schéma approximatif) ; RAS.
+- [ ] **Soulevé de terre jambes tendues** (Ischio-jambiers) — Niveau « avancé » ; sécurité dos et consigne « genoux légèrement fléchis » à valider.
+- [ ] **Nordic curl** (Ischio-jambiers) — Niveau « avancé » ; mise en place (chevilles bloquées) et nombre de reps (3-8) à valider soigneusement ; sécurité ischio-jambiers.
+- [ ] **Pull-through à la poulie** (Ischio-jambiers) — Muscles principaux fessiers + ischio-jambiers ; technique à valider.
+- [ ] **Hip thrust barre** (Fessiers) — Consigne de mousse sur les hanches et charge (8-12 reps) à valider ; sécurité bas du dos.
+- [ ] **Pont fessier** (Fessiers) — RAS.
+- [ ] **Kickback à la poulie** (Fessiers) — Rangé en « charnière de hanche » ; sangle à la cheville ; sécurité bas du dos.
+- [ ] **Abduction machine** (Fessiers) — Rangée en « fente » faute de schéma dédié ; variation « autre matériel » = élastique (même que « plus facile »).
+- [ ] **Fente arrière** (Fessiers) — Haltères supposés ; RAS.
+- [ ] **Soulevé de terre sumo** (Fessiers) — Niveau « avancé » ; technique complexe ; charges 4-8 reps ; sécurité dos à valider.
+- [ ] **Step-up haut** (Fessiers) — Hauteur de banc « genou à 90° ou plus » à valider ; sécurité genou.
+- [ ] **Adduction machine** (Adducteurs) — Rangée en « fente » faute de schéma dédié ; variation « autre matériel » = squat sumo.
+- [ ] **Squat sumo** (Adducteurs) — Version avec un haltère entre les jambes (goblet sumo) ; écartement à valider.
+- [ ] **Mollets debout machine** (Mollets) — RAS ; sécurité tendon d’Achille (rebonds).
+- [ ] **Mollets assis** (Mollets) — RAS.
+- [ ] **Mollets à la presse** (Mollets) — Position des pieds en bas de la plateforme ; sécurité genoux (ne pas verrouiller).
+- [ ] **Mollets debout poids du corps** (Mollets) — Fourchette 15-25 reps ; marche nécessaire.
+- [ ] **Swing** (Kettlebell) — Technique à valider (charnière de hanche, pas un squat) ; charge et séries (4-6 x 10-20) à valider.
+- [ ] **Turkish get-up** (Kettlebell) — Niveau « avancé » ; 5 étapes très résumées : consigne à valider soigneusement (sécurité : apprendre sans charge).
 
 ## Lot 6 (fiches 101 à 120) — à écrire
 

@@ -12,7 +12,7 @@ import { PLANNED_EXERCISES } from './planned';
 import { exerciseId } from './types';
 
 /** Nombre de fiches attendu à ce stade de la livraison (120 à la fin des 6 lots). */
-const EXPECTED_COUNT = 80;
+const EXPECTED_COUNT = 100;
 
 const words = (text: string) => text.trim().split(/\s+/).filter(Boolean);
 const asRecord = (sheet: (typeof EXERCISE_CATALOG)[number]): Exercise =>
