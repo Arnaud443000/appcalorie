@@ -48,3 +48,19 @@ export const NUTRIENT_LABELS: Record<NutrientKey, string> = {
   fatG: 'Lipides',
   fiberG: 'Fibres',
 };
+
+/** Un résultat de recherche, quelle que soit sa provenance, prêt à être choisi dans le journal. */
+export interface FoodHit {
+  source: 'local' | 'ciqual' | 'openfoodfacts';
+  /** Identifiant du `Food` enregistré (seulement pour `source: 'local'`). */
+  foodId: string | null;
+  name: string;
+  brand: string;
+  barcode: string | null;
+  kcal: number;
+  proteinG: number;
+  carbsG: number;
+  fatG: number;
+  fiberG: number | null;
+  servingG: number | null;
+}
