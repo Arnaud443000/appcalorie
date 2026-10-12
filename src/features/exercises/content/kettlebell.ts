@@ -1,0 +1,186 @@
+import { sheet, type ExerciseSheet } from './types';
+
+/** Kettlebell (6 fiches). */
+export const KETTLEBELL_SHEETS: ExerciseSheet[] = [
+  sheet(99, {
+    name: 'Swing',
+    aliases: ['Kettlebell swing', 'Balancier kettlebell'],
+    equipment: ['kettlebell'],
+    primaryMuscles: ['glutes', 'hamstrings'],
+    secondaryMuscles: ['lower_back', 'abs', 'shoulders'],
+    movementPattern: 'hip_hinge',
+    level: 'intermediate',
+    inputType: 'weight_reps',
+    steps: [
+      'Pieds un peu plus larges que les épaules, kettlebell devant toi au sol.',
+      'Penche le buste en poussant les hanches vers l’arrière, dos plat, et saisis la poignée.',
+      'Balance la kettlebell entre les jambes, puis pousse les hanches vers l’avant.',
+      'Laisse la kettlebell monter à hauteur de poitrine, bras tendus, sans la tirer.',
+      'Laisse-la retomber en repoussant les hanches vers l’arrière.',
+    ],
+    mistakes: [
+      'Faire un squat au lieu d’une charnière → pousse les hanches vers l’arrière, genoux à peine fléchis.',
+      'Lever la kettlebell avec les bras → c’est l’élan des hanches qui la fait monter.',
+      'Arrondir le dos → garde le dos plat et la poitrine sortie.',
+    ],
+    variations: [
+      'Plus facile : Pont fessier',
+      'Plus difficile : Swing à une main',
+      'Autre matériel : Swing avec un haltère',
+    ],
+    loadAdvice: '4-6 séries de 10-20 répétitions, repos 60-90 s.',
+    safety:
+      'Apprends le mouvement avec une charge légère et garde le dos plat à chaque répétition.',
+  }),
+  sheet(100, {
+    name: 'Turkish get-up',
+    aliases: ['TGU', 'Relevé turc'],
+    equipment: ['kettlebell'],
+    primaryMuscles: ['shoulders', 'abs'],
+    secondaryMuscles: ['glutes', 'quads', 'lats', 'traps'],
+    movementPattern: 'core',
+    level: 'advanced',
+    inputType: 'weight_reps',
+    steps: [
+      'Allonge-toi sur le dos, kettlebell tenue bras tendu à la verticale, genou du même côté plié.',
+      'Garde les yeux sur la kettlebell et redresse-toi sur le coude opposé.',
+      'Monte sur la main, soulève le bassin, puis passe la jambe tendue derrière toi.',
+      'Mets-toi à genoux, puis debout, bras toujours tendu vers le plafond.',
+      'Reviens au sol en inversant les étapes, une par une.',
+    ],
+    mistakes: [
+      'Aller trop vite → prends le temps de marquer chaque étape.',
+      'Perdre la kettlebell des yeux → garde le regard dessus.',
+      'Plier le bras sous la charge → garde le bras vertical et verrouillé.',
+    ],
+    variations: [
+      'Plus facile : Turkish get-up sans poids',
+      'Plus difficile : Turkish get-up avec une charge plus lourde',
+      'Autre matériel : Turkish get-up avec un haltère',
+    ],
+    loadAdvice: '3-5 séries de 2-5 répétitions par côté, repos 60-90 s.',
+    safety:
+      'Apprends chaque étape sans charge, puis avec une charge légère, et dégage bien l’espace autour de toi.',
+  }),
+  sheet(101, {
+    name: 'Clean and press',
+    aliases: ['Kettlebell clean & press', 'Épaulé-développé kettlebell'],
+    equipment: ['kettlebell'],
+    primaryMuscles: ['shoulders', 'glutes'],
+    secondaryMuscles: ['hamstrings', 'triceps', 'traps', 'abs'],
+    movementPattern: 'vertical_push',
+    level: 'advanced',
+    inputType: 'weight_reps',
+    steps: [
+      'Place la kettlebell devant toi, charnière de hanche, dos plat, une main sur la poignée.',
+      'Tire-la vers toi et accompagne-la jusqu’à l’épaule, coude collé, poignet droit.',
+      'Stabilise la kettlebell sur l’épaule, abdos et fessiers serrés.',
+      'Pousse-la au-dessus de la tête jusqu’à bras tendu.',
+      'Redescends-la à l’épaule, puis au sol en contrôlant.',
+    ],
+    mistakes: [
+      'Frapper l’avant-bras avec la kettlebell → garde-la près du corps et accompagne le mouvement.',
+      'Cambrer le bas du dos au développé → serre les abdos et les fessiers.',
+      'Pousser avec l’élan des jambes → fais d’abord le clean, puis le développé.',
+    ],
+    variations: [
+      'Plus facile : Développé kettlebell',
+      'Plus difficile : Clean and press avec une charge plus lourde',
+      'Autre matériel : Clean and press avec un haltère',
+    ],
+    loadAdvice: '3-5 séries de 3-8 répétitions par côté, repos 90 s.',
+    safety:
+      'Apprends le clean sans développé avec une charge légère, et dégage l’espace pour pouvoir lâcher la kettlebell si besoin.',
+  }),
+
+  sheet(102, {
+    name: 'Snatch',
+    aliases: ['Arraché kettlebell', 'Kettlebell snatch'],
+    equipment: ['kettlebell'],
+    primaryMuscles: ['glutes', 'hamstrings'],
+    secondaryMuscles: ['shoulders', 'traps', 'lats', 'abs', 'forearms'],
+    movementPattern: 'hip_hinge',
+    level: 'advanced',
+    inputType: 'weight_reps',
+    steps: [
+      'Pieds un peu plus larges que les épaules, kettlebell devant toi, charnière de hanche, dos plat.',
+      'Balance la kettlebell entre les jambes, puis pousse les hanches vers l’avant.',
+      'Laisse-la monter près du corps, coude près des côtes.',
+      'Au sommet, enfile la main dessous et verrouille le bras au-dessus de la tête.',
+      'Redescends-la en contrôlant, puis rebalance entre les jambes.',
+    ],
+    mistakes: [
+      'Tirer avec les bras → c’est l’élan des hanches qui monte la charge.',
+      'La laisser faire un grand arc loin du corps → garde-la près du corps.',
+      'Se cambrer en haut → termine debout, abdos et fessiers serrés.',
+    ],
+    variations: [
+      'Plus facile : Swing',
+      'Plus difficile : Snatch avec une charge plus lourde',
+      'Autre matériel : Snatch avec un haltère',
+    ],
+    loadAdvice: '4-6 séries de 5-10 répétitions par côté, repos 90 s.',
+    safety:
+      'Maîtrise d’abord le swing et le clean avec une charge légère, et dégage bien l’espace autour de toi.',
+  }),
+  sheet(103, {
+    name: 'Développé kettlebell',
+    aliases: ['Kettlebell press', 'Développé épaules kettlebell'],
+    equipment: ['kettlebell'],
+    primaryMuscles: ['shoulders'],
+    secondaryMuscles: ['triceps', 'traps', 'abs'],
+    movementPattern: 'vertical_push',
+    level: 'intermediate',
+    inputType: 'weight_reps',
+    steps: [
+      'Debout, kettlebell à l’épaule en position rack, coude près du corps, poignet droit.',
+      'Serre les fessiers et les abdos, jambes tendues.',
+      'Expire en poussant la kettlebell droit au-dessus de la tête.',
+      'Termine bras tendu, biceps près de l’oreille.',
+      'Redescends lentement jusqu’à l’épaule.',
+    ],
+    mistakes: [
+      'Cambrer le bas du dos → serre les abdos et les fessiers.',
+      'Laisser la kettlebell partir vers l’avant → monte-la bien droit.',
+      'Casser le poignet → garde-le droit, aligné avec l’avant-bras.',
+    ],
+    variations: [
+      'Plus facile : Développé haltères assis',
+      'Plus difficile : Développé kettlebell en position à genoux',
+      'Autre matériel : Développé militaire barre',
+    ],
+    loadAdvice: '3-4 séries de 5-10 répétitions par côté, repos 90 s.',
+    safety:
+      'Garde le poignet droit et le tronc gainé, et arrête si une douleur vive apparaît à l’épaule.',
+  }),
+  sheet(104, {
+    name: 'Windmill',
+    aliases: ['Moulin à vent kettlebell', 'Kettlebell windmill'],
+    equipment: ['kettlebell'],
+    primaryMuscles: ['abs', 'shoulders'],
+    secondaryMuscles: ['glutes', 'hamstrings', 'lower_back'],
+    movementPattern: 'core',
+    level: 'advanced',
+    inputType: 'weight_reps',
+    steps: [
+      'Tiens la kettlebell bras tendu au-dessus de la tête, pieds écartés, pointes tournées de côté.',
+      'Garde les yeux sur la kettlebell et pousse la hanche du côté de la charge.',
+      'Penche le buste sur le côté en gardant la jambe opposée tendue.',
+      'Descends la main libre le long de la jambe, aussi loin que ton dos reste plat.',
+      'Remonte en poussant la hanche vers l’avant, bras toujours vertical.',
+    ],
+    mistakes: [
+      'Plier le bras sous la charge → garde-le vertical et verrouillé.',
+      'Arrondir le dos → garde le dos plat, descends moins bas.',
+      'Perdre la kettlebell des yeux → garde le regard dessus.',
+    ],
+    variations: [
+      'Plus facile : Windmill sans poids',
+      'Plus difficile : Windmill avec une charge plus lourde',
+      'Autre matériel : Windmill avec un haltère',
+    ],
+    loadAdvice: '2-3 séries de 5-8 répétitions par côté, repos 60-90 s.',
+    safety:
+      'Apprends d’abord le mouvement sans charge, puis avec une charge légère, et descends seulement jusqu’où ton dos reste plat.',
+  }),
+];
