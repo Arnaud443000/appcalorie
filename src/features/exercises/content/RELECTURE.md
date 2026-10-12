@@ -81,28 +81,28 @@ Ce sont des conseils généraux d'entraînement, jamais des avis médicaux.
 - [ ] **Relevé de jambes suspendu** (Abdos) — Niveau « avancé » ; sécurité lombaires/épaules à valider.
 - [ ] **Relevé de genoux** (Abdos) — Interprété comme relevé de genoux SUSPENDU (barre/chaise romaine) ; à confirmer.
 
-## Lot 4 (fiches 61 à 80) — à écrire
+## Lot 4 (fiches 61 à 80)
 
-- [ ] Gainage planche _(à venir)_
-- [ ] Gainage latéral _(à venir)_
-- [ ] Russian twist _(à venir)_
-- [ ] Roue abdominale _(à venir)_
-- [ ] Mountain climbers _(à venir)_
-- [ ] Bicycle crunch _(à venir)_
-- [ ] Extension lombaires au banc 45° _(à venir)_
-- [ ] Good morning _(à venir)_
-- [ ] Superman _(à venir)_
-- [ ] Squat barre _(à venir)_
-- [ ] Front squat _(à venir)_
-- [ ] Goblet squat _(à venir)_
-- [ ] Presse à cuisses _(à venir)_
-- [ ] Hack squat _(à venir)_
-- [ ] Leg extension _(à venir)_
-- [ ] Fentes marchées _(à venir)_
-- [ ] Fente bulgare _(à venir)_
-- [ ] Squat au poids du corps _(à venir)_
-- [ ] Step-up _(à venir)_
-- [ ] Soulevé de terre roumain _(à venir)_
+- [ ] **Gainage planche** (Abdos) — Fiche de démo reprise ; durées 20-45 s à valider.
+- [ ] **Gainage latéral** (Abdos) — Niveau intermédiaire ; sécurité épaule à valider.
+- [ ] **Russian twist** (Abdos) — Saisie « répétitions » (pas de charge) ; sécurité bas du dos à valider.
+- [ ] **Roue abdominale** (Abdos) — Niveau « avancé » ; consigne d’amplitude et de sécurité lombaires à valider soigneusement.
+- [ ] **Mountain climbers** (Abdos) — Saisie en durée ; rangé en « gainage » ; RAS.
+- [ ] **Bicycle crunch** (Abdos) — RAS ; sécurité nuque.
+- [ ] **Extension lombaires au banc 45°** (Lombaires) — Consigne « ne pas dépasser l’horizontale / ne pas cambrer » à valider ; sécurité lombaires.
+- [ ] **Good morning** (Lombaires) — Niveau « avancé » ; sécurité lombaires (charge très légère au début) à valider soigneusement.
+- [ ] **Superman** (Lombaires) — Rangé en « charnière de hanche » faute de mieux ; RAS.
+- [ ] **Squat barre** (Quadriceps) — Fiche de démo reprise ; profondeur « au moins parallèle » et sécurités à valider.
+- [ ] **Front squat** (Quadriceps) — Niveau « avancé » ; consigne « lâcher la barre vers l’avant » à valider.
+- [ ] **Goblet squat** (Quadriceps) — RAS ; profondeur selon mobilité.
+- [ ] **Presse à cuisses** (Quadriceps) — Angle de 90° et pieds largeur d’épaules à valider ; sécurité genoux (ne pas verrouiller).
+- [ ] **Hack squat** (Quadriceps) — Position des pieds selon la machine ; sécurité genoux à valider.
+- [ ] **Leg extension** (Quadriceps) — Sécurité genoux (charge, à-coups) à valider ; rangé en « squat / presse » faute de schéma dédié.
+- [ ] **Fentes marchées** (Quadriceps) — Fourchette en « pas par jambe » (10-12) à valider ; équilibre.
+- [ ] **Fente bulgare** (Quadriceps) — Distance du pied avant au banc non chiffrée ; équilibre ; haltères supposés.
+- [ ] **Squat au poids du corps** (Quadriceps) — RAS ; profondeur selon mobilité.
+- [ ] **Step-up** (Quadriceps) — Hauteur de banc « genou à 90° » à valider.
+- [ ] **Soulevé de terre roumain** (Ischio-jambiers) — Sécurité dos (dos plat) à valider ; charges 6-10 reps.
 
 ## Lot 5 (fiches 81 à 100) — à écrire
 

@@ -3,6 +3,9 @@ import { BACK_SHEETS } from './back';
 import { BICEPS_SHEETS } from './biceps';
 import { CHEST_SHEETS } from './chest';
 import { FOREARMS_SHEETS } from './forearms';
+import { HAMSTRINGS_SHEETS } from './hamstrings';
+import { LOWER_BACK_SHEETS } from './lower_back';
+import { QUADS_SHEETS } from './quads';
 import { SHOULDERS_SHEETS } from './shoulders';
 import { TRICEPS_SHEETS } from './triceps';
 import type { ExerciseSheet } from './types';
@@ -16,4 +19,7 @@ export const EXERCISE_CATALOG: ExerciseSheet[] = [
   ...TRICEPS_SHEETS,
   ...FOREARMS_SHEETS,
   ...ABS_SHEETS,
+  ...LOWER_BACK_SHEETS,
+  ...QUADS_SHEETS,
+  ...HAMSTRINGS_SHEETS,
 ];
