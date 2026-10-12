@@ -42,6 +42,7 @@ import {
   replaceInPlan,
   setSkipped,
   type ExerciseBlock,
+  type Plan,
   type SetValues,
 } from '../logic';
 import styles from './ActiveSessionScreen.module.css';
@@ -75,6 +76,7 @@ export function ActiveSessionScreen() {
       name={session.name || 'Séance'}
       routineId={session.routineId}
       startedAt={session.startedAt}
+      storedPlan={session.plan}
     />
   );
 }
@@ -84,14 +86,15 @@ interface LiveSessionProps {
   name: string;
   routineId: string | null;
   startedAt: string;
+  storedPlan: Plan;
 }
 
-function LiveSession({ sessionId, name, routineId, startedAt }: LiveSessionProps) {
+function LiveSession({ sessionId, name, routineId, startedAt, storedPlan }: LiveSessionProps) {
   const navigate = useNavigate();
   const toast = useToast();
   const unit = useWeightUnit();
   const exercises = useExercises();
-  const { plan, update: updatePlan } = useSessionPlan(sessionId, routineId);
+  const { plan, update: updatePlan } = useSessionPlan(sessionId, routineId, storedPlan);
   const rest = useRestTimer(sessionId);
   const now = useNow();
 

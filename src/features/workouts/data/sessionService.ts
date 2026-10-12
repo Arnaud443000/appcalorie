@@ -7,7 +7,6 @@ import {
   workoutSessionRepo,
 } from '@/data';
 import { planFromRoutine, planFromSets, type Plan, type SetValues } from '../logic';
-import { forgetPlan, savePlan } from './planStorage';
 
 export const FREE_SESSION_NAME = 'Séance libre';
 
@@ -22,8 +21,8 @@ export async function startSession(input: {
     startedAt: new Date().toISOString(),
     endedAt: null,
     note: '',
+    plan: input.plan,
   });
-  savePlan(session.id, input.plan);
   return session;
 }
 
@@ -56,7 +55,6 @@ export async function discardSession(sessionId: string): Promise<void> {
   const sets = await setEntryRepo.findBy('sessionId', sessionId);
   await Promise.all(sets.map((set) => setEntryRepo.remove(set.id)));
   await workoutSessionRepo.remove(sessionId);
-  forgetPlan(sessionId);
 }
 
 /** Enregistre une série tout de suite ; elle prend la place suivante dans la séance. */

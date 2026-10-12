@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { setEntryRepo, workoutSessionRepo, routineRepo } from '@/data';
 import { resetDb } from '../../../test/fixtures';
-import { loadPlan } from '../data';
 import { BENCH, CURL, renderWorkouts, seedExercises } from '../testHelpers';
 
 beforeEach(async () => {
@@ -125,7 +124,7 @@ describe('Détail d’une séance', () => {
     expect(created).toMatchObject({ endedAt: null, routineId: routine.id, name: 'Haut du corps' });
     expect(await setEntryRepo.findBy('sessionId', created?.id ?? '')).toHaveLength(0);
 
-    const plan = loadPlan(created?.id ?? '');
+    const plan = (await workoutSessionRepo.get(created?.id ?? ''))?.plan;
     expect(plan?.map((p) => [p.exerciseId, p.targetSets, p.targetReps])).toEqual([
       [BENCH, 2, '6-8'],
       [CURL, 1, ''],

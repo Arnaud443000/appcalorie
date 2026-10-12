@@ -4,7 +4,6 @@ import {
   buildBlocks,
   defaultTarget,
   newPlanItem,
-  parsePlan,
   planFromRoutine,
   planFromSets,
   replaceInPlan,
@@ -55,13 +54,6 @@ describe('plan de séance', () => {
     const skipped = setSkipped(plan, A, true);
     expect(skipped.map((i) => i.skipped)).toEqual([true, false]);
     expect(setSkipped(skipped, A, false).map((i) => i.skipped)).toEqual([false, false]);
-  });
-
-  it('valide un plan relu du stockage', () => {
-    expect(parsePlan([newPlanItem(A)])).toEqual([newPlanItem(A)]);
-    expect(parsePlan([{ exerciseId: 'pas-un-uuid' }])).toBeNull();
-    expect(parsePlan('n’importe quoi')).toBeNull();
-    expect(parsePlan(null)).toBeNull();
   });
 });
 

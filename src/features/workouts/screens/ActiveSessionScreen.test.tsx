@@ -1,10 +1,9 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { setEntryRepo, workoutSessionRepo } from '@/data';
+import { routineRepo, setEntryRepo, workoutSessionRepo } from '@/data';
 import { resetDb } from '../../../test/fixtures';
-import { savePlan } from '../data';
-import { BENCH, PLANK, renderWorkouts, seedExercises } from '../testHelpers';
+import { BENCH, CURL, PLANK, renderWorkouts, seedExercises, SQUAT } from '../testHelpers';
 
 const plan = (exerciseId: string, extra = {}) => [
   {
@@ -39,7 +38,7 @@ describe('Séance en cours : saisie d’une série', () => {
   it('enregistre la série tout de suite en base et lance le chrono de repos', async () => {
     const user = userEvent.setup();
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
 
     expect(await screen.findByRole('heading', { name: 'Développé couché' })).toBeInTheDocument();
@@ -67,7 +66,7 @@ describe('Séance en cours : saisie d’une série', () => {
   it('les boutons + et − modifient la valeur d’un geste', async () => {
     const user = userEvent.setup();
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Développé couché' });
 
@@ -82,7 +81,7 @@ describe('Séance en cours : saisie d’une série', () => {
   it('refuse une série sans répétitions et l’explique', async () => {
     const user = userEvent.setup();
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Développé couché' });
 
@@ -116,7 +115,7 @@ describe('Séance en cours : saisie d’une série', () => {
       });
     }
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Développé couché' });
 
@@ -137,7 +136,7 @@ describe('Séance en cours : saisie d’une série', () => {
 
   it('adapte les champs au type de saisie (durée)', async () => {
     const session = await createSession();
-    savePlan(session.id, plan(PLANK, { targetReps: '45 s' }));
+    await workoutSessionRepo.update(session.id, { plan: plan(PLANK, { targetReps: '45 s' }) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Gainage' });
     expect(screen.getByLabelText('Durée (s)')).toBeInTheDocument();
@@ -166,7 +165,7 @@ describe('Séance en cours : saisie d’une série', () => {
       });
     }
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     expect(await screen.findByText(/Suggestion : 62,5 kg/)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Utiliser 62,5 kg' }));
@@ -176,7 +175,7 @@ describe('Séance en cours : saisie d’une série', () => {
   it('une série d’échauffement n’est pas comptée dans le volume', async () => {
     const user = userEvent.setup();
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Développé couché' });
 
@@ -196,7 +195,7 @@ describe('Séance en cours : saisie d’une série', () => {
   it('permet d’ajouter, de remplacer et de passer un exercice', async () => {
     const user = userEvent.setup();
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Développé couché' });
 
@@ -220,12 +219,35 @@ describe('Séance en cours : saisie d’une série', () => {
     expect(await screen.findByText('Passé pour aujourd’hui')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Rétablir' }));
     expect(screen.queryByText('Passé pour aujourd’hui')).not.toBeInTheDocument();
+
+    // Le plan modifié est enregistré dans la séance (donc dans la sauvegarde)
+    await waitFor(async () => {
+      const saved = await workoutSessionRepo.get(session.id);
+      expect(saved?.plan.map((item) => [item.exerciseId, item.skipped])).toEqual([
+        [CURL, false],
+        [SQUAT, false],
+      ]);
+    });
+  });
+
+  it('reconstruit le plan depuis le programme s’il est vide (séance d’avant la version 2)', async () => {
+    const routine = await routineRepo.create({
+      name: 'Jambes',
+      note: '',
+      items: [{ exerciseId: SQUAT, targetSets: 4, targetReps: '6-8', restSeconds: 180, note: '' }],
+    });
+    const session = await createSession({ routineId: routine.id, name: 'Jambes' });
+    renderWorkouts(`/entrainement/seance/${session.id}`);
+    expect(await screen.findByRole('heading', { name: 'Squat' })).toBeInTheDocument();
+    await waitFor(async () =>
+      expect((await workoutSessionRepo.get(session.id))?.plan).toHaveLength(1),
+    );
   });
 
   it('termine la séance : elle apparaît dans l’historique avec ses séries', async () => {
     const user = userEvent.setup();
     const session = await createSession();
-    savePlan(session.id, plan(BENCH));
+    await workoutSessionRepo.update(session.id, { plan: plan(BENCH) });
     renderWorkouts(`/entrainement/seance/${session.id}`);
     await screen.findByRole('heading', { name: 'Développé couché' });
     await user.type(screen.getByLabelText('Charge (kg)'), '60');

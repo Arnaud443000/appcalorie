@@ -1,22 +1,12 @@
-import { z } from 'zod';
-import type { InputType, RoutineItem } from '@/data';
+import { type InputType, type PlanItem, type RoutineItem } from '@/data';
 
 /**
- * Plan d'une séance : la liste des exercices prévus, dans l'ordre.
+ * Plan d'une séance : la liste des exercices prévus, dans l'ordre (champ `WorkoutSession.plan`).
  * Il est copié depuis le programme au démarrage, puis modifié librement
  * (exercice ajouté, remplacé ou sauté) sans toucher au programme lui-même.
+ * Le schéma d'une ligne (`planItemSchema`) est dans `@/data`.
  */
-export const planItemSchema = z.object({
-  exerciseId: z.uuid(),
-  targetSets: z.number().int().positive(),
-  targetReps: z.string(),
-  restSeconds: z.number().int().nonnegative().nullable(),
-  note: z.string(),
-  skipped: z.boolean(),
-});
-export const planSchema = z.array(planItemSchema);
-
-export type PlanItem = z.infer<typeof planItemSchema>;
+export type { PlanItem };
 export type Plan = PlanItem[];
 
 export const DEFAULT_TARGET_SETS = 3;
@@ -39,12 +29,6 @@ export function defaultTarget(inputType: InputType): string {
 
 export function planFromRoutine(items: readonly RoutineItem[]): Plan {
   return items.map((item) => ({ ...item, skipped: false }));
-}
-
-/** Lit un plan enregistré (JSON inconnu) ; `null` si le contenu est invalide. */
-export function parsePlan(value: unknown): Plan | null {
-  const result = planSchema.safeParse(value);
-  return result.success ? result.data : null;
 }
 
 export function newPlanItem(exerciseId: string): PlanItem {
