@@ -25,7 +25,9 @@
 }
 
 .check {
+  margin-right: var(--space-1);
   color: var(--color-accent);
+  vertical-align: -3px;
 }
 
 .hint {

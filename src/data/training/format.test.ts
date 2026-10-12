@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  stepText,
   dayFromDate,
   formatClock,
   formatDistance,
@@ -108,5 +109,24 @@ describe('formatSetSummary — portage', () => {
     expect(
       formatSetSummary({ ...base, weight: null, distanceMeters: null }, 'weight_distance'),
     ).toBe('—');
+  });
+});
+
+describe('stepText', () => {
+  it('ajoute et retire', () => {
+    expect(stepText('60', 2.5)).toBe('62,5');
+    expect(stepText('62,5', -2.5)).toBe('60');
+    expect(stepText('', 1)).toBe('1');
+  });
+  it('ne descend pas sous le minimum ni ne dépasse le maximum', () => {
+    expect(stepText('1', -2.5)).toBe('0');
+    expect(stepText('1', -1, 1)).toBe('1');
+    expect(stepText('10', 0.5, 1, 10)).toBe('10');
+  });
+  it('évite les erreurs de virgule flottante', () => {
+    expect(stepText('0,2', 0.1)).toBe('0,3');
+  });
+  it('ne met pas de séparateur de milliers', () => {
+    expect(stepText('1199', 1)).toBe('1200');
   });
 });

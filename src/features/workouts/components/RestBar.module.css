@@ -41,6 +41,12 @@
   min-width: 0;
 }
 
+.icon {
+  margin-right: var(--space-1);
+  color: var(--color-text-muted);
+  vertical-align: -3px;
+}
+
 .caption,
 .late {
   color: var(--color-text-muted);

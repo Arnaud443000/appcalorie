@@ -1,5 +1,6 @@
 import { useId, type KeyboardEvent } from 'react';
-import { stepText } from '../logic';
+import { stepText } from '@/data';
+import { Icon } from './Icon';
 import styles from './NumberStepper.module.css';
 
 export interface NumberStepperProps {
@@ -17,7 +18,10 @@ export interface NumberStepperProps {
   placeholder?: string;
 }
 
-/** Champ numérique pour téléphone : clavier adapté, boutons − et + de 44 px. */
+/**
+ * Champ numérique pour téléphone : clavier adapté, boutons − et + de 44 px.
+ * La valeur est du texte (« 62,5 ») : virgule ou point acceptés, conversion par l'appelant.
+ */
 export function NumberStepper({
   label,
   value,
@@ -53,7 +57,7 @@ export function NumberStepper({
           aria-label={`Moins : ${label}`}
           onClick={() => bump(-step)}
         >
-          −
+          <Icon name="minus" size={20} />
         </button>
         <input
           id={id}
@@ -74,7 +78,7 @@ export function NumberStepper({
           aria-label={`Plus : ${label}`}
           onClick={() => bump(step)}
         >
-          +
+          <Icon name="plus" size={20} />
         </button>
       </div>
     </div>

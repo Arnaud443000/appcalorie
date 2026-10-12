@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { Input } from '@/ui';
+import { Input, NumberStepper } from '@/ui';
 import {
+  formatField,
   formatRepRange,
   type InputType,
   parseDecimal,
   parseRepRange,
   parseWholeNumber,
 } from '@/data';
-import { formatField } from '../logic';
-import { NumberStepper } from './NumberStepper';
 import styles from './TargetEditor.module.css';
 
 export interface TargetEditorProps {

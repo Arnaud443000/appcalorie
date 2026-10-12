@@ -20,6 +20,23 @@ export function parseDecimal(text: string): number | null {
   return Number.isFinite(value) ? value : null;
 }
 
+/** Texte d'un champ numérique : « 62,5 », sans séparateur de milliers. */
+export function formatField(value: number): string {
+  return formatNumber(value).replace(/\s/g, '');
+}
+
+/** Ajoute `delta` au texte d'un champ (vide = 0), sans passer sous `min` ni au-dessus de `max`. */
+export function stepText(
+  text: string,
+  delta: number,
+  min = 0,
+  max = Number.POSITIVE_INFINITY,
+): string {
+  const current = parseDecimal(text) ?? 0;
+  const next = Math.min(max, Math.max(min, Math.round((current + delta) * 100) / 100));
+  return formatField(next);
+}
+
 /** Entier positif saisi au clavier (répétitions, secondes). */
 export function parseWholeNumber(text: string): number | null {
   const value = parseDecimal(text);

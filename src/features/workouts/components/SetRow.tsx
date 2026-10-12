@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Button, Input } from '@/ui';
+import { Button, Icon, Input, NumberStepper } from '@/ui';
 import type { InputType, WeightUnit } from '@/data';
 import {
   distanceInputUnit,
@@ -9,7 +9,6 @@ import {
   type SetForm,
   type SetValues,
 } from '../logic';
-import { NumberStepper } from './NumberStepper';
 import styles from './SetRow.module.css';
 
 export interface SetRowProps {
@@ -94,9 +93,7 @@ export function SetRow({
         <span className={styles.label}>
           {mode === 'saved' && (
             <>
-              <span aria-hidden="true" className={styles.check}>
-                ✓{' '}
-              </span>
+              <Icon name="check" size={18} className={styles.check} />
               <span className="visually-hidden">Enregistrée : </span>
             </>
           )}
@@ -203,6 +200,7 @@ export function SetRow({
             aria-label={`Supprimer : ${label}`}
             onClick={onDelete}
           >
+            <Icon name="trash" size={18} />
             Supprimer
           </Button>
         )}

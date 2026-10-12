@@ -1,4 +1,4 @@
-import { Button } from '@/ui';
+import { Button, Icon } from '@/ui';
 import { formatClock } from '@/data';
 import type { RestTimer } from '../hooks/useRestTimer';
 import styles from './RestBar.module.css';
@@ -23,6 +23,7 @@ export function RestBar({ timer }: { timer: RestTimer }) {
           </p>
         ) : (
           <p className={styles.text}>
+            <Icon name="timer" size={18} className={styles.icon} />
             <span className={styles.caption}>Repos </span>
             <strong className={styles.clock} role="timer" aria-live="off">
               {formatClock(remaining)}

@@ -5,6 +5,7 @@ export { EmptyState, type EmptyStateProps } from './components/EmptyState';
 export { Icon, type IconName, type IconProps } from './components/Icon';
 export { Input, type InputProps } from './components/Input';
 export { ListRow, type ListRowProps } from './components/ListRow';
+export { NumberStepper, type NumberStepperProps } from './components/NumberStepper';
 export { Screen, type ScreenProps } from './components/Screen';
 export { Sheet, type SheetProps } from './components/Sheet';
 export { Stat, type StatProps } from './components/Stat';

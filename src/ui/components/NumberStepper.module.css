@@ -36,10 +36,10 @@
   padding: 0;
   background: transparent;
   border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-accent-2);
-  font-size: var(--text-xl);
-  font-weight: var(--weight-bold);
-  line-height: 1;
   cursor: pointer;
 }
 

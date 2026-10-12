@@ -1,5 +1,5 @@
 import {
-  formatNumber,
+  formatField,
   type InputType,
   kgToUnit,
   parseDecimal,
@@ -54,11 +54,6 @@ const metersPer = (inputType: InputType) => (distanceInputUnit(inputType) === 'k
 
 export function emptyForm(isWarmup = false): SetForm {
   return { weight: '', reps: '', duration: '', distance: '', rpe: '', note: '', isWarmup };
-}
-
-/** Texte d'un champ numérique : « 62,5 », sans séparateur de milliers. */
-export function formatField(value: number): string {
-  return formatNumber(value).replace(/\s/g, '');
 }
 
 export function formFromSet(
@@ -145,16 +140,4 @@ export function toSetValues(form: SetForm, inputType: InputType, unit: WeightUni
 export function weightStep(unit: WeightUnit, dumbbell: boolean): number {
   if (unit === 'lb') return dumbbell ? 2 : 5;
   return dumbbell ? 1 : 2.5;
-}
-
-/** Ajoute `delta` au texte d'un champ (vide = 0), sans passer sous `min`. */
-export function stepText(
-  text: string,
-  delta: number,
-  min = 0,
-  max = Number.POSITIVE_INFINITY,
-): string {
-  const current = parseDecimal(text) ?? 0;
-  const next = Math.min(max, Math.max(min, Math.round((current + delta) * 100) / 100));
-  return formatField(next);
 }

@@ -9,6 +9,7 @@ import {
   EmptyState,
   Input,
   ListRow,
+  NumberStepper,
   Sheet,
   Stat,
   Tabs,
@@ -105,6 +106,30 @@ describe('Composants UI', () => {
     await userEvent.keyboard('{Escape}');
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(opener).toHaveFocus();
+  });
+
+  it('NumberStepper : + et − modifient la valeur et la valident', async () => {
+    const user = userEvent.setup();
+    const committed = vi.fn();
+    function Demo() {
+      const [value, setValue] = useState('60');
+      return (
+        <NumberStepper
+          label="Charge (kg)"
+          value={value}
+          step={2.5}
+          onChange={setValue}
+          onCommit={committed}
+        />
+      );
+    }
+    render(<Demo />);
+    await user.click(screen.getByRole('button', { name: 'Plus : Charge (kg)' }));
+    expect(screen.getByLabelText('Charge (kg)')).toHaveValue('62,5');
+    expect(committed).toHaveBeenLastCalledWith('62,5');
+    await user.click(screen.getByRole('button', { name: 'Moins : Charge (kg)' }));
+    await user.click(screen.getByRole('button', { name: 'Moins : Charge (kg)' }));
+    expect(screen.getByLabelText('Charge (kg)')).toHaveValue('57,5');
   });
 
   it('Toast affiche un message puis le retire', () => {
