@@ -18,5 +18,10 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "eslint.config.js", "src/test/no-hardcoded-colors.test.ts"]
+  "include": [
+    "vite.config.ts",
+    "eslint.config.js",
+    "src/test/no-hardcoded-colors.test.ts",
+    "src/test/lot-boundaries.test.ts"
+  ]
 }
