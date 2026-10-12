@@ -1,0 +1,64 @@
+.bar {
+  position: fixed;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: calc(var(--tabbar-height) + var(--safe-bottom) + var(--space-2));
+  z-index: var(--z-tabbar);
+  overflow: hidden;
+  background: var(--color-surface-2);
+  border: var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-line);
+  transform-origin: left center;
+  transition: transform 250ms linear;
+}
+
+.done {
+  background: var(--color-accent);
+  opacity: 0.25;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  padding: var(--space-1) var(--space-2);
+}
+
+.text {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.caption,
+.late {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.clock {
+  font-family: var(--font-title);
+  font-size: var(--text-xl);
+  font-variant-numeric: tabular-nums;
+}
+
+.buttons {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.btn {
+  padding: 0 var(--space-3);
+  font-size: var(--text-md);
+}
