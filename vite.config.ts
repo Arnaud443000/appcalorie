@@ -23,6 +23,20 @@ const injectThemeColor: Plugin = {
 
 export default defineConfig({
   base,
+  build: {
+    rolldownOptions: {
+      output: {
+        // Bibliothèques séparées du code de l'app : mieux mises en cache entre deux mises à jour.
+        codeSplitting: {
+          groups: [
+            { name: 'react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ },
+            { name: 'router', test: /node_modules[\\/]react-router/ },
+            { name: 'data', test: /node_modules[\\/](dexie|dexie-react-hooks|zod)[\\/]/ },
+          ],
+        },
+      },
+    },
+  },
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },

@@ -1,7 +1,10 @@
 .date {
   margin-top: calc(-1 * var(--space-3));
   color: var(--color-text-muted);
-  text-transform: capitalize;
+}
+
+.date::first-letter {
+  text-transform: uppercase;
 }
 
 .stats {
