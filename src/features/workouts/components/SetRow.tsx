@@ -150,14 +150,14 @@ export function SetRow({
       {detailsOpen && (
         <div className={styles.details}>
           <NumberStepper
-            label="Effort ressenti (RPE, 1 à 10)"
+            label="Effort (RPE)"
             value={form.rpe}
             step={0.5}
             min={1}
             max={10}
             onChange={(rpe) => setForm((f) => ({ ...f, rpe }))}
             onCommit={(rpe) => commit({ rpe })}
-            placeholder="Facultatif"
+            placeholder="1 à 10"
           />
           <Input
             label="Note"
