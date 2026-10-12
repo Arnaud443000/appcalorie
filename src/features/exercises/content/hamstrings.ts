@@ -39,7 +39,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
     equipment: ['machine'],
     primaryMuscles: ['hamstrings'],
     secondaryMuscles: ['calves'],
-    movementPattern: 'elbow_flexion',
+    movementPattern: 'leg_flexion',
     level: 'beginner',
     inputType: 'weight_reps',
     steps: [
@@ -67,7 +67,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
     equipment: ['machine'],
     primaryMuscles: ['hamstrings'],
     secondaryMuscles: ['calves'],
-    movementPattern: 'elbow_flexion',
+    movementPattern: 'leg_flexion',
     level: 'beginner',
     inputType: 'weight_reps',
     steps: [
@@ -125,7 +125,7 @@ export const HAMSTRINGS_SHEETS: ExerciseSheet[] = [
     equipment: ['bodyweight'],
     primaryMuscles: ['hamstrings'],
     secondaryMuscles: ['glutes', 'calves'],
-    movementPattern: 'elbow_flexion',
+    movementPattern: 'leg_flexion',
     level: 'advanced',
     inputType: 'reps',
     steps: [

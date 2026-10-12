@@ -95,3 +95,18 @@ describe('jours', () => {
     expect(localDay(new Date(2026, 0, 2, 0, 5).toISOString())).toBe('2026-01-02');
   });
 });
+
+describe('formatSetSummary — portage', () => {
+  it('affiche la charge et la distance', () => {
+    const base = { reps: null, durationSeconds: null };
+    expect(formatSetSummary({ ...base, weight: 32, distanceMeters: 40 }, 'weight_distance')).toBe(
+      '32 kg sur 40 m',
+    );
+    expect(formatSetSummary({ ...base, weight: null, distanceMeters: 40 }, 'weight_distance')).toBe(
+      '40 m',
+    );
+    expect(
+      formatSetSummary({ ...base, weight: null, distanceMeters: null }, 'weight_distance'),
+    ).toBe('—');
+  });
+});

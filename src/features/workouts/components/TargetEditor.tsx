@@ -21,10 +21,10 @@ export interface TargetEditorProps {
 /** Fourchette de répétitions (ou durée, ou texte libre) selon le type de saisie de l'exercice. */
 export function TargetEditor({ inputType, value, onChange }: TargetEditorProps) {
   if (inputType === 'duration') return <DurationTarget value={value} onChange={onChange} />;
-  if (inputType === 'distance') {
+  if (inputType === 'distance' || inputType === 'weight_distance') {
     return (
       <Input
-        label="Objectif (ex. 5 km)"
+        label={inputType === 'distance' ? 'Objectif (ex. 5 km)' : 'Objectif (ex. 40 m)'}
         value={value}
         maxLength={40}
         onChange={(event) => onChange(event.target.value)}

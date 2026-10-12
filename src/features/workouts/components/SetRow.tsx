@@ -1,7 +1,14 @@
 import { useRef, useState } from 'react';
 import { Button, Input } from '@/ui';
 import type { InputType, WeightUnit } from '@/data';
-import { FIELDS_BY_INPUT, toSetValues, weightStep, type SetForm, type SetValues } from '../logic';
+import {
+  distanceInputUnit,
+  FIELDS_BY_INPUT,
+  toSetValues,
+  weightStep,
+  type SetForm,
+  type SetValues,
+} from '../logic';
 import { NumberStepper } from './NumberStepper';
 import styles from './SetRow.module.css';
 
@@ -121,11 +128,11 @@ export function SetRow({
         )}
         {fields.distance && (
           <NumberStepper
-            label="Distance (km)"
-            value={form.distanceKm}
-            step={0.1}
-            onChange={(distanceKm) => setForm((f) => ({ ...f, distanceKm }))}
-            onCommit={(distanceKm) => commit({ distanceKm })}
+            label={`Distance (${distanceInputUnit(inputType)})`}
+            value={form.distance}
+            step={distanceInputUnit(inputType) === 'km' ? 0.1 : 5}
+            onChange={(distance) => setForm((f) => ({ ...f, distance }))}
+            onCommit={(distance) => commit({ distance })}
           />
         )}
         {fields.duration && (

@@ -68,7 +68,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
     secondaryMuscles: ['abs', 'glutes', 'lower_back', 'quads'],
     movementPattern: 'core',
     level: 'beginner',
-    inputType: 'distance',
+    inputType: 'weight_distance',
     steps: [
       'Ramasse une kettlebell lourde dans chaque main en fléchissant les genoux, dos droit.',
       'Redresse-toi, épaules basses et en arrière, abdos serrés.',
@@ -97,7 +97,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
     secondaryMuscles: ['calves', 'shoulders', 'abs', 'triceps'],
     movementPattern: 'squat',
     level: 'intermediate',
-    inputType: 'distance',
+    inputType: 'weight_distance',
     steps: [
       'Charge le traîneau, saisis les poignées bras tendus, buste penché à 45°.',
       'Garde le dos plat et les abdos serrés.',
@@ -124,7 +124,7 @@ export const FULLBODY_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['shoulders'],
     secondaryMuscles: ['abs', 'biceps', 'forearms', 'quads'],
-    movementPattern: 'arm_raise',
+    movementPattern: 'cardio',
     level: 'intermediate',
     inputType: 'duration',
     steps: [

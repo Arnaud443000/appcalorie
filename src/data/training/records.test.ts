@@ -166,3 +166,20 @@ describe('detectRecords', () => {
     ).toEqual([]);
   });
 });
+
+describe('portage (charge + distance)', () => {
+  it('retient la charge portée et la distance parcourue, sans volume ni 1RM', () => {
+    const records = exerciseRecords(
+      [
+        set('a', { weight: 24, reps: null, distanceMeters: 40 }),
+        set('b', { weight: 32, reps: null, distanceMeters: 30 }),
+        set('b', { weight: 40, reps: null, distanceMeters: null }),
+      ],
+      'weight_distance',
+    );
+    expect(records.maxWeight?.value).toBe(32);
+    expect(records.maxDistance?.value).toBe(40);
+    expect(records.maxVolume).toBeUndefined();
+    expect(records.oneRepMax).toBeUndefined();
+  });
+});

@@ -25,7 +25,8 @@ export interface SetForm {
   weight: string;
   reps: string;
   duration: string;
-  distanceKm: string;
+  /** Distance dans l'unité de saisie de l'exercice (voir `distanceInputUnit`). */
+  distance: string;
   rpe: string;
   note: string;
   isWarmup: boolean;
@@ -41,10 +42,18 @@ export const FIELDS_BY_INPUT: Record<
   reps: { weight: false, reps: true, duration: false, distance: false },
   duration: { weight: false, reps: false, duration: true, distance: false },
   distance: { weight: false, reps: false, duration: true, distance: true },
+  weight_distance: { weight: true, reps: false, duration: false, distance: true },
 };
 
+/** Unité de saisie de la distance : km pour le cardio, m pour un portage (charge + distance). */
+export function distanceInputUnit(inputType: InputType): 'km' | 'm' {
+  return inputType === 'weight_distance' ? 'm' : 'km';
+}
+
+const metersPer = (inputType: InputType) => (distanceInputUnit(inputType) === 'km' ? 1000 : 1);
+
 export function emptyForm(isWarmup = false): SetForm {
-  return { weight: '', reps: '', duration: '', distanceKm: '', rpe: '', note: '', isWarmup };
+  return { weight: '', reps: '', duration: '', distance: '', rpe: '', note: '', isWarmup };
 }
 
 /** Texte d'un champ numérique : « 62,5 », sans séparateur de milliers. */
@@ -60,12 +69,14 @@ export function formFromSet(
     >
   >,
   unit: WeightUnit,
+  inputType: InputType = 'weight_reps',
 ): SetForm {
   return {
     weight: set.weight != null ? formatField(kgToUnit(set.weight, unit)) : '',
     reps: set.reps != null ? String(set.reps) : '',
     duration: set.durationSeconds != null ? String(Math.round(set.durationSeconds)) : '',
-    distanceKm: set.distanceMeters != null ? formatField(set.distanceMeters / 1000) : '',
+    distance:
+      set.distanceMeters != null ? formatField(set.distanceMeters / metersPer(inputType)) : '',
     rpe: set.rpe != null ? formatField(set.rpe) : '',
     note: set.note ?? '',
     isWarmup: set.isWarmup ?? false,
@@ -87,7 +98,11 @@ export function toSetValues(form: SetForm, inputType: InputType, unit: WeightUni
   }
 
   const weightValue = fields.weight ? parseDecimal(form.weight) : null;
-  if (inputType === 'weight_reps' && form.weight.trim() !== '' && weightValue === null) {
+  if (
+    (inputType === 'weight_reps' || inputType === 'weight_distance') &&
+    form.weight.trim() !== '' &&
+    weightValue === null
+  ) {
     return { ok: false, error: 'La charge doit être un nombre.' };
   }
 
@@ -96,9 +111,15 @@ export function toSetValues(form: SetForm, inputType: InputType, unit: WeightUni
     return { ok: false, error: 'Indique la durée en secondes.' };
   }
 
-  const km = fields.distance ? parseDecimal(form.distanceKm) : null;
-  if (inputType === 'distance' && (km === null || km <= 0)) {
-    return { ok: false, error: 'Indique la distance en kilomètres.' };
+  const distance = fields.distance ? parseDecimal(form.distance) : null;
+  if (fields.distance && (distance === null || distance <= 0)) {
+    return {
+      ok: false,
+      error:
+        distanceInputUnit(inputType) === 'km'
+          ? 'Indique la distance en kilomètres.'
+          : 'Indique la distance en mètres.',
+    };
   }
 
   const rpe = parseDecimal(form.rpe);
@@ -112,7 +133,7 @@ export function toSetValues(form: SetForm, inputType: InputType, unit: WeightUni
       weight: weightValue === null ? null : unitToKg(weightValue, unit),
       reps,
       durationSeconds: duration,
-      distanceMeters: km === null ? null : Math.round(km * 1000),
+      distanceMeters: distance === null ? null : Math.round(distance * metersPer(inputType)),
       rpe,
       isWarmup: form.isWarmup,
       note: form.note.trim(),

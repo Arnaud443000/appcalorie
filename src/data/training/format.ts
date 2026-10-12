@@ -66,7 +66,7 @@ export function formatDistance(meters: number): string {
   return meters >= 1000 ? `${formatNumber(meters / 1000)} km` : `${formatNumber(meters)} m`;
 }
 
-/** Résumé court d'une série : « 60 kg × 8 », « 12 reps », « 45 s », « 5 km en 25 min ». */
+/** Résumé court d'une série : « 60 kg × 8 », « 12 reps », « 45 s », « 5 km en 25 min », « 32 kg sur 40 m ». */
 export function formatSetSummary(
   set: Pick<SetLike, 'weight' | 'reps' | 'durationSeconds' | 'distanceMeters'>,
   inputType: InputType,
@@ -93,6 +93,14 @@ export function formatSetSummary(
       if (set.distanceMeters != null) parts.push(formatDistance(set.distanceMeters));
       if (set.durationSeconds != null) parts.push(formatDuration(set.durationSeconds));
       return parts.length === 0 ? '—' : parts.join(' en ');
+    }
+    case 'weight_distance': {
+      if (set.distanceMeters == null)
+        return set.weight != null ? formatWeight(set.weight, unit) : '—';
+      const distance = formatDistance(set.distanceMeters);
+      return set.weight != null && set.weight > 0
+        ? `${formatWeight(set.weight, unit)} sur ${distance}`
+        : distance;
     }
   }
 }

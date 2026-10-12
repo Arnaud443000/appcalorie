@@ -68,7 +68,7 @@ export const FOREARMS_SHEETS: ExerciseSheet[] = [
     secondaryMuscles: ['traps', 'abs'],
     movementPattern: 'core',
     level: 'beginner',
-    inputType: 'distance',
+    inputType: 'weight_distance',
     steps: [
       'Prends un haltère lourd dans chaque main, bras le long du corps.',
       'Redresse-toi, épaules basses et en arrière, abdos serrés.',

@@ -32,6 +32,7 @@ export function defaultTarget(inputType: InputType): string {
     case 'duration':
       return '45 s';
     case 'distance':
+    case 'weight_distance':
       return '';
   }
 }

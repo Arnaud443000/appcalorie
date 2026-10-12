@@ -68,12 +68,12 @@ describe('toSetValues', () => {
 
   it('distance en km → mètres, durée facultative', () => {
     expect(
-      toSetValues(form({ distanceKm: '5,2', duration: '1500' }), 'distance', 'kg'),
+      toSetValues(form({ distance: '5,2', duration: '1500' }), 'distance', 'kg'),
     ).toMatchObject({
       ok: true,
       values: { distanceMeters: 5200, durationSeconds: 1500 },
     });
-    expect(toSetValues(form({ distanceKm: '1' }), 'distance', 'kg')).toMatchObject({
+    expect(toSetValues(form({ distance: '1' }), 'distance', 'kg')).toMatchObject({
       ok: true,
       values: { distanceMeters: 1000, durationSeconds: null },
     });
@@ -114,7 +114,7 @@ describe('formFromSet', () => {
       weight: '62,5',
       reps: '8',
       duration: '',
-      distanceKm: '5,2',
+      distance: '5,2',
       rpe: '7,5',
       note: 'ok',
       isWarmup: true,
@@ -153,5 +153,25 @@ describe('weightStep', () => {
     expect(weightStep('kg', true)).toBe(1);
     expect(weightStep('lb', false)).toBe(5);
     expect(weightStep('lb', true)).toBe(2);
+  });
+});
+
+describe('portage (charge + distance)', () => {
+  it('saisit la charge et la distance en mètres', () => {
+    expect(
+      toSetValues(form({ weight: '32', distance: '40' }), 'weight_distance', 'kg'),
+    ).toMatchObject({ ok: true, values: { weight: 32, distanceMeters: 40, reps: null } });
+  });
+
+  it('exige une distance', () => {
+    expect(toSetValues(form({ weight: '32' }), 'weight_distance', 'kg')).toEqual({
+      ok: false,
+      error: 'Indique la distance en mètres.',
+    });
+  });
+
+  it('relit une série en mètres pour un portage, en km pour le cardio', () => {
+    expect(formFromSet({ distanceMeters: 40 }, 'kg', 'weight_distance').distance).toBe('40');
+    expect(formFromSet({ distanceMeters: 5200 }, 'kg', 'distance').distance).toBe('5,2');
   });
 });

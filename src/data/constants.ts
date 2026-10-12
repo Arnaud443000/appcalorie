@@ -38,6 +38,9 @@ export const MOVEMENT_PATTERNS = [
   { id: 'arm_raise', label: 'Élévation de bras' },
   { id: 'core', label: 'Gainage / abdos' },
   { id: 'calves', label: 'Mollets' },
+  { id: 'cardio', label: 'Cardio' },
+  { id: 'leg_flexion', label: 'Flexion de jambe' },
+  { id: 'leg_extension', label: 'Extension de jambe' },
 ] as const;
 
 export type MovementPatternId = (typeof MOVEMENT_PATTERNS)[number]['id'];
@@ -70,6 +73,7 @@ export const INPUT_TYPES = [
   { id: 'duration', label: 'Durée' },
   { id: 'distance', label: 'Distance' },
   { id: 'bodyweight_load', label: 'Poids du corps + lest' },
+  { id: 'weight_distance', label: 'Charge + distance' },
 ] as const;
 
 export type InputTypeId = (typeof INPUT_TYPES)[number]['id'];

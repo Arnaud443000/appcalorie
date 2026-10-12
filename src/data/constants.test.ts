@@ -9,11 +9,11 @@ import { DEMO_EXERCISES, seedDemoData } from './seed';
 const uniqueIds = (list: readonly { id: string }[]) => new Set(list.map((i) => i.id)).size;
 
 describe('Constantes partagées', () => {
-  it('contient 15 groupes musculaires, 12 schémas de mouvement, 8 matériels, sans doublon', () => {
+  it('contient 15 groupes musculaires, 15 schémas de mouvement, 8 matériels, sans doublon', () => {
     expect(MUSCLE_GROUPS).toHaveLength(15);
     expect(uniqueIds(MUSCLE_GROUPS)).toBe(15);
-    expect(MOVEMENT_PATTERNS).toHaveLength(12);
-    expect(uniqueIds(MOVEMENT_PATTERNS)).toBe(12);
+    expect(MOVEMENT_PATTERNS).toHaveLength(15);
+    expect(uniqueIds(MOVEMENT_PATTERNS)).toBe(15);
     expect(EQUIPMENT).toHaveLength(8);
     expect(uniqueIds(EQUIPMENT)).toBe(8);
   });

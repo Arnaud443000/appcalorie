@@ -22,6 +22,8 @@ export const RECORD_KINDS_BY_INPUT: Record<InputType, readonly RecordKind[]> = {
   reps: ['maxReps'],
   duration: ['maxDuration'],
   distance: ['maxDistance'],
+  // Portage (charge + distance) : la charge portée et la distance parcourue.
+  weight_distance: ['maxWeight', 'maxDistance'],
 };
 
 export interface RecordValue {
@@ -67,6 +69,12 @@ function candidates(set: SetLike, inputType: InputType): Partial<Record<RecordKi
       break;
     case 'distance':
       if (positive(set.distanceMeters)) out.maxDistance = set.distanceMeters;
+      break;
+    case 'weight_distance':
+      if (positive(set.distanceMeters)) {
+        out.maxDistance = set.distanceMeters;
+        if (positive(set.weight)) out.maxWeight = set.weight;
+      }
       break;
   }
   return out;

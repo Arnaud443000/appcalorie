@@ -113,7 +113,7 @@ export function ExerciseBlockView({
 
   const prefill = prefillNextSet(last, working, false);
   const draftForm = {
-    ...(prefill ? formFromSet(prefill, unit) : emptyForm()),
+    ...(prefill ? formFromSet(prefill, unit, inputType) : emptyForm()),
   };
   if (appliedWeight !== null)
     draftForm.weight = formFromSet({ weight: appliedWeight }, unit).weight;
@@ -209,7 +209,7 @@ export function ExerciseBlockView({
             inputType={inputType}
             unit={unit}
             dumbbell={dumbbell}
-            initial={formFromSet(set, unit)}
+            initial={formFromSet(set, unit, inputType)}
             hint={hintFor(set.isWarmup, rank)}
             onSave={(values) => onSaveSet(set.id, values)}
             onDelete={() => onDeleteSet(set.id)}

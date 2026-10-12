@@ -8,7 +8,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['quads', 'calves'],
     secondaryMuscles: ['hamstrings', 'glutes', 'abs'],
-    movementPattern: 'lunge',
+    movementPattern: 'cardio',
     level: 'beginner',
     inputType: 'distance',
     steps: [
@@ -38,7 +38,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['quads'],
     secondaryMuscles: ['glutes', 'hamstrings', 'calves'],
-    movementPattern: 'squat',
+    movementPattern: 'cardio',
     level: 'beginner',
     inputType: 'distance',
     steps: [
@@ -67,7 +67,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['lats', 'quads'],
     secondaryMuscles: ['glutes', 'hamstrings', 'biceps', 'lower_back', 'abs'],
-    movementPattern: 'horizontal_pull',
+    movementPattern: 'cardio',
     level: 'intermediate',
     inputType: 'distance',
     steps: [
@@ -96,7 +96,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['calves'],
     secondaryMuscles: ['quads', 'shoulders', 'forearms'],
-    movementPattern: 'calves',
+    movementPattern: 'cardio',
     level: 'intermediate',
     inputType: 'duration',
     steps: [
@@ -125,7 +125,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['glutes', 'calves'],
     secondaryMuscles: ['quads', 'hamstrings'],
-    movementPattern: 'lunge',
+    movementPattern: 'cardio',
     level: 'beginner',
     inputType: 'duration',
     steps: [
@@ -154,7 +154,7 @@ export const CARDIO_SHEETS: ExerciseSheet[] = [
     equipment: ['cardio'],
     primaryMuscles: ['quads'],
     secondaryMuscles: ['glutes', 'hamstrings', 'calves'],
-    movementPattern: 'lunge',
+    movementPattern: 'cardio',
     level: 'beginner',
     inputType: 'duration',
     steps: [

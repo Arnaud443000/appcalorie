@@ -157,7 +157,7 @@ export const QUADS_SHEETS: ExerciseSheet[] = [
     equipment: ['machine'],
     primaryMuscles: ['quads'],
     secondaryMuscles: [],
-    movementPattern: 'squat',
+    movementPattern: 'leg_extension',
     level: 'beginner',
     inputType: 'weight_reps',
     steps: [
