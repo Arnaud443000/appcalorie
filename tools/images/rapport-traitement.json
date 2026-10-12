@@ -1,0 +1,409 @@
+[
+  {
+    "slug": "barre-au-front",
+    "warnings": [],
+    "shift_px": [
+      -0.08,
+      -0.89
+    ],
+    "scale": 1.0005,
+    "ecc": 0.998,
+    "partie_identique": 0.7,
+    "files": [
+      "barre-au-front_depart.webp",
+      "barre-au-front_fin.webp"
+    ]
+  },
+  {
+    "slug": "crunch-poulie",
+    "warnings": [],
+    "shift_px": [
+      -0.16,
+      -0.12
+    ],
+    "scale": 0.9998,
+    "ecc": 0.996,
+    "partie_identique": 0.63,
+    "files": [
+      "crunch-poulie_depart.webp",
+      "crunch-poulie_fin.webp"
+    ]
+  },
+  {
+    "slug": "curl-barre-ez",
+    "warnings": [],
+    "shift_px": [
+      -0.33,
+      -1.04
+    ],
+    "scale": 0.9998,
+    "ecc": 0.991,
+    "partie_identique": 0.522,
+    "files": [
+      "curl-barre-ez_depart.webp",
+      "curl-barre-ez_fin.webp"
+    ]
+  },
+  {
+    "slug": "curl-marteau",
+    "warnings": [],
+    "shift_px": [
+      0.52,
+      -1.08
+    ],
+    "scale": 0.9998,
+    "ecc": 0.993,
+    "partie_identique": 0.648,
+    "files": [
+      "curl-marteau_depart.webp",
+      "curl-marteau_fin.webp"
+    ]
+  },
+  {
+    "slug": "developpe-couche-barre",
+    "warnings": [],
+    "shift_px": [
+      -0.51,
+      0.55
+    ],
+    "scale": 0.9997,
+    "ecc": 0.997,
+    "partie_identique": 0.63,
+    "files": [
+      "developpe-couche-barre_depart.webp",
+      "developpe-couche-barre_fin.webp"
+    ]
+  },
+  {
+    "slug": "developpe-incline-halteres",
+    "warnings": [],
+    "shift_px": [
+      -0.54,
+      -0.15
+    ],
+    "scale": 1.0004,
+    "ecc": 0.996,
+    "partie_identique": 0.718,
+    "files": [
+      "developpe-incline-halteres_depart.webp",
+      "developpe-incline-halteres_fin.webp"
+    ]
+  },
+  {
+    "slug": "developpe-militaire-halteres-assis",
+    "warnings": [
+      "Cadrage décalé de 21/47 px entre les deux images (recalé).",
+      "Taille du personnage différente de 3.1 % entre les deux images (recalée).",
+      "Seulement 29 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé.",
+      "Recalage peu fiable : à regénérer avec le même cadrage."
+    ],
+    "shift_px": [
+      21.13,
+      47.15
+    ],
+    "scale": 0.969,
+    "ecc": 0.622,
+    "partie_identique": 0.285,
+    "files": [
+      "developpe-militaire-halteres-assis_depart.webp",
+      "developpe-militaire-halteres-assis_fin.webp"
+    ]
+  },
+  {
+    "slug": "ecarte-poulie-vis-a-vis",
+    "warnings": [],
+    "shift_px": [
+      0.24,
+      -0.19
+    ],
+    "scale": 0.9998,
+    "ecc": 0.996,
+    "partie_identique": 0.702,
+    "files": [
+      "ecarte-poulie-vis-a-vis_depart.webp",
+      "ecarte-poulie-vis-a-vis_fin.webp"
+    ]
+  },
+  {
+    "slug": "elevations-laterales-halteres",
+    "warnings": [
+      "Cadrage décalé de 84/166 px entre les deux images (recalé).",
+      "Taille du personnage différente de 17.4 % entre les deux images (recalée).",
+      "Recalage peu fiable : à regénérer avec le même cadrage."
+    ],
+    "shift_px": [
+      83.81,
+      166.36
+    ],
+    "scale": 0.8261,
+    "ecc": 0.789,
+    "partie_identique": 0.489,
+    "files": [
+      "elevations-laterales-halteres_depart.webp",
+      "elevations-laterales-halteres_fin.webp"
+    ]
+  },
+  {
+    "slug": "extension-poulie-haute-corde",
+    "warnings": [],
+    "shift_px": [
+      -0.9,
+      -0.62
+    ],
+    "scale": 1.0007,
+    "ecc": 0.997,
+    "partie_identique": 0.797,
+    "files": [
+      "extension-poulie-haute-corde_depart.webp",
+      "extension-poulie-haute-corde_fin.webp"
+    ]
+  },
+  {
+    "slug": "face-pull",
+    "warnings": [],
+    "shift_px": [
+      0.36,
+      -1.17
+    ],
+    "scale": 1.0001,
+    "ecc": 0.994,
+    "partie_identique": 0.657,
+    "files": [
+      "face-pull_depart.webp",
+      "face-pull_fin.webp"
+    ]
+  },
+  {
+    "slug": "fente-bulgare",
+    "warnings": [
+      "Seulement 33 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé."
+    ],
+    "shift_px": [
+      1.68,
+      0.52
+    ],
+    "scale": 0.9987,
+    "ecc": 0.992,
+    "partie_identique": 0.331,
+    "files": [
+      "fente-bulgare_depart.webp",
+      "fente-bulgare_fin.webp"
+    ]
+  },
+  {
+    "slug": "gainage-planche",
+    "warnings": [],
+    "files": [
+      "gainage-planche_unique.webp"
+    ]
+  },
+  {
+    "slug": "hip-thrust-barre",
+    "warnings": [
+      "Seulement 36 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé."
+    ],
+    "shift_px": [
+      -0.19,
+      0.12
+    ],
+    "scale": 0.9995,
+    "ecc": 0.991,
+    "partie_identique": 0.357,
+    "files": [
+      "hip-thrust-barre_depart.webp",
+      "hip-thrust-barre_fin.webp"
+    ]
+  },
+  {
+    "slug": "leg-curl-couche",
+    "warnings": [],
+    "shift_px": [
+      -0.2,
+      -0.35
+    ],
+    "scale": 1.0003,
+    "ecc": 0.996,
+    "partie_identique": 0.73,
+    "files": [
+      "leg-curl-couche_depart.webp",
+      "leg-curl-couche_fin.webp"
+    ]
+  },
+  {
+    "slug": "leg-extension",
+    "warnings": [],
+    "shift_px": [
+      -0.22,
+      -0.24
+    ],
+    "scale": 1.0001,
+    "ecc": 0.997,
+    "partie_identique": 0.703,
+    "files": [
+      "leg-extension_depart.webp",
+      "leg-extension_fin.webp"
+    ]
+  },
+  {
+    "slug": "mollets-debout-machine",
+    "warnings": [],
+    "shift_px": [
+      0.26,
+      -2.35
+    ],
+    "scale": 1.0002,
+    "ecc": 0.995,
+    "partie_identique": 0.8,
+    "files": [
+      "mollets-debout-machine_depart.webp",
+      "mollets-debout-machine_fin.webp"
+    ]
+  },
+  {
+    "slug": "oiseau-halteres",
+    "warnings": [],
+    "shift_px": [
+      4.82,
+      -0.76
+    ],
+    "scale": 0.9976,
+    "ecc": 0.979,
+    "partie_identique": 0.464,
+    "files": [
+      "oiseau-halteres_depart.webp",
+      "oiseau-halteres_fin.webp"
+    ]
+  },
+  {
+    "slug": "presse-a-cuisses",
+    "warnings": [],
+    "shift_px": [
+      -0.15,
+      -0.57
+    ],
+    "scale": 0.9996,
+    "ecc": 0.995,
+    "partie_identique": 0.546,
+    "files": [
+      "presse-a-cuisses_depart.webp",
+      "presse-a-cuisses_fin.webp"
+    ]
+  },
+  {
+    "slug": "rowing-barre",
+    "warnings": [
+      "Cadrage décalé de 0/-9 px entre les deux images (recalé).",
+      "Seulement 43 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé."
+    ],
+    "shift_px": [
+      0.24,
+      -8.75
+    ],
+    "scale": 1.0088,
+    "ecc": 0.958,
+    "partie_identique": 0.435,
+    "files": [
+      "rowing-barre_depart.webp",
+      "rowing-barre_fin.webp"
+    ]
+  },
+  {
+    "slug": "rowing-haltere-un-bras",
+    "warnings": [],
+    "shift_px": [
+      0.07,
+      -0.99
+    ],
+    "scale": 1.0008,
+    "ecc": 0.994,
+    "partie_identique": 0.688,
+    "files": [
+      "rowing-haltere-un-bras_depart.webp",
+      "rowing-haltere-un-bras_fin.webp"
+    ]
+  },
+  {
+    "slug": "rowing-poulie-basse",
+    "warnings": [],
+    "shift_px": [
+      -0.01,
+      -1.29
+    ],
+    "scale": 1.0004,
+    "ecc": 0.997,
+    "partie_identique": 0.657,
+    "files": [
+      "rowing-poulie-basse_depart.webp",
+      "rowing-poulie-basse_fin.webp"
+    ]
+  },
+  {
+    "slug": "souleve-de-terre-roumain",
+    "warnings": [
+      "Cadrage décalé de 24/74 px entre les deux images (recalé).",
+      "Taille du personnage différente de 4.5 % entre les deux images (recalée).",
+      "Seulement 20 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé."
+    ],
+    "shift_px": [
+      23.99,
+      73.98
+    ],
+    "scale": 0.9549,
+    "ecc": 0.906,
+    "partie_identique": 0.204,
+    "files": [
+      "souleve-de-terre-roumain_depart.webp",
+      "souleve-de-terre-roumain_fin.webp"
+    ]
+  },
+  {
+    "slug": "squat-barre",
+    "warnings": [
+      "Cadrage décalé de 10/6 px entre les deux images (recalé).",
+      "Seulement 13 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé."
+    ],
+    "shift_px": [
+      9.58,
+      6.27
+    ],
+    "scale": 0.9912,
+    "ecc": 0.956,
+    "partie_identique": 0.129,
+    "files": [
+      "squat-barre_depart.webp",
+      "squat-barre_fin.webp"
+    ]
+  },
+  {
+    "slug": "tirage-vertical-prise-serree",
+    "warnings": [],
+    "shift_px": [
+      -1.2,
+      0.1
+    ],
+    "scale": 1.0006,
+    "ecc": 0.996,
+    "partie_identique": 0.636,
+    "files": [
+      "tirage-vertical-prise-serree_depart.webp",
+      "tirage-vertical-prise-serree_fin.webp"
+    ]
+  },
+  {
+    "slug": "tractions-pronation",
+    "warnings": [
+      "Seulement 36 % de l'image reste identique entre les deux : le décor ou le personnage a trop changé."
+    ],
+    "shift_px": [
+      0.25,
+      0.44
+    ],
+    "scale": 0.9996,
+    "ecc": 0.994,
+    "partie_identique": 0.362,
+    "files": [
+      "tractions-pronation_depart.webp",
+      "tractions-pronation_fin.webp"
+    ]
+  }
+]
