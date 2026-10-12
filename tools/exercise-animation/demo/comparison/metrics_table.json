@@ -1,0 +1,62 @@
+[
+ {
+  "key": "rife_original",
+  "label": "RIFE seul (essai d'origine, 30 i/s)",
+  "best": false,
+  "flicker": "0.28",
+  "changing": "2.16 %",
+  "dark": "0.88",
+  "sharp": "0.47",
+  "seam": "0.23"
+ },
+ {
+  "key": "rife",
+  "label": "RIFE seul, nouveau rythme",
+  "best": false,
+  "flicker": "0.19",
+  "changing": "1.43 %",
+  "dark": "0.85",
+  "sharp": "0.46",
+  "seam": "0.00"
+ },
+ {
+  "key": "layered",
+  "label": "A · Calques + RIFE",
+  "best": false,
+  "flicker": "0.00",
+  "changing": "0.00 %",
+  "dark": "0.85",
+  "sharp": "0.46",
+  "seam": "0.00"
+ },
+ {
+  "key": "puppet",
+  "label": "B · Marionnette (1 source)",
+  "best": true,
+  "flicker": "0.00",
+  "changing": "0.00 %",
+  "dark": "1.00",
+  "sharp": "0.81",
+  "seam": "0.00"
+ },
+ {
+  "key": "puppet_dual",
+  "label": "B' · Marionnette + fondu A/B",
+  "best": false,
+  "flicker": "0.00",
+  "changing": "0.00 %",
+  "dark": "1.00",
+  "sharp": "0.81",
+  "seam": "0.00"
+ },
+ {
+  "key": "hybrid",
+  "label": "C · Hybride marionnette + RIFE",
+  "best": false,
+  "flicker": "0.00",
+  "changing": "0.00 %",
+  "dark": "1.00",
+  "sharp": "0.81",
+  "seam": "0.00"
+ }
+]

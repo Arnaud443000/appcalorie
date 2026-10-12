@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Développé couché animé</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one centred column, the animation first, controls directly under it, evidence below. */
+:root {
+  --bg: #f4f5f6;
+  --surface: #ffffff;
+  --ink: #1d2227;
+  --muted: #5d666f;
+  --line: #d9dde1;
+  --accent: #c43c35;      /* pectoralis red from the illustration */
+  --accent-soft: #f3d3cf; /* triceps / front deltoid pink */
+  --display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15181b; --surface: #1e2226; --ink: #e8eaec; --muted: #9aa3ab; --line: #31373d;
+    --accent: #ef6a60; --accent-soft: #4a2c2a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15181b; --surface: #1e2226; --ink: #e8eaec; --muted: #9aa3ab; --line: #31373d;
+  --accent: #ef6a60; --accent-soft: #4a2c2a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body); }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 48px; display: grid; gap: 28px; }
+header { display: grid; gap: 4px; }
+.eyebrow { font: 600 13px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 700 clamp(30px, 6vw, 46px)/1.05 var(--display); margin: 0; text-wrap: balance; letter-spacing: .01em; }
+h2 { font: 600 26px/1.15 var(--display); margin: 0 0 10px; text-wrap: balance; }
+p { margin: 0; max-width: 65ch; }
+.lead { color: var(--muted); }
+.stage { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.stage video, .stage canvas { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; max-width: 100%; background: #fff; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.seg button, .btn { font: 600 15px/1 var(--body); color: var(--ink); background: var(--surface); border: 0; padding: 11px 14px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.btn { border: 1px solid var(--line); border-radius: 8px; min-width: 104px; }
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.tempo { margin-left: auto; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+.note { font-size: 14px; color: var(--muted); }
+.panel { display: grid; gap: 12px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 2px; }
+.fact b { font: 600 22px/1.1 var(--display); font-variant-numeric: tabular-nums; }
+.fact span { font-size: 14px; color: var(--muted); }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-weight: 600; color: var(--muted); }
+tr.best td { background: var(--accent-soft); }
+figure { margin: 0; display: grid; gap: 6px; }
+figure img, figure video { width: 100%; height: auto; max-width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+figcaption { font-size: 14px; color: var(--muted); }
+.err { color: var(--accent); font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Prototype d'animation · Atlas Muscu</span>
+    <h1>Développé couché à la barre</h1>
+    <p class="lead">Marionnette 2D construite à partir des deux images fixes. Le fond, le banc et le corps ne bougent jamais : seuls les bras, la barre et les disques sont animés.</p>
+  </header>
+
+  <section class="panel" aria-label="Animation">
+    <div class="controls" role="group" aria-label="Choix du lecteur">
+      <div class="seg">
+        <button id="mode-video" aria-pressed="true">Vidéo MP4 / WebM</button>
+        <button id="mode-webgl" aria-pressed="false">WebGL (calques)</button>
+      </div>
+    </div>
+    <div class="stage">
+      <video id="vid" autoplay muted loop playsinline preload="auto" disablepictureinpicture>
+        <source src="bench_press.mp4" type="video/mp4">
+        <source src="bench_press.webm" type="video/webm">
+      </video>
+      <canvas id="gl" hidden aria-label="Animation WebGL"></canvas>
+    </div>
+    <div class="controls" role="group" aria-label="Lecture">
+      <button class="btn" id="play">Pause</button>
+      <div class="seg" role="group" aria-label="Vitesse">
+        <button data-speed="1" aria-pressed="true">1×</button>
+        <button data-speed="0.5" aria-pressed="false">0,5×</button>
+        <button data-speed="0.25" aria-pressed="false">0,25×</button>
+        <button data-speed="0.1" aria-pressed="false">0,1×</button>
+      </div>
+      <span class="tempo" id="tempo">Tempo : 1,3 s descente · 1,0 s montée</span>
+    </div>
+    <p class="note" id="mode-note">Vidéo H.264 60 i/s, sans son, en boucle. C'est le format le plus sûr pour Safari sur iPhone.</p>
+    <p class="err" id="gl-err" hidden></p>
+  </section>
+
+  <section class="panel">
+    <h2>Ce qu'il faut regarder</h2>
+    <div class="facts">
+      <div class="fact"><b>259 Ko</b><span>vidéo MP4 1152 × 768, 60 i/s (WebM : 247 Ko)</span></div>
+      <div class="fact"><b>117 Ko</b><span>version WebGL (images découpées + données + lecteur)</span></div>
+      <div class="fact"><b>0</b><span>pixel qui change dans les zones fixes (avant compression)</span></div>
+      <div class="fact"><b>2,54 s</b><span>par répétition, boucle placée dans la pause du bas</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Comparaison des méthodes</h2>
+    <figure>
+      <video src="comparison/side_by_side.mp4" autoplay muted loop playsinline controls></video>
+      <figcaption>Les six méthodes en même temps, au même rythme (l'essai d'origine tourne à 30 i/s).</figcaption>
+    </figure>
+    <div class="tablebox"><table id="metrics"><thead><tr>
+      <th>Méthode</th><th>Scintillement fond</th><th>Pixels fixes qui bougent</th><th>Disques (min.)</th><th>Netteté (min.)</th><th>Raccord boucle</th>
+    </tr></thead><tbody>
+      <tr><td>RIFE seul (essai d&#x27;origine, 30 i/s)</td><td>0,28</td><td>2,16 %</td><td>0,88</td><td>0,47</td><td>0,23</td></tr>
+      <tr><td>RIFE seul, nouveau rythme</td><td>0,19</td><td>1,43 %</td><td>0,85</td><td>0,46</td><td>0,00</td></tr>
+      <tr><td>A · Calques + RIFE</td><td>0,00</td><td>0,00 %</td><td>0,85</td><td>0,46</td><td>0,00</td></tr>
+      <tr class="best"><td>B · Marionnette (1 source)</td><td>0,00</td><td>0,00 %</td><td>1,00</td><td>0,81</td><td>0,00</td></tr>
+      <tr><td>B&#x27; · Marionnette + fondu A/B</td><td>0,00</td><td>0,00 %</td><td>1,00</td><td>0,81</td><td>0,00</td></tr>
+      <tr><td>C · Hybride marionnette + RIFE</td><td>0,00</td><td>0,00 %</td><td>1,00</td><td>0,81</td><td>0,00</td></tr>
+    </tbody></table></div>
+    <p class="note">Disques (min.) : surface noire des disques au pire moment, par rapport aux images d'origine. Sous 1, les disques deviennent transparents (images fantômes). Netteté (min.) : netteté de la zone en mouvement au pire moment, 1 = aussi net que les images d'origine.</p>
+    <figure>
+      <img src="comparison/comparison_sheet.jpg" alt="Planche comparative : une ligne par méthode, cinq moments de la montée" loading="lazy">
+      <figcaption>Une ligne par méthode, cinq moments de la montée de la barre.</figcaption>
+    </figure>
+    <figure>
+      <img src="comparison/crossfade_zoom.jpg" alt="Zoom sur le bras proche à mi-hauteur pour trois variantes de marionnette" loading="lazy">
+      <figcaption>Bras proche à mi-hauteur. Les mesures sont identiques pour ces trois variantes, mais l'œil voit la différence : seule la version retenue (à gauche) reste nette.</figcaption>
+    </figure>
+    <figure>
+      <img src="comparison/metrics.png" alt="Courbes de mesure pour chaque méthode" loading="lazy">
+      <figcaption>Courbes : trajectoire du disque, transparence des disques, scintillement des zones fixes, netteté.</figcaption>
+    </figure>
+  </section>
+</div>
+
+<script src="web/player.js"></script>
+<script>
+(function () {
+  "use strict";
+  var vid = document.getElementById("vid"), canvas = document.getElementById("gl");
+  var playBtn = document.getElementById("play"), note = document.getElementById("mode-note");
+  var glErr = document.getElementById("gl-err");
+  var mode = "video", speed = 1, playing = true, player = null;
+
+  function setPressed(sel, el) {
+    document.querySelectorAll(sel).forEach(function (b) { b.setAttribute("aria-pressed", String(b === el)); });
+  }
+  function apply() {
+    playBtn.textContent = playing ? "Pause" : "Lecture";
+    vid.playbackRate = speed;
+    if (mode === "video") {
+      if (player) player.pause();
+      if (playing) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); } else vid.pause();
+    } else {
+      vid.pause();
+      if (player) { player.setSpeed(speed); playing ? player.play() : player.pause(); }
+    }
+  }
+  playBtn.addEventListener("click", function () { playing = !playing; apply(); });
+  document.querySelectorAll("[data-speed]").forEach(function (b) {
+    b.addEventListener("click", function () { speed = parseFloat(b.dataset.speed); setPressed("[data-speed]", b); apply(); });
+  });
+  document.getElementById("mode-video").addEventListener("click", function (e) {
+    mode = "video"; setPressed(".seg button[id^=mode]", e.currentTarget);
+    vid.hidden = false; canvas.hidden = true; glErr.hidden = true;
+    note.textContent = "Vidéo H.264 60 i/s, sans son, en boucle. C'est le format le plus sûr pour Safari sur iPhone.";
+    apply();
+  });
+  document.getElementById("mode-webgl").addEventListener("click", function (e) {
+    mode = "webgl"; setPressed(".seg button[id^=mode]", e.currentTarget);
+    vid.hidden = true; canvas.hidden = false;
+    note.textContent = "WebGL : le téléphone recalcule la pose à chaque rafraîchissement de l'écran (60 ou 120 Hz), à partir d'images découpées.";
+    if (player) { apply(); return; }
+    ExercisePlayer.create(canvas, "web/bench_press/").then(function (p) { player = p; apply(); })
+      .catch(function (err) {
+        glErr.hidden = false;
+        glErr.textContent = "Le lecteur WebGL n'a pas pu démarrer (" + err.message + "). Ouvre cette page via un petit serveur web : voir le README.";
+      });
+  });
+})();
+</script>
+</body>
+</html>

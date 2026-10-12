@@ -1,0 +1,9 @@
+# Core pipeline (animate.py, export_web.py, rig_helper.py)
+numpy
+opencv-python-headless
+# Better inpainting of the static plate (optional, CPU is fine): LaMa weights big-lama.pt
+#   https://github.com/Sanster/models/releases/download/add_big_lama/big-lama.pt
+torch
+# Comparison only (compare.py): RIFE baseline and hybrid variant, plots
+ccvfi
+matplotlib

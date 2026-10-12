@@ -1,0 +1,4 @@
+__pycache__/
+*_debug/
+*.npy
+*.y4m
