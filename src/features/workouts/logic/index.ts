@@ -6,4 +6,5 @@ export * from './calendar';
 export * from './plan';
 export * from './prefill';
 export * from './restTimer';
+export * from './routineOrder';
 export * from './setForm';

@@ -11,6 +11,7 @@ import {
 } from '@/data';
 import { Button, Card, EmptyState, ListRow, Screen, Sheet, useToast } from '@/ui';
 import { discardSession, finishSession, startFreeSession, startFromRoutine } from '../data';
+import { compareRoutineNames } from '../logic';
 import styles from './WorkoutsScreen.module.css';
 
 /** Accueil de l'onglet : séance en cours à reprendre, programmes, accès à l'historique et aux records. */
@@ -24,7 +25,7 @@ export function WorkoutsScreen() {
   );
   const routines = useLiveQuery(async () => {
     const list = await routineRepo.list();
-    return list.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+    return list.sort((a, b) => compareRoutineNames(a.name, b.name));
   }, []);
   const [confirmAbandon, setConfirmAbandon] = useState(false);
 

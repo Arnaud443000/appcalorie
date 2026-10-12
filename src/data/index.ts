@@ -17,4 +17,11 @@ export {
   type Backup,
 } from './backup';
 export { DEMO_EXERCISES, seedDemoData } from './seed';
+export {
+  findExerciseByName,
+  MY_PROGRAM,
+  normalizeName,
+  seedMyProgram,
+  type SeedProgramResult,
+} from './program';
 export * from './training';
