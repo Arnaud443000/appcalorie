@@ -3,7 +3,7 @@ name: Déploiement GitHub Pages
 
 on:
   push:
-    branches: [main, lot-0-fondations]
+    branches: [main, lot-0-fondations, integration-vague-b]
   workflow_dispatch:
 
 permissions:
