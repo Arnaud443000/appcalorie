@@ -1,0 +1,122 @@
+.atlas {
+  --atlas-peek: 84px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* Tout l'espace entre l'en-tête et la barre d'onglets, sans défilement de la page. */
+  height: calc(100dvh - var(--atlas-top, 128px) - var(--tabbar-height) - var(--safe-bottom));
+  min-height: 420px;
+  margin: 0 calc(-1 * var(--space-4)) calc(-1 * var(--space-5));
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse 75% 60% at 50% 45%,
+    var(--color-surface-2) 0%,
+    var(--color-surface) 45%,
+    var(--color-bg) 100%
+  );
+}
+
+.chips {
+  display: flex;
+  flex: none;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: var(--space-3) var(--space-4);
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.chips::-webkit-scrollbar {
+  display: none;
+}
+
+.peekSpace {
+  flex: none;
+  height: var(--atlas-peek);
+}
+
+.message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.messageTitle {
+  font-family: var(--font-title);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-title);
+}
+
+.messageText {
+  max-width: 34ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Nom du muscle ou de l'exercice, posé sur la vue 3D (sans bloquer les gestes). */
+.caption {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-4);
+  max-width: 62%;
+  text-shadow:
+    0 0 6px var(--color-bg),
+    0 1px 2px var(--color-bg);
+  pointer-events: none;
+}
+
+.captionTitle {
+  font-family: var(--font-title);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-title);
+}
+
+.captionSubtitle {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.dotPrimary,
+.dotSecondary {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotPrimary {
+  background: var(--color-accent);
+}
+
+.dotSecondary {
+  margin-left: var(--space-2);
+  background: var(--color-accent-2);
+}

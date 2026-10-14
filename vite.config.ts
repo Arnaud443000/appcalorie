@@ -67,6 +67,16 @@ export default defineConfig({
       workbox: {
         // Les images d'exercices (public/exercises) et leur manifeste sont gardés hors ligne.
         globPatterns: ['**/*.{js,css,html,png,woff2,webmanifest,webp,json}'],
+        // Atlas 3D (8 Mo) : pas téléchargé à l'installation, mais gardé hors ligne dès la
+        // première ouverture de l'onglet.
+        globIgnores: ['**/node_modules/**/*', 'atlas3d/**'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.includes('/atlas3d/'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'atlas3d', cacheableResponse: { statuses: [200] } },
+          },
+        ],
         navigateFallback: 'index.html',
       },
     }),

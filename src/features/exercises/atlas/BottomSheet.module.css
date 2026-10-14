@@ -1,0 +1,107 @@
+.sheet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  max-height: var(--atlas-peek);
+  overflow: hidden;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  background: var(--color-surface);
+  border-top: var(--border);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  box-shadow: var(--shadow-raised);
+  transition: max-height var(--duration-medium) var(--ease-out);
+}
+
+.sheet[data-open='true'] {
+  max-height: 78%;
+}
+
+.header {
+  flex: none;
+  min-height: var(--atlas-peek);
+  padding: 0 var(--space-4) var(--space-2);
+  cursor: pointer;
+}
+
+.handle {
+  width: 40px;
+  height: 4px;
+  margin: var(--space-2) auto;
+  background: var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.title {
+  overflow: hidden;
+  font-size: var(--text-xl);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet[data-open='true'] .title {
+  white-space: normal;
+}
+
+.summary {
+  overflow: hidden;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toggle {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--tap-min);
+  padding: 0 var(--space-2) 0 var(--space-3);
+  background: var(--color-surface-2);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+}
+
+.chevron {
+  transform: rotate(-90deg);
+  transition: transform var(--duration-medium) var(--ease-out);
+}
+
+.sheet[data-open='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-2) var(--space-4) var(--space-5);
+}
+
+.body[hidden] {
+  display: none;
+}
