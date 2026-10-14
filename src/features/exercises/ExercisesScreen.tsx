@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Screen, Tabs } from '@/ui';
-import { AtlasPlaceholder } from './AtlasPlaceholder';
 import { ExerciseLibrary } from './ExerciseLibrary';
 
 type ExercisesTab = 'library' | 'atlas';
@@ -10,14 +9,17 @@ const TABS = [
   { id: 'atlas', label: 'Atlas 3D' },
 ] as const;
 
-/** Onglet Exercices : la bibliothèque et (bientôt) l'atlas 3D. */
+/** Onglet Exercices : la bibliothèque, et l'Atlas 3D (écran à part, `/exercices/atlas`). */
 export function ExercisesScreen() {
-  const [tab, setTab] = useState<ExercisesTab>('library');
+  const navigate = useNavigate();
+  const onChange = (tab: ExercisesTab) => {
+    if (tab === 'atlas') void navigate('/exercices/atlas');
+  };
   return (
     <Screen title="Exercices">
-      <Tabs items={TABS} value={tab} onChange={setTab} label="Vue des exercices" />
+      <Tabs items={TABS} value="library" onChange={onChange} label="Vue des exercices" />
       <div style={{ height: 'var(--space-3)' }} />
-      {tab === 'library' ? <ExerciseLibrary /> : <AtlasPlaceholder />}
+      <ExerciseLibrary />
     </Screen>
   );
 }

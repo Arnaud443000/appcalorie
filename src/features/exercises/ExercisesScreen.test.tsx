@@ -53,10 +53,11 @@ describe('Écran Exercices', () => {
     expect(await screen.findByText('Aucun exercice trouvé')).toBeInTheDocument();
   });
 
-  it('l’onglet Atlas 3D montre le message provisoire', async () => {
-    renderExercises();
+  it('l’onglet Atlas 3D ouvre l’écran de l’Atlas', async () => {
+    const router = renderExercises();
     fireEvent.click(await screen.findByRole('tab', { name: 'Atlas 3D' }));
-    expect(screen.getByText(/Bientôt : le corps en 3D/)).toBeInTheDocument();
+    await waitFor(() => expect(router.state.location.pathname).toBe('/exercices/atlas'));
+    expect(await screen.findByRole('heading', { level: 1, name: 'Atlas 3D' })).toBeInTheDocument();
   });
 
   it('la fiche s’ouvre depuis la liste', async () => {

@@ -11,6 +11,7 @@ import {
   type ExerciseImages,
 } from '@/data';
 import { Card, Chip, EmptyState, Screen } from '@/ui';
+import { atlasPath } from './atlas';
 import { ImagePlayer } from './ImagePlayer';
 import { MyPerformance } from './MyPerformance';
 import { parseVariation } from './variations';
@@ -84,6 +85,9 @@ export function ExerciseDetailScreen() {
             ))}
           </div>
           <p className={styles.note}>Rouge : muscles principaux. Rose : muscles secondaires.</p>
+          <Link to={atlasPath('/exercices/atlas', { exerciseId: exercise.id })}>
+            Voir sur l’Atlas 3D
+          </Link>
         </Card>
 
         {exercise.steps.length > 0 && (

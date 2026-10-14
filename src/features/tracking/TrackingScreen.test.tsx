@@ -115,6 +115,8 @@ describe('Suivi — poids', () => {
     await user.type(field, '80');
     await user.click(screen.getByRole('button', { name: 'Enregistrer' }));
     await waitFor(async () => expect(await bodyMetricRepo.list()).toHaveLength(1));
+    // Le bouton reste grisé pendant l'enregistrement : on attend qu'il soit de nouveau actif.
+    await waitFor(() => expect(screen.getByRole('button', { name: 'Enregistrer' })).toBeEnabled());
     await user.clear(screen.getByLabelText('Poids (kg)'));
     await user.type(screen.getByLabelText('Poids (kg)'), '79,2');
     await user.click(screen.getByRole('button', { name: 'Enregistrer' }));
