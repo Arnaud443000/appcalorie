@@ -55,7 +55,7 @@ describe('textes', () => {
   it('libellés relatifs avec majuscule', () => {
     expect(comparisonLabel('2026-06-12', '2026-10-12')).toBe('Il y a 4 mois');
     expect(comparisonLabel('2026-06-12', '2026-10-12', false)).toBe('il y a 4 mois');
-    expect(comparisonLabel('2026-10-12', '2026-10-12')).toBe("Aujourd'hui");
+    expect(comparisonLabel('2026-10-12', '2026-10-12')).toBe('Aujourd’hui');
   });
   it('formatSigned : plus, vrai moins, zéro sans signe', () => {
     expect(formatSigned(20, fmt)).toBe('+20');

@@ -146,7 +146,7 @@ export function formatMonthLong(day: Day): string {
  */
 export function relativeDayLabel(day: Day, today: Day): string {
   const diff = diffDays(day, today);
-  if (diff === 0) return "aujourd'hui";
+  if (diff === 0) return 'aujourd’hui';
   if (diff === 1) return 'hier';
   if (diff === -1) return 'demain';
   const past = diff > 0;

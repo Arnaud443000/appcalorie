@@ -101,7 +101,7 @@ describe('formats', () => {
   });
   it('dit « il y a … » en français', () => {
     const today = '2026-10-12';
-    expect(relativeDayLabel('2026-10-12', today)).toBe("aujourd'hui");
+    expect(relativeDayLabel('2026-10-12', today)).toBe('aujourd’hui');
     expect(relativeDayLabel('2026-10-11', today)).toBe('hier');
     expect(relativeDayLabel('2026-10-13', today)).toBe('demain');
     expect(relativeDayLabel('2026-10-02', today)).toBe('il y a 10 jours');

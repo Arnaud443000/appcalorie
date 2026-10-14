@@ -1,6 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import type { BodyMetric } from '@/data';
-import { bodySeries, bodyValue, cmToUnit, isEmptyMetric, MEASURE_KEYS, unitToCm } from './body';
+import {
+  applyBodyPatch,
+  bodySeries,
+  bodyValue,
+  cmToUnit,
+  isEmptyMetric,
+  MEASURE_KEYS,
+  patchFor,
+  unitToCm,
+} from './body';
 
 let n = 0;
 const metric = (date: string, patch: Partial<BodyMetric> = {}): BodyMetric => ({
@@ -68,5 +77,29 @@ describe('unités de longueur', () => {
     expect(cmToUnit(82, 'in')).toBe(32.3);
     expect(unitToCm(32.3, 'in')).toBeCloseTo(82.04, 2);
     expect(unitToCm(82, 'cm')).toBe(82);
+  });
+});
+
+describe('applyBodyPatch / patchFor', () => {
+  const base = { weightKg: 80, waistCm: 84, measurements: { arm: 36, chest: 100 } } as const;
+  it('modifie une mesure sans toucher aux autres', () => {
+    expect(applyBodyPatch(base, patchFor('weight', 79))).toEqual({ ...base, weightKg: 79 });
+    expect(applyBodyPatch(base, patchFor('arm', 37)).measurements).toEqual({ arm: 37, chest: 100 });
+  });
+  it('null efface la mesure', () => {
+    expect(applyBodyPatch(base, patchFor('waist', null)).waistCm).toBeNull();
+    expect(applyBodyPatch(base, patchFor('arm', null)).measurements).toEqual({ chest: 100 });
+  });
+  it('ajoute une mensuration absente et ne modifie pas l’original', () => {
+    const out = applyBodyPatch(base, patchFor('neck', 38));
+    expect(out.measurements).toEqual({ arm: 36, chest: 100, neck: 38 });
+    expect(base.measurements).toEqual({ arm: 36, chest: 100 });
+  });
+  it('plusieurs changements d’un coup', () => {
+    const out = applyBodyPatch(base, { weightKg: 78, measurements: { arm: null, hips: 95 } });
+    expect(out).toEqual({ weightKg: 78, waistCm: 84, measurements: { chest: 100, hips: 95 } });
+  });
+  it('un changement vide ne change rien', () => {
+    expect(applyBodyPatch(base, {})).toEqual(base);
   });
 });

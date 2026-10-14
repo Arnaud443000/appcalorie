@@ -58,3 +58,33 @@ export function unitToCm(value: number, unit: LengthUnit): number {
   const cm = unit === 'in' ? value * CM_PER_INCH : value;
   return Math.round(cm * 100) / 100;
 }
+
+/** Changement à appliquer à une journée de mesures : `null` efface la mesure, absent = inchangé. */
+export interface BodyPatch {
+  weightKg?: number | null;
+  waistCm?: number | null;
+  measurements?: Partial<Record<MeasurementId, number | null>>;
+}
+
+export type BodyFields = Pick<BodyMetric, 'weightKg' | 'waistCm' | 'measurements'>;
+
+/** Changement qui donne `value` à la mesure `key` (ou l'efface si `value` est `null`). */
+export function patchFor(key: BodyKey, value: number | null): BodyPatch {
+  if (key === 'weight') return { weightKg: value };
+  if (key === 'waist') return { waistCm: value };
+  return { measurements: { [key]: value } };
+}
+
+/** Applique un changement aux mesures d'une journée sans toucher au reste. */
+export function applyBodyPatch(fields: BodyFields, patch: BodyPatch): BodyFields {
+  const merged = { ...fields.measurements, ...patch.measurements };
+  const measurements: BodyFields['measurements'] = {};
+  for (const [key, value] of Object.entries(merged)) {
+    if (value !== null && value !== undefined) measurements[key as MeasurementId] = value;
+  }
+  return {
+    weightKg: patch.weightKg === undefined ? fields.weightKg : patch.weightKg,
+    waistCm: patch.waistCm === undefined ? fields.waistCm : patch.waistCm,
+    measurements,
+  };
+}
