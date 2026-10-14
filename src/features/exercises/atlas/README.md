@@ -31,7 +31,9 @@ import { AtlasScreen } from './atlas';
 | `params.ts`              | `?muscle=` / `?exercice=` (pur)                                        |
 | `palette.ts`             | Couleurs lues dans les variables CSS à l'exécution                     |
 | `viewer/AtlasViewer.tsx` | Vue 3D (chargée paresseusement) : canvas, boutons de vue, chargement   |
-| `viewer/engine.ts`       | Scène Three.js, rendu à la demande, lancer de rayon, libération        |
+| `viewer/engine.ts`       | Scène Three.js, rendu à la demande, libération                         |
+| `viewer/picking.ts`      | Choix du muscle touché (rayons sur la surface du doigt), pur et testé  |
+| `viewer/head.ts`         | Tête et cou stylisés, d'un seul tenant                                 |
 | `viewer/camera.ts`       | Cadrage, zoom ancré, vues (pur)                                        |
 | `viewer/controls.ts`     | Gestes : tourner, pincer, molette, toucher, double toucher             |
 
@@ -39,13 +41,26 @@ import { AtlasScreen } from './atlas';
 
 - **Format réel du `.bin`** : positions Int16 (`min + (valeur + 32768) × scale`), indices Uint16
   par muscle (le README des assets annonce Uint16 / Uint32 : c'est le script `pack.py` qui fait foi).
-- **Un maillage par groupe** (15 appels de dessin + 2 pour la tête), trois matériaux partagés
+- **Un maillage par groupe** (15 appels de dessin + 1 pour la tête), trois matériaux partagés
   (repos, principal, secondaire). Chaque groupe garde la plage de triangles de chacun de ses
   muscles : le nom exact du muscle touché s'affiche (« Grand pectoral (faisceau sternocostal) »).
+- **Choix du muscle touché** (`viewer/picking.ts`) : on choisit le muscle **visible**, la face
+  tournée vers la caméra la plus proche sous le doigt (faces de dos ignorées explicitement,
+  impacts triés par distance). Un rayon n'étant pas un doigt, 13 rayons sont lancés sur la
+  surface du doigt (rayon 12 px) : le central l'emporte, sauf s'il est passé « à travers »
+  (la majorité des autres trouvent une surface plus proche de plus de 1,5 cm : sillon du droit
+  de l'abdomen absent, trou au creux des lombaires, bord de membre effleuré) ; on prend alors
+  le groupe majoritaire devant. La tête fait écran (la toucher ne choisit rien).
+- **Lancer de rayon rapide** : chaque muscle est rangé en tranches d'environ 1 000 triangles le
+  long de son axe le plus long (`sliceTriangles`, tri par comptage, +20 à 40 ms au chargement) ;
+  une cible invisible par tranche, avec sa boîte englobante, partage les tampons du groupe.
+  Un toucher (13 rayons) coûte 12 à 15 ms au lieu de 150 à 200 ms.
 - **Le corps tourne, la caméra et les lumières restent fixes** : l'éclairage est le même sous
   tous les angles. Muscles gris-blanc mats, lumière de contour (effet de Fresnel ajouté au
-  matériau standard), fond en dégradé des tokens de surface. Tête stylisée sombre et non
-  sélectionnable (le modèle s'arrête au cou).
+  matériau standard), fond en dégradé des tokens de surface.
+- **Tête et cou** (`viewer/head.ts`) : le modèle s'arrête au cou. Une seule forme de mannequin
+  (profil tourné, aplati, incliné vers l'avant), plus sombre que les muscles : le cou plonge
+  entre trapèzes et sterno-cléido-mastoïdiens, qui montent jusqu'à l'angle de la mâchoire.
 - **Rendu à la demande** : une image seulement quand quelque chose bouge (geste, transition) ;
   aucune boucle permanente. `pixelRatio` plafonné à 2.
 - **Libération** : au départ de l'écran, géométries, matériaux, rendu et contexte WebGL sont
@@ -74,6 +89,7 @@ import { AtlasScreen } from './atlas';
 | Réouverture (cache), processeur normal / ralenti ×4       | 1,2 s / 2,3 s (préparation : 0,2–0,3 s / 0,9 s) |
 | Hors ligne (réseau coupé), après une première visite      | 1,4 s                                           |
 | Toucher un muscle → nom affiché (lancer de rayon + React) | 100–150 ms (WebGL logiciel)                     |
+| Choix du muscle seul (13 rayons, Node)                    | 12–15 ms                                        |
 
 La mesure interne `atlas3d:chargement` (`performance.measure`) couvre téléchargement + préparation
 du modèle ; elle est lisible dans l'inspecteur de Safari sur iPhone.

@@ -6,17 +6,16 @@ import {
   Group,
   HemisphereLight,
   Mesh,
+  MeshBasicMaterial,
   MeshStandardMaterial,
   NeutralToneMapping,
   PerspectiveCamera,
   Raycaster,
   Scene,
-  SphereGeometry,
-  Vector2,
   WebGLRenderer,
 } from 'three';
 import type { MuscleGroupId } from '@/data';
-import { muscleAtTriangle, unionBounds, type GroupGeometry, type MuscleRange } from '../model';
+import { unionBounds, type GroupGeometry } from '../model';
 import type { Emphasis, Highlight, ViewName } from '../muscleMap';
 import type { AtlasPalette } from '../palette';
 import {
@@ -37,11 +36,10 @@ import {
   type BodyFrame,
   type CameraState,
 } from './camera';
+import { createHeadGeometry, HEAD_TOP } from './head';
+import { createPickTargets, fingerOffsets, pickAt, type PickResult } from './picking';
 
-export interface PickResult {
-  group: MuscleGroupId;
-  muscle: string;
-}
+export type { PickResult } from './picking';
 
 export interface EngineStatus {
   view: ViewName | null;
@@ -62,8 +60,6 @@ interface Tween {
   duration: number;
 }
 
-/** Haut du crâne stylisé (mètres, repère du modèle). */
-const HEAD_TOP = 1.715;
 const ROTATE_PER_PIXEL = 0.0085;
 const PITCH_PER_PIXEL = 0.005;
 const VIEW_DURATION = 600;
@@ -112,7 +108,10 @@ export class AtlasEngine {
   private readonly options: EngineOptions;
   /** Tête stylisée, plus sombre que les muscles (le modèle s'arrête au cou) : jamais choisie. */
   private readonly headMaterial = new MeshStandardMaterial({ roughness: 0.92, metalness: 0 });
-  private readonly head = new Group();
+  private readonly head = new Mesh(createHeadGeometry(), this.headMaterial);
+  /** Cibles invisibles du lancer de rayon, une par muscle (voir picking.ts). */
+  private readonly pickMaterial = new MeshBasicMaterial();
+  private pickTargets: Mesh[] = [];
   private meshes: Mesh<BufferGeometry, MeshStandardMaterial>[] = [];
   private viewport = { width: 1, height: 1 };
   /** Hauteur (px) cachée en haut de la vue par les boutons Face · Dos · Gauche · Droite. */
@@ -172,7 +171,7 @@ export class AtlasEngine {
     };
     const muscle = color(palette.muscle);
     this.materials.idle.color.copy(muscle).multiplyScalar(0.78);
-    this.headMaterial.color.copy(muscle).multiplyScalar(0.5);
+    this.headMaterial.color.copy(muscle).multiplyScalar(0.55);
     this.materials.primary.color.copy(color(palette.primary));
     this.materials.primary.emissive.copy(color(palette.primary)).multiplyScalar(0.16);
     this.materials.secondary.color.copy(color(palette.secondary));
@@ -208,13 +207,17 @@ export class AtlasEngine {
       geometry.computeVertexNormals();
       geometry.computeBoundingSphere();
       const mesh = new Mesh(geometry, this.materials.idle);
-      mesh.userData = { group: group.group, muscles: group.muscles };
+      mesh.userData = { group: group.group };
       mesh.matrixAutoUpdate = false;
       this.body.add(mesh);
       this.meshes.push(mesh);
+      const targets = createPickTargets(group, geometry, this.pickMaterial);
+      this.body.add(...targets);
+      this.pickTargets.push(...targets);
       this.groupCenters.set(group.group, (group.bounds[1] + group.bounds[4]) / 2);
     }
     this.head.visible = true;
+    this.pickTargets.push(this.head);
     this.applyHighlight();
     this.state = clampState(this.state, this.frame);
     this.requestRender();
@@ -326,20 +329,23 @@ export class AtlasEngine {
     this.animateTo(clampState(target, this.frame), VIEW_DURATION);
   }
 
-  /** Muscle sous le doigt (lancer de rayon), ou null. */
+  /** Muscle visible sous le doigt (lancer de rayons sur la surface du doigt), ou null. */
   pick(clientX: number, clientY: number): PickResult | null {
-    if (this.meshes.length === 0) return null;
+    if (this.pickTargets.length === 0) return null;
     const [x, y] = this.toNdc(clientX, clientY);
+    // Caméra et corps dans l'état exact de la dernière image affichée.
     this.applyCamera();
+    this.camera.updateMatrixWorld();
     this.scene.updateMatrixWorld();
-    this.raycaster.setFromCamera(new Vector2(x, y), this.camera);
-    const hit = this.raycaster.intersectObjects(this.meshes, false)[0];
-    if (!hit || hit.faceIndex == null) return null;
-    const { group, muscles } = hit.object.userData as {
-      group: MuscleGroupId;
-      muscles: MuscleRange[];
-    };
-    return { group, muscle: muscleAtTriangle(muscles, hit.faceIndex)?.name ?? '' };
+    const { width, height } = this.viewport;
+    return pickAt(
+      this.raycaster,
+      this.camera,
+      this.pickTargets,
+      x,
+      y,
+      fingerOffsets(width, height),
+    );
   }
 
   /** Statistiques pour la mesure de performance. */
@@ -356,21 +362,17 @@ export class AtlasEngine {
     this.clearModel();
     for (const material of Object.values(this.materials)) material.dispose();
     this.headMaterial.dispose();
-    for (const child of this.head.children) (child as Mesh).geometry.dispose();
+    this.pickMaterial.dispose();
+    this.head.geometry.dispose();
     this.renderer.dispose();
     this.renderer.forceContextLoss();
   }
 
   private buildHead() {
-    // Crâne posé sur le haut des sterno-cléido-mastoïdiens (y ≈ 1,50 m), légèrement en avant.
-    const skull = new Mesh(new SphereGeometry(1, 40, 28), this.headMaterial);
-    skull.position.set(0, HEAD_TOP - 0.1, 0.1);
-    skull.scale.set(0.08, 0.1, 0.094);
-    const jaw = new Mesh(new SphereGeometry(1, 32, 20), this.headMaterial);
-    jaw.position.set(0, HEAD_TOP - 0.155, 0.122);
-    jaw.scale.set(0.055, 0.045, 0.06);
-    this.head.add(skull, jaw);
+    this.head.matrixAutoUpdate = false;
     this.head.visible = false;
+    // Sans groupe : la tête fait écran au lancer de rayon mais ne se choisit pas.
+    this.head.userData = {};
     this.body.add(this.head);
   }
 
@@ -379,7 +381,13 @@ export class AtlasEngine {
       mesh.geometry.dispose();
       this.body.remove(mesh);
     }
+    for (const target of this.pickTargets) {
+      if (target === this.head) continue;
+      target.geometry.dispose();
+      this.body.remove(target);
+    }
     this.meshes = [];
+    this.pickTargets = [];
     this.groupCenters.clear();
   }
 

@@ -4,9 +4,9 @@ import {
   buildGroupGeometries,
   dequantizePositions,
   expectedBinarySize,
-  muscleAtTriangle,
   parseManifest,
   readIndices,
+  sliceTriangles,
   unionBounds,
   type ManifestEntry,
 } from './model';
@@ -90,14 +90,40 @@ describe('Lecture du modèle quantifié', () => {
     if (!chest) throw new Error('groupe manquant');
     expect(chest.positions.length).toBe(18);
     expect([...chest.indices]).toEqual([0, 1, 2, 5, 4, 3]);
-    expect(chest.muscles).toEqual([
-      { name: 'A', side: 'left', firstTriangle: 0, triangleCount: 1 },
-      { name: 'C', side: 'left', firstTriangle: 1, triangleCount: 1 },
+    // Boîte de chaque muscle : min … min + 65535 × scale (min [1, 2, 3], scale [0,5 ; 0,25 ; 2]).
+    const box = [1, 2, 3, 1 + 65535 * 0.5, 2 + 65535 * 0.25, 3 + 65535 * 2];
+    expect(chest.muscles).toMatchObject([
+      { name: 'A', side: 'left', firstTriangle: 0, triangleCount: 1, bounds: box },
+      { name: 'C', side: 'left', firstTriangle: 1, triangleCount: 1, bounds: box },
     ]);
-    expect(muscleAtTriangle(chest.muscles, 0)?.name).toBe('A');
-    expect(muscleAtTriangle(chest.muscles, 1)?.name).toBe('C');
-    expect(muscleAtTriangle(chest.muscles, 2)).toBeUndefined();
+    expect(chest.muscles[1]?.chunks).toEqual([
+      { firstTriangle: 1, triangleCount: 1, bounds: [1, 2, 3, 2, 3, 3] },
+    ]);
     expect(unionBounds(groups)[0]).toBe(1);
+  });
+
+  it('range les triangles d’un muscle en tranches le long de son axe le plus long', () => {
+    // 6 triangles minces alignés sur X (x = 0 … 5), stockés dans le désordre.
+    const order = [3, 0, 5, 1, 4, 2];
+    const positions = new Float32Array(order.length * 9);
+    order.forEach((x, t) => {
+      positions.set([x, 0, 0, x + 0.5, 0, 0, x, 1, 0], t * 9);
+    });
+    const indices = Uint32Array.from({ length: 18 }, (_, i) => i);
+    const chunks = sliceTriangles(positions, indices, 0, 6, [0, 0, 0, 5.5, 1, 0], 2);
+    expect(chunks.map((c) => [c.firstTriangle, c.triangleCount])).toEqual([
+      [0, 2],
+      [2, 2],
+      [4, 2],
+    ]);
+    expect(chunks[0]?.bounds).toEqual([0, 0, 0, 1.5, 1, 0]);
+    expect(chunks[2]?.bounds).toEqual([4, 0, 0, 5.5, 1, 0]);
+    // Mêmes triangles, simplement réordonnés (chaque triple d'indices est conservé).
+    const triangles = (list: Uint32Array) =>
+      Array.from({ length: list.length / 3 }, (_, t) => list.slice(t * 3, t * 3 + 3).join())
+        .sort()
+        .join('|');
+    expect(triangles(indices)).toBe(triangles(Uint32Array.from({ length: 18 }, (_, i) => i)));
   });
 
   it('refuse un manifeste invalide ou un fichier tronqué', () => {
