@@ -1,0 +1,50 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.count {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-title);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.note {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.success,
+.error {
+  margin: var(--space-3) 0 0;
+}
+
+.success {
+  font-weight: var(--weight-semibold);
+}
+
+.error {
+  color: var(--color-accent-2);
+}
+
+.file {
+  display: none;
+}
+
+.title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.steps {
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-5);
+}
+
+.steps a,
+.note a {
+  color: var(--color-accent-2);
+}

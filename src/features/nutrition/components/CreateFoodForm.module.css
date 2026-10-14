@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+.back {
+  align-self: flex-start;
+  min-height: var(--tap-min);
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--color-accent-2);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+}
+
+.help {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.failure {
+  margin: 0;
+  color: var(--color-accent-2);
+}

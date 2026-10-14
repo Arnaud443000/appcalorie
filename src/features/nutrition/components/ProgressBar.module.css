@@ -1,0 +1,17 @@
+.track {
+  height: 8px;
+  overflow: hidden;
+  background: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+}
+
+.fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+  transition: width var(--duration-medium) var(--ease-out);
+}
+
+.over {
+  background: var(--color-accent-2);
+}

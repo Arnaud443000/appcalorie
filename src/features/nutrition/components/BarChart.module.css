@@ -1,0 +1,37 @@
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.axis {
+  stroke: var(--color-line);
+  stroke-width: 1;
+}
+
+.goal {
+  stroke: var(--color-accent-2);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.bar {
+  fill: var(--color-accent);
+}
+
+.missing {
+  fill: var(--color-line);
+}
+
+.value,
+.day,
+.unit {
+  fill: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-anchor: middle;
+}
+
+.unit {
+  text-anchor: end;
+}
